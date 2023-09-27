@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\bin\Debug\net6.0\05SumEvenNumbers.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\bin\Debug\net6.0\05SumEvenNumbers.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\bin\Debug\net6.0\05SumEvenNumbers.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\bin\Debug\net6.0\05SumEvenNumbers.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\bin\Debug\net6.0\05SumEvenNumbers.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\05SumEvenNumbers.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\05SumEvenNumbers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\05SumEvenNumbers.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\05SumEvenNumbers.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\05SumEvenNumbers.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\05SumEvenNumbers.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\refint\05SumEvenNumbers.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\05SumEvenNumbers.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\05SumEvenNumbers.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysLab\05SumEvenNumbers\obj\Debug\net6.0\ref\05SumEvenNumbers.dll
