@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\bin\Debug\net6.0\12EvenNumber.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\bin\Debug\net6.0\12EvenNumber.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\bin\Debug\net6.0\12EvenNumber.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\bin\Debug\net6.0\12EvenNumber.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\bin\Debug\net6.0\12EvenNumber.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\12EvenNumber.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\12EvenNumber.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\12EvenNumber.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\12EvenNumber.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\12EvenNumber.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\12EvenNumber.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\refint\12EvenNumber.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\12EvenNumber.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\12EvenNumber.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\12. Even Number\12EvenNumber\obj\Debug\net6.0\ref\12EvenNumber.dll

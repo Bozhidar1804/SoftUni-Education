@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\Project_R-P-S.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\Project_R-P-S.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\Project_R-P-S.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\Project_R-P-S.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\Project_R-P-S.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\bin\Debug\net6.0\Project_R-P-S.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\bin\Debug\net6.0\Project_R-P-S.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\bin\Debug\net6.0\Project_R-P-S.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\bin\Debug\net6.0\Project_R-P-S.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\bin\Debug\net6.0\Project_R-P-S.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\Project_R-P-S.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\refint\Project_R-P-S.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\Project_R-P-S.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\Project_R-P-S.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\PracticalProject_Rock – Paper – Scissors\Project_R-P-S\obj\Debug\net6.0\ref\Project_R-P-S.dll

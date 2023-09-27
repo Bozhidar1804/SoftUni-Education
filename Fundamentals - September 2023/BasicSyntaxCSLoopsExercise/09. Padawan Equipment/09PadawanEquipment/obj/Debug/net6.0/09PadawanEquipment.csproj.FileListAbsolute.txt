@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\bin\Debug\net6.0\09PadawanEquipment.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\bin\Debug\net6.0\09PadawanEquipment.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\bin\Debug\net6.0\09PadawanEquipment.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\bin\Debug\net6.0\09PadawanEquipment.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\bin\Debug\net6.0\09PadawanEquipment.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\09PadawanEquipment.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\09PadawanEquipment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\09PadawanEquipment.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\09PadawanEquipment.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\09PadawanEquipment.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\09PadawanEquipment.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\refint\09PadawanEquipment.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\09PadawanEquipment.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\09PadawanEquipment.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\09. Padawan Equipment\09PadawanEquipment\obj\Debug\net6.0\ref\09PadawanEquipment.dll

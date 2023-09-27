@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\bin\Debug\net6.0\03Elevator.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\bin\Debug\net6.0\03Elevator.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\bin\Debug\net6.0\03Elevator.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\bin\Debug\net6.0\03Elevator.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\bin\Debug\net6.0\03Elevator.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\03Elevator.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\03Elevator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\03Elevator.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\03Elevator.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\03Elevator.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\03Elevator.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\refint\03Elevator.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\03Elevator.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\03Elevator.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\03Elevator\obj\Debug\net6.0\ref\03Elevator.dll

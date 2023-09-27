@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\bin\Debug\net6.0\07TheatrePromotions.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\bin\Debug\net6.0\07TheatrePromotions.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\bin\Debug\net6.0\07TheatrePromotions.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\bin\Debug\net6.0\07TheatrePromotions.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\bin\Debug\net6.0\07TheatrePromotions.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\07TheatrePromotions.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\07TheatrePromotions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\07TheatrePromotions.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\07TheatrePromotions.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\07TheatrePromotions.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\07TheatrePromotions.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\refint\07TheatrePromotions.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\07TheatrePromotions.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\07TheatrePromotions.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\07. Theatre Promotions\07TheatrePromotions\obj\Debug\net6.0\ref\07TheatrePromotions.dll

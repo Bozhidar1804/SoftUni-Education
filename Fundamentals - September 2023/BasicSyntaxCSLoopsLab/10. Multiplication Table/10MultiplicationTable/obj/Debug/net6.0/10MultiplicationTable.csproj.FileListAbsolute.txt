@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\bin\Debug\net6.0\10MultiplicationTable.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\bin\Debug\net6.0\10MultiplicationTable.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\bin\Debug\net6.0\10MultiplicationTable.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\bin\Debug\net6.0\10MultiplicationTable.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\bin\Debug\net6.0\10MultiplicationTable.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\10MultiplicationTable.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\10MultiplicationTable.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\10MultiplicationTable.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\10MultiplicationTable.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\10MultiplicationTable.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\10MultiplicationTable.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\refint\10MultiplicationTable.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\10MultiplicationTable.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\10MultiplicationTable.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsLab\10. Multiplication Table\10MultiplicationTable\obj\Debug\net6.0\ref\10MultiplicationTable.dll

@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\bin\Debug\net6.0\7VendingMachine.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\bin\Debug\net6.0\7VendingMachine.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\bin\Debug\net6.0\7VendingMachine.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\bin\Debug\net6.0\7VendingMachine.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\bin\Debug\net6.0\7VendingMachine.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\7VendingMachine.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\7VendingMachine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\7VendingMachine.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\7VendingMachine.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\7VendingMachine.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\7VendingMachine.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\refint\7VendingMachine.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\7VendingMachine.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\7VendingMachine.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\7. Vending Machine\7VendingMachine\obj\Debug\net6.0\ref\7VendingMachine.dll

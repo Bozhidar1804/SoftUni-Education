@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\bin\Debug\net6.0\06StrongNumber.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\bin\Debug\net6.0\06StrongNumber.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\bin\Debug\net6.0\06StrongNumber.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\bin\Debug\net6.0\06StrongNumber.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\bin\Debug\net6.0\06StrongNumber.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\06StrongNumber.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\06StrongNumber.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\06StrongNumber.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\06StrongNumber.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\06StrongNumber.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\06StrongNumber.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\refint\06StrongNumber.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\06StrongNumber.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\06StrongNumber.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\BasicSyntaxCSLoopsExercise\06. Strong number\06StrongNumber\obj\Debug\net6.0\ref\06StrongNumber.dll

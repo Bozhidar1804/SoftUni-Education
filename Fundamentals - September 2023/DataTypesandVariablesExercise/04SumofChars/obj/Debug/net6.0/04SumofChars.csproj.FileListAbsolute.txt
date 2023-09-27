@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\bin\Debug\net6.0\04SumofChars.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\bin\Debug\net6.0\04SumofChars.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\bin\Debug\net6.0\04SumofChars.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\bin\Debug\net6.0\04SumofChars.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\bin\Debug\net6.0\04SumofChars.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\04SumofChars.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\04SumofChars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\04SumofChars.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\04SumofChars.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\04SumofChars.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\04SumofChars.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\refint\04SumofChars.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\04SumofChars.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\04SumofChars.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\DataTypesandVariablesExercise\04SumofChars\obj\Debug\net6.0\ref\04SumofChars.dll
