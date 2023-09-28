@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\bin\Debug\net6.0\01Train.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\bin\Debug\net6.0\01Train.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\bin\Debug\net6.0\01Train.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\bin\Debug\net6.0\01Train.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\bin\Debug\net6.0\01Train.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\01Train.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\01Train.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\01Train.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\01Train.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\01Train.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\01Train.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\refint\01Train.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\01Train.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\01Train.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\01Train\obj\Debug\net6.0\ref\01Train.dll
