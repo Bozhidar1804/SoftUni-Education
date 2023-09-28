@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\bin\Debug\net6.0\02CommonElements.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\bin\Debug\net6.0\02CommonElements.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\bin\Debug\net6.0\02CommonElements.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\bin\Debug\net6.0\02CommonElements.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\bin\Debug\net6.0\02CommonElements.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\02CommonElements.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\02CommonElements.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\02CommonElements.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\02CommonElements.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\02CommonElements.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\02CommonElements.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\refint\02CommonElements.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\02CommonElements.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\02CommonElements.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\02CommonElements\obj\Debug\net6.0\ref\02CommonElements.dll
