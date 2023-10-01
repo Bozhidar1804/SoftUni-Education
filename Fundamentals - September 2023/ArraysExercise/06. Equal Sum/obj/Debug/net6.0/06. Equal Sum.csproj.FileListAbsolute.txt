@@ -1,0 +1,15 @@
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\bin\Debug\net6.0\06. Equal Sum.exe
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\bin\Debug\net6.0\06. Equal Sum.deps.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\bin\Debug\net6.0\06. Equal Sum.runtimeconfig.json
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\bin\Debug\net6.0\06. Equal Sum.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\bin\Debug\net6.0\06. Equal Sum.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\06. Equal Sum.csproj.AssemblyReference.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\06. Equal Sum.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\06. Equal Sum.AssemblyInfoInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\06. Equal Sum.AssemblyInfo.cs
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\06. Equal Sum.csproj.CoreCompileInputs.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\06. Equal Sum.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\refint\06. Equal Sum.dll
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\06. Equal Sum.pdb
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\06. Equal Sum.genruntimeconfig.cache
+C:\Users\bobo1\OneDrive\Работен плот\SoftUni\Fundamentals - September 2023\ArraysExercise\06. Equal Sum\obj\Debug\net6.0\ref\06. Equal Sum.dll
