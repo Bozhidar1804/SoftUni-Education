@@ -4,13 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Grade();
+            double grade = double.Parse(Console.ReadLine());
+            Grade(grade);
         }
 
-        private static void Grade()
+        private static void Grade(double grade)
         {
-            double grade = double.Parse(Console.ReadLine());
-
             switch (grade)
             {
                 case >= 2.00 and <= 2.99:
