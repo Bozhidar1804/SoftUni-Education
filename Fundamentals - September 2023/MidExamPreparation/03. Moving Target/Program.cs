@@ -9,24 +9,26 @@
             while (true)
             {
                 string command = Console.ReadLine();
+                string[] commandArr = command.Split(' ');
+                string currentCommand = commandArr[0];
                 if (command == "End")
                 {
                     break;
                 }
-                if (command.Contains("Shoot"))
+                if (currentCommand == "Shoot")
                 {
-                    string[] commandArr = command.Split(' ');
                     int index = int.Parse(commandArr[1]);
                     int power = int.Parse(commandArr[2]);
-
-                    sequence[index] -= power;
-                    if (sequence[index] <= 0)
+                    if (index >= 0)
                     {
-                        sequence.RemoveAt(index);
+                        sequence[index] -= power;
+                        if (sequence[index] <= 0)
+                        {
+                            sequence.RemoveAt(index);
+                        }
                     }
-                } else if (command.Contains("Add"))
+                } else if (currentCommand == "Add")
                 {
-                    string[] commandArr = command.Split(' ');
                     int index = int.Parse(commandArr[1]);
                     int value = int.Parse(commandArr[2]);
 
@@ -37,9 +39,8 @@
                     {
                         Console.WriteLine("Invalid placement!");
                     }
-                } else if (command.Contains("Strike"))
+                } else if (currentCommand == "Strike")
                 {
-                    string[] commandArr = command.Split(' ');
                     int index = int.Parse(commandArr[1]);
                     int radius = int.Parse(commandArr[2]);
 
