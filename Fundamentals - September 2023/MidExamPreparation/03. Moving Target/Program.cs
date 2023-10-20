@@ -5,11 +5,14 @@
         static void Main(string[] args)
         {
             List<int> sequence = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
-            string command = "";
 
-            while (command != "End")
+            while (true)
             {
-                command = Console.ReadLine();
+                string command = Console.ReadLine();
+                if (command == "End")
+                {
+                    break;
+                }
                 if (command.Contains("Shoot"))
                 {
                     string[] commandArr = command.Split(' ');
@@ -57,7 +60,9 @@
             }
             int print = 0;
 
-            foreach(int i in sequence)
+            Console.WriteLine(string.Join("|", sequence));
+
+            /* foreach(int i in sequence)
             {
                 if (print < sequence.Count - 1)
                 {
@@ -68,7 +73,7 @@
                     Console.WriteLine($"{i}");
                 }
                 
-            }
+            } */
         }
     }
 }
