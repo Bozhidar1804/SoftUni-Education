@@ -59,8 +59,24 @@ namespace _05._Teamwork_Projects
                     }
                 }
             }
+            List<Team> leftTeams = teams.Where(t =>t.Users.Count > 0).ToList();
+            List<Team> orderedValidTeams = leftTeams
+                .OrderByDescending(x => x.Users.Count)
+                .ThenBy(x => x.TeamName)
+                .ToList();
 
+            foreach (Team team in orderedValidTeams)
+            {
+                Console.WriteLine($"{team.TeamName}");
+                Console.WriteLine($"- {team.Creator}");
 
+                List<string> sortedUsers = team.Users.ToList();
+                sortedUsers.Sort();
+                for (int i = 0; i < sortedUsers.Count; i++)
+                {
+                    Console.WriteLine($"-- {sortedUsers[i]}");
+                }
+            }
 
             Console.WriteLine("Teams to disband:");
             List<Team> teamsDisband = new List<Team>();
