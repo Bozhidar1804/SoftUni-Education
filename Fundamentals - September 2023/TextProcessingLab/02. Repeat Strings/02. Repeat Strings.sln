@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Repeat Strings", "02. Repeat Strings.csproj", "{30C12D06-3E5E-4D6D-8F45-F09792A16239}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30C12D06-3E5E-4D6D-8F45-F09792A16239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30C12D06-3E5E-4D6D-8F45-F09792A16239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30C12D06-3E5E-4D6D-8F45-F09792A16239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30C12D06-3E5E-4D6D-8F45-F09792A16239}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D735D253-1B83-49E8-A5F0-9D6E2E2B0E48}
+	EndGlobalSection
+EndGlobal
