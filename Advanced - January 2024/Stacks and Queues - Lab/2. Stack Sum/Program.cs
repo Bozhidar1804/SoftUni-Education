@@ -39,6 +39,8 @@
                 sum += ints.Pop();
             }
             Console.WriteLine($"Sum: {sum}");
+
+            //Or Console.WriteLine(ints.Sum());
         }
     }
 }
