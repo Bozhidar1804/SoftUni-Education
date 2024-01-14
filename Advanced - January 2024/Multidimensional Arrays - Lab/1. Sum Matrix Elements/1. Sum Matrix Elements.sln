@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Sum Matrix Elements", "1. Sum Matrix Elements.csproj", "{1EAAE0D8-CF9E-4F85-A4B3-496B0D9BFA9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EAAE0D8-CF9E-4F85-A4B3-496B0D9BFA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EAAE0D8-CF9E-4F85-A4B3-496B0D9BFA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EAAE0D8-CF9E-4F85-A4B3-496B0D9BFA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EAAE0D8-CF9E-4F85-A4B3-496B0D9BFA9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83C72C05-BC12-46F8-8043-67F28C02C271}
+	EndGlobalSection
+EndGlobal
