@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+            Action<List<int>> print = numbers => Console.WriteLine(string.Join(" ", numbers));
+
             Func<string, List<int>, List<int>> calculate = (command, numbers) =>
             {
                 List<int> result = new List<int>();
@@ -27,7 +29,6 @@
 
                 return result;
             };
-            Action<List<int>> print = numbers => Console.WriteLine(string.Join(" ", numbers));
 
             List<int> numbers = Console.ReadLine().Split(" ").Select(int.Parse).ToList();
 
