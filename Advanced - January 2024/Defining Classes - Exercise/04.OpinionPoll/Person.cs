@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,21 +11,22 @@ namespace DefiningClasses
         private string name;
         private int age;
 
-        public Person ()
+        public Person()
         {
-            name = "No name";
-            age = 1;
+            Name = "No name";
+            Age = 1;
         }
 
-        public Person (int age) : this()
+        public Person(int age)
         {
-            this.age = age;
+            Name = "No name";
+            Age = age;
         }
 
-        public Person (string name, int age)
+        public Person(string name, int age)
         {
-            this.name = name;
-            this.age = age;
+            this.Name = name;
+            this.Age = age;
         }
 
         public string Name { get; set; }
