@@ -6,24 +6,40 @@
         {
             string[] numbers = Console.ReadLine().Split(" ");
             string[] urls = Console.ReadLine().Split(" ");
-            Smartphone smartphone = new Smartphone();
-            StationaryPhone stationaryPhone = new StationaryPhone();
 
             foreach (string number in numbers)
             {
-                if (number.Length == 7)
+                if (IsNumberValid(number))
                 {
-                    stationaryPhone.Call(number);
-                } else if (number.Length == 10)
+                    ICall phone;
+
+                    if (number.Length == 7)
+                    {
+                        phone = new StationaryPhone();
+                    }
+                    else
+                    {
+                        phone = new Smartphone();
+                    }
+
+                    phone.Call(number);
+                }
+                else
                 {
-                    smartphone.Call(number);
+                    Console.WriteLine("Invalid number!");
                 }
             }
 
             foreach (string url in urls)
             {
+                IBrowse smartphone = new Smartphone();
                 smartphone.Browse(url);
             }
+        }
+
+        public static bool IsNumberValid(string number)
+        {
+            return number.All(char.IsDigit);
         }
     }
 }
