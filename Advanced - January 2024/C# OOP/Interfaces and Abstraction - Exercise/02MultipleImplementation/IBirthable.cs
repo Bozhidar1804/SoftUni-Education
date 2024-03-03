@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonsInfo
+namespace PersonInfo
 {
     public interface IBirthable
     {
-        public string Birthdate { get; set; }
+        public string Birthdate { get; }
     }
 }

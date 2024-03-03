@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonsInfo
+namespace PersonInfo
 {
     public interface IIdentifiable
     {
-        public string Id { get; set; }
+        public string Id { get; }
     }
 }
