@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04BorderControl", "04BorderControl.csproj", "{D196AA79-C65C-46B8-9ED6-7DA8DF0B0C2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D196AA79-C65C-46B8-9ED6-7DA8DF0B0C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D196AA79-C65C-46B8-9ED6-7DA8DF0B0C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D196AA79-C65C-46B8-9ED6-7DA8DF0B0C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D196AA79-C65C-46B8-9ED6-7DA8DF0B0C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45D2A9C4-DD69-43C4-98CD-103DB69576DD}
+	EndGlobalSection
+EndGlobal
