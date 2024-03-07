@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace _01Vehicles
 {
-    public class Car : Vehicle
+    public class Car : Vehicle, IDrivable, IRefuable
     {
-        private double fuelQuantity;
-        private double litersPerKm;
+        private const double fuelConsumptionModifier = 0.9;
 
         public Car (double fuelQuantity, double litersPerKm)
+            : base (fuelQuantity, litersPerKm + fuelConsumptionModifier)
         {
-            FuelQuantity = fuelQuantity;
-            LitersPerKm = litersPerKm + 0.9;
         }
 
         public double FuelQuantity
