@@ -1,0 +1,5 @@
+<log>
+  <date>2015-03-26T14:08:11</date>
+  <level>Info</level>
+  <message>Everything seems fine</message>
+</log>
