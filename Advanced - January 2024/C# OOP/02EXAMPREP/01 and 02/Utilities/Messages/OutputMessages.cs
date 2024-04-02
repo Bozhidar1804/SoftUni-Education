@@ -9,7 +9,7 @@
 
         //NewClimberAtCamp
         public const string ClimberCannotBeDuplicated = "{0} is a participant in {1} and cannot be duplicated.";
-        public const string ClimberArrivedAtBaseCamp = "{0} has arrived at the BaseCamp and will wait for best conditionts.";
+        public const string ClimberArrivedAtBaseCamp = "{0} has arrived at the BaseCamp and will wait for the best conditions.";
 
         //AttackPeak
         public const string ClimberNotArrivedYet = "Climber - {0}, has not arrived at the BaseCamp yet.";
