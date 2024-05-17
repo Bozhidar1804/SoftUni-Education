@@ -95,3 +95,50 @@ SELECT TOP (10) *
   ORDER BY [StartDate], [Name]
 
 -- 20
+SELECT TOP (7) [FirstName], [LastName], [HireDate]
+      FROM Employees
+	ORDER BY HireDate DESC
+
+-- 21
+-- Helper Queries
+SELECT * FROM Employees
+
+SELECT [DepartmentId]
+  FROM Departments
+ WHERE [Name] IN ('Engineering', 'Tool Design', 'Marketing', 'Information Services')
+
+SELECT [Salary]
+  FROM Employees
+ WHERE [DepartmentID] IN (1, 2, 4, 11)
+
+ -- Main Query Solution
+UPDATE Employees
+   SET [Salary] += [Salary] * 0.12
+ WHERE [DepartmentID] IN (1, 2, 4, 11)
+
+SELECT [Salary] FROM Employees
+
+-- 22
+SELECT [PeakName]
+  FROM Peaks
+ORDER BY [PeakName] ASC
+
+-- 23
+SELECT TOP(30) [CountryName], [Population]
+  FROM Countries
+ WHERE [ContinentCode] = 'EU'
+ ORDER BY [Population] DESC, [CountryName] ASC
+
+-- 24
+SELECT [CountryName], [CountryCode],
+  CASE [CurrencyCode]
+		WHEN 'EUR' THEN 'Euro'
+		ELSE 'Not Euro'
+END AS Currency
+  FROM Countries
+ORDER BY [CountryName] ASC
+
+ -- 25
+ SELECT [Name]
+   FROM Characters
+ ORDER BY [Name] ASC
