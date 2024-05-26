@@ -1,0 +1,16 @@
+--09
+USE [Geography]
+
+GO
+
+SELECT * FROM Peaks
+SELECT * FROM Mountains
+
+   SELECT m.MountainRange, p.PeakName, p.Elevation
+ 	 FROM Peaks
+ 	   AS [p]
+LEFT JOIN Mountains
+	   AS [m]
+	   ON p.MountainId = m.Id
+	WHERE m.MountainRange = 'Rila'
+ ORDER BY p.Elevation DESC
