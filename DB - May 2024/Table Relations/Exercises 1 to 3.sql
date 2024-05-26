@@ -1,3 +1,11 @@
+CREATE DATABASE [TableRelationsExercises]
+
+GO
+
+USE [TableRelationsExercises]
+
+GO
+
 -- 1
 CREATE TABLE Passports(
 	PassportId INT PRIMARY KEY IDENTITY(101, 1),
@@ -8,8 +16,7 @@ CREATE TABLE Persons(
 	PersonID INT PRIMARY KEY IDENTITY,
 	FirstName NVARCHAR(50) NOT NULL,
 	Salary DECIMAL(8,2) NOT NULL,
-	PassportID INT,
-	FOREIGN KEY (PassportId) REFERENCES Passports(PassportId)
+	PassportID INT FOREIGN KEY REFERENCES Passports(PassportId) UNIQUE NOT NULL	
 )
 
 INSERT INTO Passports (PassportNumber)
@@ -27,15 +34,17 @@ VALUES
 SELECT * FROM Persons
 SELECT * FROM Passports
 
+
+
 -- 2
 CREATE TABLE Manufacturers(
 	ManufacturerID INT PRIMARY KEY IDENTITY NOT NULL,
 	[Name] NVARCHAR(50) NOT NULL,
-	EstablishedOn DATE
+	EstablishedOn DATE NOT NULL
 )
 
 CREATE TABLE Models(
-	ModelId INT PRIMARY KEY NOT NULL,
+	ModelId INT PRIMARY KEY IDENTITY (101, 1) NOT NULL,
 	[Name] NVARCHAR(50) NOT NULL,
 	ManufacturerID INT,
 	FOREIGN KEY (ManufacturerID) REFERENCES Manufacturers(ManufacturerID)
@@ -47,17 +56,19 @@ VALUES
 ('Tesla', '01/01/2003'),
 ('Lada', '01/05/1966')
 
-INSERT INTO Models(ModelId, [Name], ManufacturerID)
+INSERT INTO Models([Name], ManufacturerID)
 VALUES
-(101, 'X1', 1),
-(102, 'i6', 1),
-(103, 'Model S', 2),
-(104, 'Model X', 2),
-(105, 'Model 3', 2),
-(106, 'Nova', 3)
+('X1', 1),
+('i6', 1),
+('Model S', 2),
+('Model X', 2),
+('Model 3', 2),
+('Nova', 3)
 
 SELECT * FROM Manufacturers
 SELECT * FROM Models
+
+
 
 -- 3
 CREATE TABLE Students(
@@ -66,13 +77,13 @@ CREATE TABLE Students(
 )
 
 CREATE TABLE Exams(
-	ExamID INT PRIMARY KEY,
+	ExamID INT PRIMARY KEY IDENTITY(101, 1),
 	[Name] NVARCHAR(50) NOT NULL
 )
 
 CREATE TABLE StudentsExams(
-	StudentID INT,
-	ExamID INT,
+	StudentID INT FOREIGN KEY REFERENCES Students(StudentID) NOT NULL,
+	ExamID INT FOREIGN KEY REFERENCES Exams(ExamID) NOT NULL,
 	PRIMARY KEY (StudentID, ExamID)
 )
 
