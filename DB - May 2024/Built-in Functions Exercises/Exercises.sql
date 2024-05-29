@@ -151,10 +151,12 @@ SELECT
 FROM Users
 ORDER BY [Email Provider], Username
 
-SELECT * FROM Users
-
+-- 16
 SELECT 
 	Username,
-	Email,
-	SUBSTRING([Email], CHARINDEX('@', [Email], 1), LEN([Email]))
+	IpAddress AS [IP Address]
 FROM Users
+WHERE IpAddress LIKE '___.1%.%.___'
+ORDER BY Username
+
+-- 17
