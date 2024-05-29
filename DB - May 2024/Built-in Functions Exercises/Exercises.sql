@@ -127,4 +127,22 @@ WHERE RIGHT(LOWER(p.PeakName), 1) = LEFT (LOWER(r.RiverName), 1)
 ORDER BY Mix
 
 	 
-	
+----
+GO
+
+USE Diablo
+
+GO
+----
+
+-- 14
+SELECT TOP(50)
+	[Name],
+	CONVERT(char(10), [Start],126) AS [Start]
+FROM Games
+WHERE YEAR([Start]) IN (2011, 2012)
+ORDER BY [Start], [Name]
+
+
+
+SELECT * FROM Games
