@@ -21,3 +21,17 @@ ON e.AddressID = a.AddressID
 JOIN Towns AS t
 ON a.TownID = t.TownID
 ORDER BY FirstName, LastName
+
+-- 03
+SELECT
+	e.EmployeeID,
+	e.FirstName,
+	e.LastName,
+	d.[Name] AS [DepartmentName]
+FROM Employees AS e
+JOIN Departments AS d
+ON e.DepartmentID = d.DepartmentID AND d.[Name] = 'Sales'
+ORDER BY EmployeeID
+
+
+-- 04
