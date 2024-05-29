@@ -144,5 +144,17 @@ WHERE YEAR([Start]) IN (2011, 2012)
 ORDER BY [Start], [Name]
 
 
+-- 15
+SELECT
+	Username,
+	SUBSTRING([Email], CHARINDEX('@', [Email], 1) + 1, LEN([Email])) AS [Email Provider]
+FROM Users
+ORDER BY [Email Provider], Username
 
-SELECT * FROM Games
+SELECT * FROM Users
+
+SELECT 
+	Username,
+	Email,
+	SUBSTRING([Email], CHARINDEX('@', [Email], 1), LEN([Email]))
+FROM Users
