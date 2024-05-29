@@ -92,3 +92,27 @@ FROM (
       ) AS [RankingSubquery]
 WHERE [Rank] = 2
 ORDER BY Salary DESC
+
+---
+GO
+
+USE [Geography]
+
+GO
+---
+
+-- 12 METHOD 1
+SELECT 
+	CountryName AS [Country Name],
+	IsoCode AS [ISO Code]
+FROM Countries
+WHERE LOWER(CountryName) LIKE '%a%a%a%'
+ORDER BY IsoCode
+
+-- 12 METHOD 2
+SELECT
+	CountryName as [Country Name],
+	IsoCode as [ISO Code]
+FROM Countries
+WHERE LEN([CountryName]) - LEN(REPLACE(LOWER([CountryName]), 'a', '')) >= 3
+ORDER BY IsoCode
