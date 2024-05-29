@@ -175,3 +175,19 @@ SELECT
 	END AS [Duration]
 FROM Games
 ORDER BY [Name], Duration, [Part of the Day]
+
+----
+GO
+
+USE Orders
+
+GO
+----
+
+-- 18
+SELECT
+	ProductName,
+	OrderDate,
+	DATEADD(DAY, 3, OrderDate) AS [Pay Due],
+	DATEADD(MONTH, 1, OrderDate) AS [Deliver Due]
+FROM Orders
