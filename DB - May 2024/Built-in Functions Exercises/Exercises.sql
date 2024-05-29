@@ -38,6 +38,7 @@ SELECT
 	[Name]
 FROM Towns
 WHERE LEFT([Name], 1) IN ('M', 'K', 'B', 'E')
+-- WHERE [NAME] LIKE '[MKBE%]'
 ORDER BY [Name]
 
 
@@ -65,3 +66,29 @@ SELECT
 	LastName
 FROM Employees
 WHERE LEN(LastName) = 5
+
+-- 10
+SELECT
+	EmployeeID,
+	FirstName,
+	LastName,
+	Salary,
+	DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
+FROM Employees
+WHERE Salary BETWEEN 10000 AND 50000
+ORDER BY Salary DESC
+
+-- 11
+SELECT *
+FROM (
+			SELECT
+				EmployeeID,
+				FirstName,
+				LastName,
+				Salary,
+				DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
+			FROM Employees
+			WHERE Salary BETWEEN 10000 AND 50000
+      ) AS [RankingSubquery]
+WHERE [Rank] = 2
+ORDER BY Salary DESC
