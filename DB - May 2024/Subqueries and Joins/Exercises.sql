@@ -147,6 +147,19 @@ ORDER BY p.Elevation DESC
 
 
 -- 13
+SELECT
+	c.CountryCode,
+	COUNT(*) AS [MountainRanges]
+FROM MountainsCountries AS mc
+JOIN Countries AS c
+ON mc.CountryCode = c.CountryCode
+JOIN Mountains AS m
+ON mc.MountainId = m.Id
+WHERE c.CountryCode IN ('US', 'BG', 'RU')
+GROUP BY c.CountryCode
+
+
+-- 14
 
 SELECT * FROM Countries
 SELECT * FROM Mountains
