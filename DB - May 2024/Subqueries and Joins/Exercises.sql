@@ -120,6 +120,15 @@ JOIN Departments AS d
 ON e.DepartmentID = d.DepartmentID
 ORDER BY e.EmployeeID
 
+-- 11
+SELECT TOP (1) (
+	SELECT 
+		AVG(Salary)
+) AS [MinAverageSalary] FROM Employees
+GROUP BY DepartmentID
+ORDER BY MinAverageSalary
+
+
 SELECT * FROM Employees
 SELECT * FROM Projects
 SELECT * FROM Departments
