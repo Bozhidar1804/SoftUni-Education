@@ -107,6 +107,19 @@ ON e.ManagerID = m.EmployeeID
 WHERE e.ManagerID IN(3,7)
 ORDER BY e.EmployeeID
 
-
+-- 10
+SELECT TOP (50)
+	e.EmployeeID,
+	CONCAT(e.FirstName, ' ', e.LastName) AS [EmployeeName],
+	CONCAT(m.FirstName, ' ', m.LastName) AS [ManagerName],
+	d.[Name]
+FROM Employees AS e
+JOIN Employees AS m
+ON e.ManagerID = m.EmployeeID
+JOIN Departments AS d
+ON e.DepartmentID = d.DepartmentID
+ORDER BY e.EmployeeID
 
 SELECT * FROM Employees
+SELECT * FROM Projects
+SELECT * FROM Departments
