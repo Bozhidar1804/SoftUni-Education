@@ -54,15 +54,29 @@ LEFT JOIN EmployeesProjects AS [ep]
 ON e.EmployeeID = ep.EmployeeID
 WHERE ep.ProjectID IS NULL
 
+-- 06
+SELECT
+	e.FirstName,
+	e.LastName,
+	e.HireDate,
+	d.[Name]
+FROM Employees AS e
+INNER JOIN Departments AS d
+ON e.DepartmentID = d.DepartmentID
+WHERE e.HireDate > '01-01-1999' AND d.[Name] IN('Sales', 'Finance')
+ORDER BY e.HireDate
+
 -- 07
 SELECT TOP (5)
 	e.EmployeeID,
 	e.FirstName,
 	p.[Name]
 FROM Employees AS e
-LEFT JOIN EmployeesProjects AS ep
+INNER JOIN EmployeesProjects AS ep
 ON e.EmployeeID = ep.EmployeeID
-LEFT JOIN Projects AS p
+INNER JOIN Projects AS p
 ON ep.ProjectID = p.ProjectID
 WHERE p.StartDate > '2002-08-13' AND p.EndDate IS NULL
 ORDER BY e.EmployeeID
+
+
