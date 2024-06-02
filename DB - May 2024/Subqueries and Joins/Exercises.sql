@@ -174,7 +174,7 @@ WHERE c.ContinentCode = 'AF'
 ORDER BY c.CountryName
 
 
--- 15
+-- 16
 SELECT
 	COUNT(c.CountryCode) AS [Count]
 FROM Countries AS c
@@ -183,9 +183,28 @@ ON c.CountryCode = mc.CountryCode
 WHERE mc.MountainId IS NULL
 
 
+-- 17
+SELECT TOP(5)
+	c.CountryName,
+	MAX(p.Elevation) AS [HighestPeakElevation],
+	MAX(r.[Length]) AS [LongestRiverLength]
+FROM Countries AS c
+LEFT OUTER JOIN MountainsCountries AS mc
+ON c.CountryCode = mc.CountryCode
+LEFT OUTER JOIN Peaks AS p
+ON mc.MountainId = p.MountainId
+LEFT OUTER JOIN CountriesRivers AS cr
+ON c.CountryCode = cr.CountryCode
+LEFT OUTER JOIN Rivers as r
+ON cr.RiverId = r.Id
+GROUP BY c.CountryName
+ORDER BY [HighestPeakElevation] DESC, [LongestRiverLength] DESC
+
+
 SELECT * FROM Continents
 SELECT * FROM Countries
 SELECT * FROM Mountains
 SELECT * FROM MountainsCountries
 SELECT * FROM CountriesRivers
 SELECT * FROM Peaks
+SELECT * FROM Rivers
