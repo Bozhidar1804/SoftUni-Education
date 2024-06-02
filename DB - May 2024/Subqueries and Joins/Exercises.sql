@@ -175,6 +175,13 @@ ORDER BY c.CountryName
 
 
 -- 15
+SELECT
+	COUNT(c.CountryCode) AS [Count]
+FROM Countries AS c
+LEFT OUTER JOIN MountainsCountries AS mc
+ON c.CountryCode = mc.CountryCode
+WHERE mc.MountainId IS NULL
+
 
 SELECT * FROM Continents
 SELECT * FROM Countries
