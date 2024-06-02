@@ -200,7 +200,6 @@ ON cr.RiverId = r.Id
 GROUP BY c.CountryName
 ORDER BY [HighestPeakElevation] DESC, [LongestRiverLength] DESC
 
-
 SELECT * FROM Continents
 SELECT * FROM Countries
 SELECT * FROM Mountains
