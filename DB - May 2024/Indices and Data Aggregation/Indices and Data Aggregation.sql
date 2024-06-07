@@ -83,5 +83,15 @@ GROUP BY CASE
 	END
 
 -- 10
+SELECT DISTINCT
+	LEFT(FirstName, 1) AS [FirstLetter]
+FROM WizzardDeposits
+WHERE DepositGroup = 'Troll Chest'
+GROUP BY LEFT(FirstName, 1)
+ORDER BY FirstLetter
+
+-- 11
+
+
 
 SELECT * FROM WizzardDeposits
