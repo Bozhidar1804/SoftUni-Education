@@ -50,5 +50,15 @@ ORDER BY [TotalSum] DESC
 
 
 -- 08
+SELECT
+	DepositGroup,
+	MagicWandCreator,
+	MIN(DepositCharge) AS [MinDepositCharge]
+FROM WizzardDeposits
+GROUP BY DepositGroup, MagicWandCreator
+ORDER BY MagicWandCreator, DepositGroup
+
+
+-- 09
 
 SELECT * FROM WizzardDeposits
