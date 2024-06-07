@@ -126,4 +126,16 @@ FROM (
 ) AS [TableSubquery]
 
 
-SELECT * FROM WizzardDeposits
+-- 13
+SELECT
+	DepartmentID,
+	SUM(Salary) AS [TotalSalary]
+FROM Employees
+GROUP BY DepartmentID
+ORDER BY DepartmentID
+
+
+-- 14
+
+SELECT * FROM Employees
+SELECT * FROM Departments
