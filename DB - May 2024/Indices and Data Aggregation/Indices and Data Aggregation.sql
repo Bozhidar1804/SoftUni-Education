@@ -101,7 +101,7 @@ GROUP BY DepositGroup, IsDepositExpired
 ORDER BY DepositGroup DESC, IsDepositExpired
 
 
--- 12
+-- 12 (first solution)
 SELECT
 	SUM([Difference]) AS [SumDifference]
 FROM (
@@ -112,6 +112,17 @@ FROM (
 			LEAD(DepositAmount) OVER(ORDER BY Id) AS [Guest Wizard Deposit],
 			DepositAmount - LEAD(DepositAmount) OVER(ORDER BY Id) AS [Difference]
 		FROM WizzardDeposits
+) AS [TableSubquery]
+
+----- second solution
+SELECT
+	SUM([Difference]) AS [SumDifference]
+FROM (
+		SELECT 
+			wd1.DepositAmount - wd2.DepositAmount AS [Difference]
+		FROM WizzardDeposits AS [wd1]
+		INNER JOIN WizzardDeposits AS [wd2]
+		ON wd1.Id + 1 = wd2.Id
 ) AS [TableSubquery]
 
 
