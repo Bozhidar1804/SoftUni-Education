@@ -173,7 +173,13 @@ HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
 
 
 -- 17
+SELECT
+	COUNT(EmployeeID) AS [Count]
+FROM Employees
+WHERE ManagerID IS NULL
 
+
+-- 18
 
 SELECT * FROM Employees
 SELECT * FROM Departments
