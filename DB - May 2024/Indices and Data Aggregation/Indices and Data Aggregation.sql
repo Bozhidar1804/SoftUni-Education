@@ -180,6 +180,21 @@ WHERE ManagerID IS NULL
 
 
 -- 18
+SELECT DISTINCT
+	DepartmentID,
+	Salary AS [ThirdHighestSalary]
+FROM
+	(
+	SELECT
+		DepartmentID,
+		Salary,
+		DENSE_RANK() OVER(PARTITION BY DepartmentId ORDER BY Salary DESC) AS [SalaryRank]
+	FROM Employees
+	) AS [RankingSalariesSubquery]
+	WHERE SalaryRank = 3
+
+
+-- 19
 
 SELECT * FROM Employees
 SELECT * FROM Departments
