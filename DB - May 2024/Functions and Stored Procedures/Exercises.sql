@@ -25,3 +25,16 @@ CREATE OR ALTER PROCEDURE [usp_GetEmployeesSalaryAboveNumber] @GivenValue DECIMA
 EXEC usp_GetEmployeesSalaryAboveNumber 48100
 
 -- 03
+CREATE OR ALTER PROCEDURE usp_GetTownsStartingWith @Value VARCHAR(10)
+	AS
+	BEGIN
+		SELECT
+			[Name]
+		FROM Towns
+		WHERE [Name] LIKE @Value + '%'
+	END
+
+EXEC usp_GetTownsStartingWith 'b'
+SELECT * FROM Towns
+
+-- 04
