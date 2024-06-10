@@ -38,3 +38,24 @@ EXEC usp_GetTownsStartingWith 'b'
 SELECT * FROM Towns
 
 -- 04
+CREATE PROCEDURE usp_GetEmployeesFromTown @TownName VARCHAR(20)
+	AS
+	BEGIN
+		SELECT
+			FirstName,
+			LastName
+		FROM Employees AS e
+		JOIN Addresses AS a
+		ON e.AddressID = a.AddressID
+		JOIN Towns as t
+		ON a.TownID = t.TownID
+		WHERE t.[Name] = @TownName
+	END
+
+EXEC usp_GetEmployeesFromTown 'Sofia'
+
+SELECT * FROM Employees
+SELECT * FROM Addresses
+SELECT * FROM Towns
+
+-- 05
