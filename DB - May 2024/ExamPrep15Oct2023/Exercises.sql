@@ -67,3 +67,18 @@ VALUES ('2024-03-01', '2024-03-11', 1, 0, 21, 3, 5),
 ('2023-11-15', '2023-11-20', 1, 2, 23, 19, 7),
 ('2023-12-05', '2023-12-09', 4, 0, 24, 6, 4),
 ('2024-05-01', '2024-05-07', 6, 0, 25, 14, 6)
+
+-- 03
+UPDATE Bookings
+SET DepartureDate = DATEADD(DAY, 1, DepartureDate)
+WHERE ArrivalDate > '2023-12-01' AND ArrivalDate < '2023-12-31'
+--WHERE DepartureDate LIKE '2023-12%'
+
+UPDATE Tourists
+SET Email = Null
+WHERE [Name] LIKE '%MA%'
+
+-- 04
+
+
+SELECT * FROM Tourists
