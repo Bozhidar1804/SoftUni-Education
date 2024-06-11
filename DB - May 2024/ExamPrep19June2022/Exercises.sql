@@ -66,3 +66,19 @@ SET OwnerId = 4
 WHERE OwnerId IS NULL
 
 -- 04
+DECLARE @VolunteersToDelete TABLE(Id INT)
+INSERT INTO @VolunteersToDelete (Id)
+	SELECT Id
+	FROM Volunteers
+	WHERE DepartmentId = 2
+
+DELETE FROM Volunteers
+WHERE Id IN (SELECT Id FROM @VolunteersToDelete)
+
+DELETE FROM VolunteersDepartments
+WHERE DepartmentName = 'Education program assistant'
+
+SELECT * FROM VolunteersDepartments
+SELECT * FROM Volunteers
+
+-- 05
