@@ -176,9 +176,21 @@ END
 
 
 -- 10
+CREATE OR ALTER PROCEDURE usp_GetHoldersWithBalanceHigherThan(@Amount MONEY)
+AS
+BEGIN
+	SELECT
+		ah.FirstName AS [First Name],
+		ah.LastName AS [Last Name]
+	FROM AccountHolders AS ah
+	JOIN Accounts AS a
+	ON ah.Id = a.AccountHolderId
+	GROUP BY ah.FirstName, ah.LastName
+	HAVING SUM(a.Balance) > @Amount
+	ORDER BY ah.FirstName, ah.LastName
+END
 
-
-
+EXEC usp_GetHoldersWithBalanceHigherThan 1000
 
 SELECT * FROM Accounts
 SELECT * FROM AccountHolders
