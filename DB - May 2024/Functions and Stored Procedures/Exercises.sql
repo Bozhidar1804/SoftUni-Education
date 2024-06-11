@@ -165,11 +165,30 @@ BEGIN
 	WHERE DepartmentID = @departmentId
 END
 
--- 09
+-- 09 Bank Database
+CREATE PROCEDURE usp_GetHoldersFullName
+AS
+BEGIN
+	SELECT
+		CONCAT(FirstName, ' ', LastName) AS [Full Name]
+	FROM AccountHolders
+END
+
+
+-- 10
 
 
 
--- 13
+
+SELECT * FROM Accounts
+SELECT * FROM AccountHolders
+
+
+
+
+
+
+-- 13 Diablo Database
 CREATE FUNCTION ufn_CashInUsersGames (@GameName NVARCHAR(50))
 RETURNS TABLE
 AS
