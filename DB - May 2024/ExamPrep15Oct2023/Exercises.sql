@@ -113,4 +113,22 @@ SELECT * FROM Rooms
 SELECT * FROM Bookings
 
 -- 06
+SELECT
+ h.Id,
+ h.[Name]
+FROM Hotels AS h
+JOIN HotelsRooms AS hr
+ON h.Id = hr.HotelId
+JOIN Rooms AS r
+ON hr.RoomId = r.Id
+JOIN Bookings AS b
+ON b.HotelId = h.Id
+WHERE r.[Type] = 'VIP Apartment'
+GROUP BY h.Id, h.[Name]
+ORDER BY COUNT(*) DESC
 
+SELECT * FROM Hotels
+SELECT * FROM Destinations
+
+
+-- 07
