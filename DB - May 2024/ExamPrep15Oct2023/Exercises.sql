@@ -195,4 +195,28 @@ SELECT * FROM Bookings
 SELECT * FROM Rooms
 SELECT * FROM Hotels
 
+GO
 -- 11
+CREATE FUNCTION udf_RoomsWithTourists(@name VARCHAR(40))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CountOfPeople INT = (
+									SELECT
+										SUM(b.AdultsCount) + SUM(b.ChildrenCount)
+									FROM Tourists AS t
+									JOIN Bookings AS b
+									ON b.TouristId = t.Id
+									JOIN Rooms AS r
+									ON b.RoomId = r.Id
+									WHERE r.[Type] = @name
+									)
+	RETURN @CountOfPeople
+END
+
+SELECT * FROM Tourists
+SELECT * FROM Bookings
+SELECT * FROM Rooms
+SELECT * FROM Hotels
+
+-- 12
