@@ -164,3 +164,26 @@ BEGIN
 	FROM Employees
 	WHERE DepartmentID = @departmentId
 END
+
+-- 09
+
+
+
+-- 13
+CREATE FUNCTION ufn_CashInUsersGames (@GameName NVARCHAR(50))
+RETURNS TABLE
+AS
+RETURN (
+	SELECT
+		SUM(Cash) AS [SumCash]
+	FROM (
+			SELECT 
+				ug.Cash,
+				ROW_NUMBER() OVER(ORDER BY ug.Cash DESC) AS [RowNumber]
+			FROM UsersGames AS ug
+			JOIN Games AS g
+			ON ug.GameId = g.Id
+			WHERE g.[Name] = @GameName
+		 ) AS [RankingSubQuery]
+		 WHERE RowNumber % 2 <> 0
+		 )
