@@ -100,3 +100,17 @@ WHERE Id IN (
 
 
 -- 05
+SELECT
+	FORMAT(ArrivalDate, 'yyyy-MM-dd') AS [ArrivalDate],
+	AdultsCount,
+	ChildrenCount
+FROM Bookings AS b
+JOIN Rooms AS r
+ON b.RoomId = r.Id
+ORDER BY r.Price DESC, ArrivalDate
+
+SELECT * FROM Rooms
+SELECT * FROM Bookings
+
+-- 06
+
