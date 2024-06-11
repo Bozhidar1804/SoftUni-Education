@@ -206,14 +206,25 @@ SELECT dbo.ufn_CalculateFutureValue(1000, 0.1, 5) AS [Output] -- 1610.5100
 
 
 -- 12
+CREATE PROCEDURE usp_CalculateFutureValueForAccount(@AccountId INT, @Interest FLOAT)
+AS
+BEGIN
+	SELECT
+		a.Id AS [Account Id],
+		ah.FirstName AS [First Name],
+		ah.LastName AS [Last Name],
+		a.Balance,
+		dbo.ufn_CalculateFutureValue(a.Balance, @Interest, 5) AS [Balance in 5 years]
+	FROM Accounts AS a
+	JOIN AccountHolders AS ah
+	ON a.AccountHolderId = ah.Id
+	WHERE a.Id = @AccountId
+END
+
+EXEC usp_CalculateFutureValueForAccount 1, 0.1
 
 SELECT * FROM Accounts
 SELECT * FROM AccountHolders
-
-
-
-
-
 
 -- 13 Diablo Database
 CREATE FUNCTION ufn_CashInUsersGames (@GameName NVARCHAR(50))
