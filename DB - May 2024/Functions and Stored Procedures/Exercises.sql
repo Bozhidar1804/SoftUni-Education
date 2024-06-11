@@ -192,6 +192,21 @@ END
 
 EXEC usp_GetHoldersWithBalanceHigherThan 1000
 
+
+-- 11
+CREATE FUNCTION ufn_CalculateFutureValue(@Sum DECIMAL(10, 4), @Interest FLOAT, @Years INT)
+RETURNS DECIMAL(10, 4)
+AS
+BEGIN
+	DECLARE @CalculatedValue DECIMAL(10 , 4) = @Sum * (POWER((1 + @Interest), @Years))
+	RETURN @CalculatedValue
+END
+
+SELECT dbo.ufn_CalculateFutureValue(1000, 0.1, 5) AS [Output] -- 1610.5100
+
+
+-- 12
+
 SELECT * FROM Accounts
 SELECT * FROM AccountHolders
 
