@@ -119,3 +119,48 @@ END
 SELECT dbo.ufn_IsWordComprised('oistmiahf', 'Sofia')
 
 -- 08
+CREATE PROCEDURE usp_DeleteEmployeesFromDepartment (@departmentId INT)
+AS
+BEGIN
+	DECLARE @EmployeesToDelete TABLE ([ID] INT)
+	INSERT INTO @EmployeesToDelete 
+									SELECT EmployeeID
+									FROM Employees
+									WHERE DepartmentID = @departmentId
+									
+	DELETE
+	FROM EmployeesProjects
+	WHERE EmployeeID IN (
+							SELECT *
+							FROM @EmployeesToDelete
+						)
+
+	ALTER TABLE Departments
+	ALTER COLUMN ManagerID INT
+
+	UPDATE Departments
+	   SET ManagerID = NULL
+	WHERE ManagerID IN (
+							SELECT *
+							FROM @EmployeesToDelete
+						)
+
+	UPDATE Employees
+	   SET ManagerID = NULL
+	WHERE ManagerID IN (
+							SELECT *
+							FROM @EmployeesToDelete
+						)
+
+	DELETE
+	FROM Employees
+	WHERE DepartmentID = @departmentId
+
+	DELETE
+	FROM Departments
+	WHERE DepartmentID = @departmentId
+
+	SELECT COUNT(*)
+	FROM Employees
+	WHERE DepartmentID = @departmentId
+END
