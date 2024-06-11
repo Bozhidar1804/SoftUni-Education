@@ -61,3 +61,8 @@ VALUES ('Giraffe', '2018-09-21', 21, 1),
 ('Tuatara', '2021-06-30', 2, 4)
 
 -- 03
+UPDATE Animals
+SET OwnerId = 4
+WHERE OwnerId IS NULL
+
+-- 04
