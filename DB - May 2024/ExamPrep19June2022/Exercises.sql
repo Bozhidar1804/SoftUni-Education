@@ -183,4 +183,23 @@ SELECT dbo.udf_GetVolunteersCountFromADepartment ('Zoo events') -- 5
 SELECT * FROM Volunteers
 SELECT * FROM VolunteersDepartments
 
+GO
 -- 12
+CREATE PROCEDURE usp_AnimalsWithOwnersOrNot(@AnimalName VARCHAR(30))
+AS
+BEGIN
+	SELECT
+		a.[Name],
+		ISNULL(o.[Name], 'For adoption') AS [OwnersName]
+		--CASE
+		--	WHEN o.[Name] IS NULL THEN 'For adoption'
+		--	ELSE o.[Name]
+		--END AS [OwnersName]
+	FROM Animals AS a
+	LEFT JOIN Owners AS o -- LEFT because we also want the animals that DO NOT have an owner!!!!!
+	ON a.OwnerId = o.Id
+	WHERE a.[Name] = @AnimalName
+END
+
+EXEC usp_AnimalsWithOwnersOrNot 'Brown bear'
+SELECT * FROM Animals
