@@ -167,3 +167,20 @@ SELECT * FROM Animals
 SELECT * FROM AnimalTypes
 
 -- 11
+CREATE FUNCTION udf_GetVolunteersCountFromADepartment (@VolunteersDepartment VARCHAR(30))
+RETURNS INT
+AS
+BEGIN
+	RETURN (SELECT
+				COUNT(*)
+			FROM Volunteers AS v
+			JOIN VolunteersDepartments AS vd
+			ON v.DepartmentId = vd.Id AND vd.DepartmentName = @VolunteersDepartment)
+END
+
+SELECT dbo.udf_GetVolunteersCountFromADepartment ('Zoo events') -- 5
+
+SELECT * FROM Volunteers
+SELECT * FROM VolunteersDepartments
+
+-- 12
