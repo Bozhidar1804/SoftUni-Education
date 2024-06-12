@@ -118,3 +118,25 @@ SELECT * FROM Owners
 SELECT * FROM Animals
 
 -- 08
+SELECT
+	CONCAT(o.[Name], '-', a.[Name]) AS [OwnersAnimals],
+	o.PhoneNumber,
+	c.Id AS [CageId]
+FROM Animals AS a
+JOIN Owners AS o
+ON a.OwnerId = o.Id
+JOIN Cages AS c
+ON c.AnimalTypeId = 1
+JOIN AnimalsCages AS ac
+ON ac.CageId = c.Id AND a.Id = ac.AnimalId
+WHERE a.AnimalTypeId = 1
+ORDER BY o.[Name], a.[Name] DESC
+
+
+SELECT * FROM Owners
+SELECT * FROM Animals
+SELECT * FROM AnimalTypes
+SELECT * FROM AnimalsCages
+SELECT * FROM Cages
+
+-- 09
