@@ -82,3 +82,13 @@ SELECT * FROM VolunteersDepartments
 SELECT * FROM Volunteers
 
 -- 05
+SELECT
+	[Name],
+	PhoneNumber,
+	[Address],
+	AnimalId,
+	DepartmentId
+FROM Volunteers
+ORDER BY [Name], AnimalId, DepartmentId
+
+-- 06
