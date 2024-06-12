@@ -140,3 +140,16 @@ SELECT * FROM AnimalsCages
 SELECT * FROM Cages
 
 -- 09
+SELECT
+	v.[Name],
+	v.PhoneNumber,
+	SUBSTRING(v.[Address], CHARINDEX(',', v.[Address]) + 1, LEN(v.[Address])) AS [Address]
+--	TRIM(REPLACE(REPLACE(v.[Address], 'Sofia', ''), ',', '')) (or LTRIM in the beginning)
+FROM Volunteers AS v
+WHERE v.DepartmentId = 2 AND v.[Address] LIKE '%Sofia%'
+ORDER BY v.[Name] ASC
+
+SELECT * FROM Volunteers
+SELECT * FROM VolunteersDepartments
+
+-- 10
