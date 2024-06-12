@@ -153,3 +153,17 @@ SELECT * FROM Volunteers
 SELECT * FROM VolunteersDepartments
 
 -- 10
+SELECT
+	a.[Name],
+	YEAR(a.BirthDate) AS [BirthYear],
+	[at].AnimalType
+FROM Animals AS a
+JOIN AnimalTypes AS [at]
+ON a.AnimalTypeId = [at].Id
+WHERE DATEDIFF(YEAR, a.BirthDate, '01/01/2022') < 5 AND a.OwnerId IS NULL AND a.AnimalTypeId != 3
+ORDER BY a.[Name]
+
+SELECT * FROM Animals
+SELECT * FROM AnimalTypes
+
+-- 11
