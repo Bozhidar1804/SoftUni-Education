@@ -189,3 +189,19 @@ SELECT * FROM Tickets
 SELECT * FROM Trains
 
 -- 10
+SELECT
+	tr.Id AS [TrainId],
+	t.[Name] AS [DepartureTown],
+	mr.Details
+FROM Trains AS tr
+JOIN MaintenanceRecords AS mr
+ON mr.TrainId = tr.Id
+JOIN Towns AS t
+ON tr.DepartureTownId = t.Id
+WHERE mr.Details LIKE '%inspection%'
+ORDER BY tr.Id
+
+SELECT * FROM Trains
+SELECT * FROM MaintenanceRecords
+SELECT * FROM Towns
+
