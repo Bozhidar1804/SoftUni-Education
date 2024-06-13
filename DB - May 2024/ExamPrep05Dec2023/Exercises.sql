@@ -139,3 +139,16 @@ SELECT * FROM Tickets
 SELECT * FROM Passengers
 
 -- 07
+SELECT
+	t.[Name] AS [Town],
+	rs.[Name] AS [RailwayStation]
+FROM RailwayStations AS rs
+JOIN Towns AS t
+ON rs.TownId = t.Id
+WHERE rs.Id NOT IN (SELECT RailwayStationId FROM TrainsRailwayStations)
+ORDER BY t.[Name], rs.[Name]
+
+SELECT * FROM RailwayStations
+SELECT * FROM Towns
+
+-- 08
