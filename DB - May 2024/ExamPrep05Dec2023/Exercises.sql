@@ -205,3 +205,22 @@ SELECT * FROM Trains
 SELECT * FROM MaintenanceRecords
 SELECT * FROM Towns
 
+
+GO
+-- 11
+CREATE FUNCTION udf_TownsWithTrains(@name VARCHAR(30))
+RETURNS INT
+AS
+BEGIN
+	RETURN (
+			SELECT
+				COUNT(*)
+			FROM Trains AS tr
+			JOIN Towns AS tow
+			ON tr.DepartureTownId = tow.Id OR tr.ArrivalTownId = tow.Id
+			WHERE tow.[Name] = @name
+			)
+END
+
+
+-- 12
