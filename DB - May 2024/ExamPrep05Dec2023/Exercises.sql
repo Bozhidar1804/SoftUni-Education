@@ -170,3 +170,22 @@ SELECT * FROM Tickets
 SELECT * FROM Towns
 
 -- 09
+SELECT
+	tow.[Name] AS [TownName],
+	COUNT(p.[Name]) AS [PassengersCount]
+FROM Passengers AS p
+JOIN Tickets AS ti
+ON ti.PassengerId = p.Id
+JOIN Trains AS tr
+ON ti.TrainId = tr.Id
+JOIN Towns AS tow
+ON tr.ArrivalTownId = tow.Id
+WHERE ti.Price > 76.99
+GROUP BY tow.[Name]
+ORDER BY tow.[Name]
+
+SELECT * FROM Passengers
+SELECT * FROM Tickets
+SELECT * FROM Trains
+
+-- 10
