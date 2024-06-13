@@ -222,5 +222,31 @@ BEGIN
 			)
 END
 
+SELECT dbo.udf_TownsWithTrains('Paris') -- 7
 
+GO
 -- 12
+CREATE PROCEDURE usp_SearchByTown(@townName VARCHAR(30))
+AS
+BEGIN
+	SELECT
+		p.[Name] AS [PassengerName],
+		ti.DateOfDeparture,
+		tr.HourOfDeparture
+	FROM Passengers AS p
+	JOIN Tickets AS ti
+	ON ti.PassengerId = p.Id
+	JOIN Trains AS tr
+	ON tr.Id = ti.TrainId
+	JOIN Towns AS t
+	ON tr.ArrivalTownId = t.Id
+	WHERE t.[Name] = @townName
+	ORDER BY ti.DateOfDeparture DESC, p.[Name] ASC
+END
+
+EXEC usp_SearchByTown 'Berlin'
+
+SELECT * FROM Passengers
+SELECT * FROM Tickets
+SELECT * FROM Trains
+SELECT * FROM Towns
