@@ -116,3 +116,12 @@ WHERE Id IN (SELECT Id FROM @TrainsToDelete)
 
 SELECT * FROM Trains
 SELECT * FROM Towns
+
+-- 05
+SELECT
+	DateOfDeparture,
+	Price AS [TicketPrice]
+FROM Tickets
+ORDER BY Price, DateOfDeparture DESC
+
+-- 06
