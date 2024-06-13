@@ -84,3 +84,35 @@ VALUES (90.00, '2023-12-01', '2023-12-01', 36, 1),
 (160.00, '2023-08-03', '2023-08-03', 38, 3),
 (255.00, '2023-09-01', '2023-09-02', 39, 21),
 (95.00, '2023-09-02', '2023-09-03', 40, 22)
+
+-- 03
+UPDATE Tickets
+SET DateOfArrival = DATEADD(DAY, 7, DateOfArrival)
+WHERE DateOfDeparture > '2023-10-31'
+
+UPDATE Tickets
+SET DateOfDeparture = DATEADD(DAY, 7, DateOfDeparture)
+WHERE DateOfDeparture > '2023-10-31'
+
+SELECT * FROM Tickets
+
+-- 04
+DECLARE @TrainsToDelete TABLE (Id INT)
+
+INSERT INTO @TrainsToDelete (Id)
+	SELECT Id FROM Trains WHERE DepartureTownId = 3
+
+DELETE FROM TrainsRailwayStations
+WHERE TrainId IN (SELECT Id FROM @TrainsToDelete)
+
+DELETE FROM Tickets
+WHERE TrainId IN (SELECT Id FROM @TrainsToDelete)
+
+DELETE FROM MaintenanceRecords
+WHERE TrainId IN (SELECT Id FROM @TrainsToDelete)
+
+DELETE FROM Trains
+WHERE Id IN (SELECT Id FROM @TrainsToDelete)
+
+SELECT * FROM Trains
+SELECT * FROM Towns
