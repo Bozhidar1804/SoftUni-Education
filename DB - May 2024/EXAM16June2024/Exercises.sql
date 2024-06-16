@@ -155,4 +155,21 @@ SELECT * FROM Books
 SELECT * FROM Genres
 
 -- 07
+SELECT
+	l.[Name],
+	c.Email
+FROM Libraries AS l
+JOIN LibrariesBooks AS lb ON l.Id = lb.LibraryId
+JOIN Books AS b ON lb.BookId = b.Id
+JOIN Contacts AS c ON l.ContactId = c.Id
+GROUP BY l.[Name], c.Email
+HAVING SUM(CASE WHEN b.GenreId = 1 THEN 1 ELSE 0 END) = 0
+ORDER BY l.[Name]
+
+SELECT * FROM Libraries
+SELECT * FROM LibrariesBooks
+SELECT * FROM Contacts
+SELECT * FROM Books
+
+-- 08
 
