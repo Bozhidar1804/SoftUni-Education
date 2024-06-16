@@ -97,6 +97,13 @@ VALUES
 
 
 -- 03
+UPDATE Contacts
+SET Website = CONCAT_WS('.', 'www', LOWER(REPLACE(a.[Name], ' ', '')), 'com')
+FROM Authors AS a
+LEFT JOIN Contacts AS c ON a.ContactId = c.Id
+WHERE c.Website IS NULL
 
-
+SELECT * FROM Contacts
 SELECT * FROM Authors
+
+-- 04
