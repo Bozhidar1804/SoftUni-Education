@@ -217,3 +217,18 @@ SELECT * FROM Contacts
 SELECT * FROM Authors
 
 -- 11
+CREATE FUNCTION udf_AuthorsWithBooks(@name NVARCHAR(100))
+RETURNS INT
+AS
+BEGIN
+	RETURN (SELECT
+		COUNT(*)
+	FROM Books AS b
+	JOIN Authors AS a ON b.AuthorId = a.Id
+	WHERE a.[Name] = @name
+			)
+END
+
+SELECT dbo.udf_AuthorsWithBooks('J.K. Rowling') -- 3
+
+-- 12
