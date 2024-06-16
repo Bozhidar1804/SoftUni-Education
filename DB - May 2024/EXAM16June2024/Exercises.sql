@@ -107,3 +107,26 @@ SELECT * FROM Contacts
 SELECT * FROM Authors
 
 -- 04
+DECLARE @AuthorsToDelete TABLE(Id INT)
+
+INSERT INTO @AuthorsToDelete (Id)
+	SELECT Id FROM Authors WHERE [Name] = 'Alex Michaelides'
+
+DECLARE @BooksToDelete TABLE(Id INT)
+
+INSERT INTO @BooksToDelete (Id)
+	SELECT Id FROM Books WHERE [AuthorId] IN (SELECT Id FROM @AuthorsToDelete)
+
+DELETE FROM LibrariesBooks
+WHERE BookId IN (SELECT Id FROM @BooksToDelete)
+
+DELETE FROM Books
+WHERE AuthorId IN (SELECT Id FROM @AuthorsToDelete)
+
+DELETE FROM Authors
+WHERE Id IN (SELECT Id FROM @AuthorsToDelete)
+
+SELECT * FROM Books
+SELECT * FROM LibrariesBooks
+
+-- 05
