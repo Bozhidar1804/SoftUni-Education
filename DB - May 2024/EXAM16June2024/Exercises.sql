@@ -196,3 +196,24 @@ SELECT * FROM Authors
 SELECT * FROM Contacts
 
 -- 10
+SELECT
+	a.[Name] AS [Author],
+	b.Title,
+	l.[Name] AS [Library],
+	c.PostAddress AS [LibraryAddress]
+FROM Books AS b
+JOIN Genres AS g ON b.GenreId = g.Id
+JOIN LibrariesBooks AS lb ON lb.BookId = b.Id
+JOIN Libraries AS l ON lb.LibraryId = l.Id
+JOIN Contacts AS c ON l.ContactId = c.Id
+JOIN Authors AS a ON b.AuthorId = a.Id
+WHERE g.[Name] LIKE 'Fiction%' AND c.PostAddress LIKE '%Denver%'
+ORDER BY b.Title
+
+SELECT * FROM Books
+SELECT * FROM Genres
+SELECT * FROM Libraries
+SELECT * FROM Contacts
+SELECT * FROM Authors
+
+-- 11
