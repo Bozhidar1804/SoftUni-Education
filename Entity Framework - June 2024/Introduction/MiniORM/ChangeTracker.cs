@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace MiniORM
 {
@@ -28,6 +29,43 @@ namespace MiniORM
         public void Remove(T item)
         {
             _removed.Add(item);
+        }
+
+        public IEnumerable<T> GetModifiedEntities(DbSet<T> dbSet)
+        {
+            IList<T> modifiedEntities = new List<T>();
+            PropertyInfo[] primaryKeys = typeof(T).GetProperties()
+                .Where(pi => pi.HasAttribute<KeyAttribute>())
+                .ToArray();
+
+            foreach (var proxyEntity in AllEntities)
+            {
+                var primaryKeyValues = GetPrimaryKeyValues(primaryKeys, proxyEntity).ToArray();
+                var entity = dbSet.Entities
+                    .Single(e => GetPrimaryKeyValues(primaryKeys, e).SequenceEqual(primaryKeyValues));
+
+                var isModified = IsModified(proxyEntity, entity);
+                if (isModified)
+                {
+                    modifiedEntities.Add(entity);
+                }
+            }
+            return modifiedEntities;
+        }
+
+        private bool IsModified(T proxyEntity, T entity)
+        {
+            var monitoredProperties = typeof(T).GetProperties()
+                .Where(pi => DbContext.AllowedSqlTypes.Contains(pi.PropertyType));
+            PropertyInfo[] modifiedProperties = monitoredProperties
+                .Where(pi => !Equals(pi.GetValue(entity), pi.GetValue(proxyEntity)))
+                .ToArray();
+            return modifiedProperties.Any();
+        }
+
+        private static IEnumerable<object> GetPrimaryKeyValues(IEnumerable<PropertyInfo> primaryKeys, T entity)
+        {
+            return primaryKeys.Select(pk => pk.GetValue(entity));
         }
 
         private static IList<T> CloneEntities(IEnumerable<T> entities)
