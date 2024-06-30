@@ -9,5 +9,6 @@ namespace MiniORM
     internal class ExceptionMessages
     {
         public static string EntityNullException = "Item cannot be null";
+        public static string InvalidEntitiesFound = "{0} Invalid Entities found in {1}!";
     }
 }
