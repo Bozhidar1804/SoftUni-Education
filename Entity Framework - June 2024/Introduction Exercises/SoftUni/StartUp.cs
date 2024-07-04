@@ -1,4 +1,5 @@
-﻿using SoftUni.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SoftUni.Data;
 using SoftUni.Models;
 using System.Text;
 
@@ -9,7 +10,7 @@ namespace SoftUni
         static void Main(string[] args)
         {
             SoftUniContext context = new SoftUniContext();
-            string result = GetAddressesByTown(context);
+            string result = GetEmployee147(context);
             Console.WriteLine(result);
         }
 
@@ -176,6 +177,26 @@ namespace SoftUni
         }
 
         // Problem 09
+        public static string GetEmployee147(SoftUniContext context)
+        {
+            StringBuilder sb = new StringBuilder();
 
+            var employee = context.Employees
+                .Include(e => e.EmployeesProjects)
+                .ThenInclude(ep => ep.Project)
+                .Where(e => e.EmployeeId == 147)
+                .FirstOrDefault();
+
+            sb.AppendLine($"{employee.FirstName} {employee.LastName} - {employee.JobTitle}");
+
+            foreach (var p in employee.EmployeesProjects.OrderBy(ep => ep.Project.Name))
+            {
+                sb.AppendLine(p.Project.Name);
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        // Problem 10
     }
 }
