@@ -198,5 +198,22 @@ namespace SoftUni
         }
 
         // Problem 10
+
+        // Problem 14
+        public static string DeleteProjectById(SoftUniContext context)
+        {
+            var epToDelete = context.EmployeesProjects
+                .Where(ep => ep.ProjectId == 2);
+
+            Project projectToDelete = context.Projects.Find(2)!;
+            context.Projects.Remove(projectToDelete);
+            context.SaveChanges();
+
+            string[] projectsNames = context.Projects
+                .Take(10)
+                .Select(p => p.Name)
+                .ToArray();
+            return String.Join(Environment.NewLine, projectsNames);
+        }
     }
 }
