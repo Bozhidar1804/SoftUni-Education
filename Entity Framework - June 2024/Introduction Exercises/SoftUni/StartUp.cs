@@ -9,7 +9,7 @@ namespace SoftUni
         static void Main(string[] args)
         {
             SoftUniContext context = new SoftUniContext();
-            string result = GetEmployeesInPeriod(context);
+            string result = GetAddressesByTown(context);
             Console.WriteLine(result);
         }
 
@@ -148,5 +148,34 @@ namespace SoftUni
 
             return sb.ToString().TrimEnd();
         }
+
+        // Problem 08
+        public static string GetAddressesByTown(SoftUniContext context)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            var addresses = context.Addresses
+                .Select(a => new
+                {
+                    a.AddressText,
+                    TownName = a.Town.Name,
+                    EmployeesCount = a.Employees.Count()
+                })
+                .Take(10)
+                .OrderByDescending(a => a.EmployeesCount)
+                .ThenBy(a => a.TownName)
+                .ThenBy(a => a.AddressText)
+                .ToArray();
+
+            foreach (var a in addresses)
+            {
+                sb.AppendLine($"{a.AddressText}, {a.TownName} - {a.EmployeesCount} employees");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        // Problem 09
+
     }
 }
