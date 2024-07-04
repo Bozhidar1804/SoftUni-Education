@@ -10,7 +10,7 @@ namespace SoftUni
         static void Main(string[] args)
         {
             SoftUniContext context = new SoftUniContext();
-            string result = GetEmployee147(context);
+            string result = GetDepartmentsWithMoreThan5Employees(context);
             Console.WriteLine(result);
         }
 
@@ -198,6 +198,45 @@ namespace SoftUni
         }
 
         // Problem 10
+        public static string GetDepartmentsWithMoreThan5Employees(SoftUniContext context)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            var departments = context.Departments
+                .Where(d => d.Employees.Count() > 5)
+                .OrderBy(d => d.Employees.Count())
+                .ThenBy(d => d.Name)
+                .Select(d => new
+                {
+                    DepartmentName = d.Name,
+                    ManagerFirstName = d.Manager.FirstName,
+                    ManagerLastName = d.Manager.LastName,
+                    Employees = d.Employees
+                                .Select(e => new
+                                {
+                                    e.FirstName,
+                                    e.LastName,
+                                    e.JobTitle
+                                })
+                                .OrderBy(e => e.FirstName)
+                                .ThenBy(e => e.LastName)
+                                .ToArray()
+                })
+                .ToArray();
+
+            foreach (var d in departments)
+            {
+                sb.AppendLine($"{d.DepartmentName} - {d.ManagerFirstName} {d.ManagerLastName}");
+
+                foreach (var e in d.Employees)
+                {
+                    sb.AppendLine($"{e.FirstName} {e.LastName} - {e.JobTitle}");
+                }
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
 
         // Problem 14
         public static string DeleteProjectById(SoftUniContext context)
