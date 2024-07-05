@@ -264,6 +264,37 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        // Problem 12
+        public static string IncreaseSalaries(SoftUniContext context)
+        {
+            string[] promotedDepartments = { "Engineering", "Tool Design", "Marketing", "Information Services" };
+
+            foreach (var e in context.Employees.Where(e => promotedDepartments.Contains(e.Department.Name)))
+            {
+                e.Salary *= 1.12M;
+            }
+
+            context.SaveChanges();
+
+            var employeesPromoted = context.Employees
+                .Where(e => promotedDepartments.Contains(e.Department.Name))
+                .Select(e => new
+                {
+                    e.FirstName,
+                    e.LastName,
+                    e.Salary
+                })
+                .OrderBy(e => e.FirstName).ThenBy(e => e.LastName)
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var e in employeesPromoted)
+            {
+                sb.AppendLine($"{e.FirstName} {e.LastName} (${e.Salary:F2})");
+            }
+            return sb.ToString().TrimEnd();
+        }
 
         // Problem 14
         public static string DeleteProjectById(SoftUniContext context)
