@@ -4,6 +4,7 @@
     using System.Text;
     using Data;
     using Initializer;
+    using MusicHub.Data.Models;
 
     public class StartUp
     {
@@ -12,9 +13,9 @@
             MusicHubDbContext context =
                 new MusicHubDbContext();
 
-            DbInitializer.ResetDatabase(context);
 
-            Console.WriteLine(ExportAlbumsInfo(context, 9));
+            DbInitializer.ResetDatabase(context);
+            Console.WriteLine(ExportSongsAboveDuration(context, 4));
         }
 
         public static string ExportAlbumsInfo(MusicHubDbContext context, int producerId)
@@ -70,7 +71,48 @@
 
         public static string ExportSongsAboveDuration(MusicHubDbContext context, int duration)
         {
-            throw new NotImplementedException();
+            var songs = context.Songs
+                .AsEnumerable()
+                .Where(s => s.Duration.TotalSeconds > duration)
+                .Select(s => new
+                {
+                    s.Name,
+                    Performers = s.SongPerformers
+                        .Select(sp => new
+                        {
+                            PerformerFullName = $"{sp.Performer.FirstName} {sp.Performer.LastName}"
+                        })
+                        .OrderBy(sp => sp.PerformerFullName)
+                        .ToArray(),
+                    WriterName = s.Writer.Name,
+                    AlbumProducer = s.Album.Producer,
+                    Duration = s.Duration
+                        .ToString("c")
+                })
+                .OrderBy(s => s.Name)
+                .ThenBy(s => s.WriterName)
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+
+            int songCount = 1;
+            foreach (var s in songs)
+            {
+                sb.AppendLine($"-Song #{songCount}");
+                sb.AppendLine($"---SongName: {s.Name}");
+                sb.AppendLine($"---Writer: {s.WriterName}");
+                
+                foreach (var p in s.Performers)
+                {
+                    sb.AppendLine($"---Performer: {p.PerformerFullName}");
+                }
+                sb.AppendLine($"---AlbumProducer: {s.AlbumProducer.Name}");
+                sb.AppendLine($"---Duration: {s.Duration}");
+
+                songCount++;
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
