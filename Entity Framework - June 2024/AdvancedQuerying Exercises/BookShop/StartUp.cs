@@ -11,9 +11,11 @@
             using var dbContext = new BookShopContext();
             DbInitializer.ResetDatabase(dbContext);
 
-            Console.WriteLine(GetGoldenBooks(dbContext));
+            string categories = Console.ReadLine();
+            Console.WriteLine(GetBooksByCategory(dbContext, categories));
         }
 
+        // Problem 02
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
         {
             try
@@ -33,6 +35,7 @@
             }
         }
 
+        // Problem 03
         public static string GetGoldenBooks(BookShopContext context)
         {
             var books = context.Books
@@ -42,6 +45,24 @@
                    .ToArray();
 
             return String.Join(Environment.NewLine, books);
+        }
+
+        // Problem 06
+        public static string GetBooksByCategory(BookShopContext context, string input)
+        {
+            string[] categories = input
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(c => c.ToLower())
+                .ToArray();
+
+            string[] bookTitles = context.Books
+                .Where(b => b.BookCategories
+                            .Any(bc => categories.Contains(bc.Category.Name.ToLower())))
+                .OrderBy(b => b.Title)
+                .Select(b => b.Title)
+                .ToArray();
+
+            return String.Join(Environment.NewLine, bookTitles);
         }
     }
 }
