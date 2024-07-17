@@ -13,7 +13,7 @@
             using var dbContext = new BookShopContext();
             DbInitializer.ResetDatabase(dbContext);
 
-            Console.WriteLine(CountCopiesByAuthor(dbContext));
+            Console.WriteLine(GetTotalProfitByCategory(dbContext));
         }
 
         // Problem 02
@@ -193,6 +193,30 @@
             foreach (var author in authors)
             {
                 sb.AppendLine($"{author.FullName} - {author.TotalCopies}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        // Problem 13
+        public static string GetTotalProfitByCategory(BookShopContext context)
+        {
+            var result = context.Categories
+                .Select(c => new
+                {
+                    CategoryName = c.Name,
+                    Profits = c.CategoryBooks
+                                .Sum(cb => cb.Book.Price * cb.Book.Copies)
+                })
+                .OrderByDescending(c => c.Profits)
+                .ThenBy(c => c.CategoryName)
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var pair in result)
+            {
+                sb.AppendLine($"{pair.CategoryName} ${pair.Profits:F2}");
             }
 
             return sb.ToString().TrimEnd();
