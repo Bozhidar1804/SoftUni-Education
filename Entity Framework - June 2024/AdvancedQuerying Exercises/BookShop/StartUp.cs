@@ -13,7 +13,7 @@
             using var dbContext = new BookShopContext();
             DbInitializer.ResetDatabase(dbContext);
 
-            Console.WriteLine(GetBookTitlesContaining(dbContext, "WOR"));
+            Console.WriteLine(GetBooksByAuthor(dbContext, "po"));
         }
 
         // Problem 02
@@ -149,6 +149,20 @@
                 .Where(b => b.Title.ToLower().Contains(input))
                 .OrderBy(b => b.Title)
                 .Select(b => b.Title)
+                .ToArray();
+
+            return string.Join(Environment.NewLine, books);
+        }
+
+        // Problem 10
+        public static string GetBooksByAuthor(BookShopContext context, string input)
+        {
+            input = input.ToLower();
+
+            var books = context.Books
+                .Where(b => b.Author.LastName.ToLower().StartsWith(input))
+                .OrderBy(b => b.BookId)
+                .Select(b => $"{b.Title} ({b.Author.FirstName} {b.Author.LastName})")
                 .ToArray();
 
             return string.Join(Environment.NewLine, books);
