@@ -3,6 +3,7 @@
     using BookShop.Models.Enums;
     using Data;
     using Initializer;
+    using System.Globalization;
     using System.Text;
 
     public class StartUp
@@ -12,7 +13,7 @@
             using var dbContext = new BookShopContext();
             DbInitializer.ResetDatabase(dbContext);
 
-            Console.WriteLine(GetBooksNotReleasedIn(dbContext, 2000));
+            Console.WriteLine(GetBooksReleasedBefore(dbContext, "12-04-1992"));
         }
 
         // Problem 02
@@ -98,6 +99,32 @@
                 .ToArray();
 
             return String.Join(Environment.NewLine, bookTitles);
+        }
+
+        // Problem 07
+        public static string GetBooksReleasedBefore(BookShopContext context, string date)
+        {
+            DateTime input = DateTime.ParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+
+            var books = context.Books
+                .Where(b => b.ReleaseDate < input)
+                .OrderByDescending(b => b.ReleaseDate)
+                .Select(b => new
+                {
+                    b.Title,
+                    EditionType = b.EditionType.ToString(),
+                    Price = b.Price.ToString("f2")
+                })
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var b in books)
+            {
+                sb.AppendLine($"{b.Title} - {b.EditionType} - ${b.Price:F2}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
