@@ -13,7 +13,7 @@
             using var dbContext = new BookShopContext();
             DbInitializer.ResetDatabase(dbContext);
 
-            Console.WriteLine(GetBooksReleasedBefore(dbContext, "12-04-1992"));
+            Console.WriteLine(GetAuthorNamesEndingIn(dbContext, "e"));
         }
 
         // Problem 02
@@ -126,6 +126,21 @@
 
             return sb.ToString().TrimEnd();
         }
+
+        // Problem 08
+        public static string GetAuthorNamesEndingIn(BookShopContext context, string input)
+        {
+            string[] authors = context.Authors
+                .Where(a => a.FirstName.EndsWith(input))
+                .OrderBy(a => a.FirstName)
+                .ThenBy(a => a.LastName)
+                .Select(a => $"{a.FirstName} {a.LastName}")
+                .ToArray();
+
+            return String.Join(Environment.NewLine, authors);
+        }
+
+        // Problem 09
     }
 }
 
