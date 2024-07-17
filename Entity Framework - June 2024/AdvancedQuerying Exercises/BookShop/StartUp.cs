@@ -270,6 +270,26 @@
 
             context.SaveChanges();
         }
+
+        // Problem 16
+        public static int RemoveBooks(BookShopContext context)
+        {
+            var booksToRemove = context.Books
+                .Where(b => b.Copies < 4200)
+                .ToArray();
+
+            int count = booksToRemove.Count();
+
+            foreach (var book in booksToRemove)
+            {
+                context.Remove(book);
+            }
+
+            context.SaveChanges();
+
+            return count;
+        }
+
     }
 }
 
