@@ -13,7 +13,7 @@
             using var dbContext = new BookShopContext();
             DbInitializer.ResetDatabase(dbContext);
 
-            Console.WriteLine(GetBooksByAuthor(dbContext, "po"));
+            Console.WriteLine(CountCopiesByAuthor(dbContext));
         }
 
         // Problem 02
@@ -166,6 +166,36 @@
                 .ToArray();
 
             return string.Join(Environment.NewLine, books);
+        }
+
+        // Problem 11
+        public static int CountBooks(BookShopContext context, int lengthCheck)
+        {
+            return context.Books
+                .Where(b => b.Title.Length > lengthCheck)
+                .Count();
+        }
+
+        // Problem 12
+        public static string CountCopiesByAuthor(BookShopContext context)
+        {
+            var authors = context.Authors
+                .Select(a => new
+                {
+                    FullName = $"{a.FirstName} {a.LastName}",
+                    TotalCopies = a.Books.Sum(b => b.Copies)
+                })
+                .OrderByDescending(a => a.TotalCopies)
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var author in authors)
+            {
+                sb.AppendLine($"{author.FullName} - {author.TotalCopies}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
