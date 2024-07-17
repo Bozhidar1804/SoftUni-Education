@@ -255,6 +255,21 @@
 
             return sb.ToString().TrimEnd();
         }
+
+        // Problem 15
+        public static void IncreasePrices(BookShopContext context)
+        {
+            var booksToIncrease = context.Books
+                .Where(b => b.ReleaseDate.Value.Year < 2010)
+                .ToArray();
+
+            foreach (var book in booksToIncrease)
+            {
+                book.Price += 5;
+            }
+
+            context.SaveChanges();
+        }
     }
 }
 
