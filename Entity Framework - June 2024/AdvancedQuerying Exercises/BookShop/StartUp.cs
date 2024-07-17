@@ -13,7 +13,7 @@
             using var dbContext = new BookShopContext();
             DbInitializer.ResetDatabase(dbContext);
 
-            Console.WriteLine(GetAuthorNamesEndingIn(dbContext, "e"));
+            Console.WriteLine(GetBookTitlesContaining(dbContext, "WOR"));
         }
 
         // Problem 02
@@ -141,6 +141,18 @@
         }
 
         // Problem 09
+        public static string GetBookTitlesContaining(BookShopContext context, string input)
+        {
+            input = input.ToLower();
+
+            string[] books = context.Books
+                .Where(b => b.Title.ToLower().Contains(input))
+                .OrderBy(b => b.Title)
+                .Select(b => b.Title)
+                .ToArray();
+
+            return string.Join(Environment.NewLine, books);
+        }
     }
 }
 
