@@ -10,9 +10,9 @@ namespace ProductShop
         public static void Main()
         {
             ProductShopContext context = new ProductShopContext();
-            Console.WriteLine("test");
             string users = File.ReadAllText("../../../Datasets/users.json");
-            Console.WriteLine(ImportUsers(context, users));
+            string products = File.ReadAllText("../../../Datasets/products.json");
+            Console.WriteLine(ImportProducts(context, products));
         }
 
         public static string ImportUsers(ProductShopContext context, string inputJson)
@@ -23,6 +23,16 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {users.Count}";
+        }
+
+        public static string ImportProducts(ProductShopContext context, string inputJson)
+        {
+            List<Product> products = JsonConvert.DeserializeObject<List<Product>>(inputJson);
+
+            context.Products.AddRange(products);
+            context.SaveChanges();
+
+            return $"Successfully imported {products.Count}";
         }
     }
 }
