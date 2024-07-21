@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using ProductShop.Data;
+using ProductShop.DTOs.Export;
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
 
@@ -14,7 +16,7 @@ namespace ProductShop
             string products = File.ReadAllText("../../../Datasets/products.json");
             string categories = File.ReadAllText("../../../Datasets/categories.json");
             string categoriesProducts = File.ReadAllText("../../../Datasets/categories-products.json");
-            Console.WriteLine(ImportCategoryProducts(context, categoriesProducts));
+            Console.WriteLine(GetProductsInRange(context));
         }
 
 
@@ -65,5 +67,28 @@ namespace ProductShop
         }
 
         // Problem 05
+
+        public static string GetProductsInRange(ProductShopContext context)
+        {
+            var products = context.Products
+                .Where(p => p.Price >= 500 && p.Price <= 1000)
+                .OrderBy(p => p.Price)
+                .Select(p => new ExportProductDto
+                {
+                    Name = p.Name,
+                    Price = p.Price,
+                    Seller = $"{p.Seller.FirstName} {p.Seller.LastName}"
+                })
+                .ToArray();
+
+            var settings = new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Formatting = Formatting.Indented
+            };
+
+            return JsonConvert.SerializeObject(products, settings);
+        }
     }
 }
