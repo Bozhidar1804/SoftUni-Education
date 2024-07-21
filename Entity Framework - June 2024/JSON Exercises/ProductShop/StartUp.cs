@@ -16,7 +16,7 @@ namespace ProductShop
             string products = File.ReadAllText("../../../Datasets/products.json");
             string categories = File.ReadAllText("../../../Datasets/categories.json");
             string categoriesProducts = File.ReadAllText("../../../Datasets/categories-products.json");
-            Console.WriteLine(GetProductsInRange(context));
+            Console.WriteLine(GetCategoriesByProductsCount(context));
         }
 
 
@@ -89,6 +89,61 @@ namespace ProductShop
             };
 
             return JsonConvert.SerializeObject(products, settings);
+        }
+
+        // Problem 06
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId != null))
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .Select(u => new
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    SoldProducts = u.ProductsSold
+                                    .Select(p => new
+                                    {
+                                        Name = p.Name,
+                                        Price = p.Price,
+                                        BuyerFirstName = p.Buyer.FirstName,
+                                        BuyerLastName = p.Buyer.LastName
+                                    })
+                                    .ToArray()
+                })
+                .ToArray();
+
+            var settings = new JsonSerializerSettings()
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Formatting = Formatting.Indented
+            };
+
+            return JsonConvert.SerializeObject(users, settings);
+        }
+
+        // Problem 07
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            var categories = context.Categories
+                .OrderByDescending(c => c.CategoriesProducts.Count())
+                .Select(c => new
+                {
+                    Category = c.Name,
+                    ProductsCount = c.CategoriesProducts.Count(),
+                    AveragePrice = c.CategoriesProducts.Average(cp => cp.Product.Price).ToString("f2"),
+                    TotalRevenue = c.CategoriesProducts.Sum(cp => cp.Product.Price).ToString("f2")
+                })
+                .ToArray();
+
+            var settings = new JsonSerializerSettings()
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Formatting = Formatting.Indented
+            };
+
+            return JsonConvert.SerializeObject(categories, settings);
         }
     }
 }
