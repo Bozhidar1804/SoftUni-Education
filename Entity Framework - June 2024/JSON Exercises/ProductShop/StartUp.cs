@@ -4,6 +4,7 @@ using ProductShop.Data;
 using ProductShop.DTOs.Export;
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
+using System.Net.NetworkInformation;
 
 namespace ProductShop
 {
@@ -16,7 +17,7 @@ namespace ProductShop
             string products = File.ReadAllText("../../../Datasets/products.json");
             string categories = File.ReadAllText("../../../Datasets/categories.json");
             string categoriesProducts = File.ReadAllText("../../../Datasets/categories-products.json");
-            Console.WriteLine(GetCategoriesByProductsCount(context));
+            Console.WriteLine(GetUsersWithProducts(context));
         }
 
 
@@ -144,6 +145,54 @@ namespace ProductShop
             };
 
             return JsonConvert.SerializeObject(categories, settings);
+        }
+
+        // Problem 08
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId != null && p.Price != null))
+                .Select(u => new
+                {
+                    u.FirstName,
+                    u.LastName,
+                    u.Age,
+                    SoldProducts = u.ProductsSold
+                                    .Where(p => p.BuyerId != null && p.Price != null)
+                                    .Select(p => new
+                                    {
+                                        p.Name,
+                                        p.Price
+                                    })
+                                    .ToArray()
+                })
+                .OrderByDescending(u => u.SoldProducts.Length)
+                .ToArray();
+
+            var output = new
+            {
+                UsersCount = users.Length,
+                Users = users.Select(u => new
+                {
+                    u.FirstName,
+                    u.LastName,
+                    u.Age,
+                    SoldProducts = new
+                    {
+                        Count = u.SoldProducts.Length,
+                        Products = u.SoldProducts
+                    }
+                })
+            };
+
+            var settings = new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Formatting = Formatting.Indented
+            };
+
+            return JsonConvert.SerializeObject(output, settings);
         }
     }
 }
