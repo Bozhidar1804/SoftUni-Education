@@ -11,9 +11,11 @@ namespace CarDealer
         {
             CarDealerContext context = new CarDealerContext();
             string suppliers = File.ReadAllText("../../../Datasets/suppliers.json");
-            Console.WriteLine(ImportSuppliers(context, suppliers));
+            string parts = File.ReadAllText("../../../Datasets/parts.json");
+            Console.WriteLine(ImportParts(context, parts));
         }
 
+        // Problem 01
         public static string ImportSuppliers(CarDealerContext context, string inputJson)
         {
             List<Supplier> suppliers = JsonConvert.DeserializeObject<List<Supplier>>(inputJson);
@@ -22,6 +24,28 @@ namespace CarDealer
             context.SaveChanges();
 
             return $"Successfully imported {suppliers.Count}";
+        }
+
+        // Problem 02
+        public static string ImportParts(CarDealerContext context, string inputJson)
+        {
+            // 1. Deserialize to a List of parts
+            List<Part> parts = JsonConvert.DeserializeObject<List<Part>>(inputJson);
+
+            // 2. Get an array of valid Ids
+            var validSupplierIds = context.Suppliers
+                .Select(x => x.Id)
+                .ToArray();
+
+            // 3.Filter parts based on valid Ids
+            var partsWithValidSuppliers = parts
+                .Where(p => validSupplierIds.Contains(p.SupplierId))
+                .ToArray();
+
+            context.Parts.AddRange(partsWithValidSuppliers);
+            context.SaveChanges();
+
+            return $"Successfully imported {partsWithValidSuppliers.Length}";
         }
     }
 }
