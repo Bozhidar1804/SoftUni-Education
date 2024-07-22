@@ -17,7 +17,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.json");
             string customers = File.ReadAllText("../../../Datasets/customers.json");
             string sales = File.ReadAllText("../../../Datasets/sales.json");
-            Console.WriteLine(GetLocalSuppliers(context));
+            Console.WriteLine(GetCarsWithTheirListOfParts(context));
         }
 
         // Problem 09
@@ -193,6 +193,32 @@ namespace CarDealer
                 .ToArray();
 
             return JsonConvert.SerializeObject(suppliers, Formatting.Indented);
+        }
+
+        // Problem 17 !! carsWithLabel
+        public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+        {
+            var cars = context.Cars
+                .Select(c => new
+                {
+                    c.Make,
+                    c.Model,
+                    c.TraveledDistance,
+                    parts = c.PartsCars.Select(pc => new
+                    {
+                        pc.Part.Name,
+                        pc.Part.Price
+                    })
+                    .ToArray()
+                })
+                .ToArray();
+
+            var carsWithLabel = cars.Select(car => new
+            {
+                car = car
+            });
+
+            return JsonConvert.SerializeObject(carsWithLabel, Formatting.Indented);
         }
 
     }
