@@ -16,7 +16,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.json");
             string customers = File.ReadAllText("../../../Datasets/customers.json");
             string sales = File.ReadAllText("../../../Datasets/sales.json");
-            Console.WriteLine(ImportSales(context, sales));
+            Console.WriteLine(GetOrderedCustomers(context));
         }
 
         // Problem 09
@@ -135,6 +135,28 @@ namespace CarDealer
             context.SaveChanges();
 
             return $"Successfully imported {sales.Count}"; */
+        }
+
+        // Problem 14
+        public static string GetOrderedCustomers(CarDealerContext context)
+        {
+            var customers = context.Customers
+                .OrderBy(c => c.BirthDate)
+                .ThenBy(c => c.IsYoungDriver)
+                .Select(c => new
+                {
+                    c.Name,
+                    BirthDate = c.BirthDate.ToString("dd/MM/yyyy"),
+                    c.IsYoungDriver
+                })
+                .ToArray();
+
+            var settings = new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented
+            };
+
+            return JsonConvert.SerializeObject(customers, settings);
         }
 
     }
