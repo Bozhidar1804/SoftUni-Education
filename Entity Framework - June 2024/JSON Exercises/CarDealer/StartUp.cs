@@ -3,6 +3,7 @@ using CarDealer.Models;
 using Newtonsoft.Json;
 using CarDealer;
 using CarDealer.DTOs.Import;
+using System.Net.NetworkInformation;
 
 namespace CarDealer
 {
@@ -16,7 +17,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.json");
             string customers = File.ReadAllText("../../../Datasets/customers.json");
             string sales = File.ReadAllText("../../../Datasets/sales.json");
-            Console.WriteLine(GetOrderedCustomers(context));
+            Console.WriteLine(GetCarsFromMakeToyota(context));
         }
 
         // Problem 09
@@ -157,6 +158,25 @@ namespace CarDealer
             };
 
             return JsonConvert.SerializeObject(customers, settings);
+        }
+
+        // Problem 15
+        public static string GetCarsFromMakeToyota(CarDealerContext context)
+        {
+            var cars = context.Cars
+                .Where(c => c.Make == "Toyota")
+                .OrderBy(c => c.Model)
+                .ThenByDescending(c => c.TraveledDistance)
+                .Select(c => new
+                {
+                    c.Id,
+                    c.Make,
+                    c.Model,
+                    c.TraveledDistance
+                })
+                .ToArray();
+
+            return JsonConvert.SerializeObject(cars, Formatting.Indented);
         }
 
     }
