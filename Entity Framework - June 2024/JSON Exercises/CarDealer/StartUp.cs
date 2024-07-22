@@ -17,7 +17,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.json");
             string customers = File.ReadAllText("../../../Datasets/customers.json");
             string sales = File.ReadAllText("../../../Datasets/sales.json");
-            Console.WriteLine(GetCarsFromMakeToyota(context));
+            Console.WriteLine(GetLocalSuppliers(context));
         }
 
         // Problem 09
@@ -177,6 +177,22 @@ namespace CarDealer
                 .ToArray();
 
             return JsonConvert.SerializeObject(cars, Formatting.Indented);
+        }
+
+        // Problem 16
+        public static string GetLocalSuppliers(CarDealerContext context)
+        {
+            var suppliers = context.Suppliers
+                .Where(s => s.IsImporter == false)
+                .Select(s => new
+                {
+                    s.Id,
+                    s.Name,
+                    PartsCount = s.Parts.Count
+                })
+                .ToArray();
+
+            return JsonConvert.SerializeObject(suppliers, Formatting.Indented);
         }
 
     }
