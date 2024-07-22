@@ -15,7 +15,8 @@ namespace CarDealer
             string parts = File.ReadAllText("../../../Datasets/parts.json");
             string cars = File.ReadAllText("../../../Datasets/cars.json");
             string customers = File.ReadAllText("../../../Datasets/customers.json");
-            Console.WriteLine(ImportCustomers(context, customers));
+            string sales = File.ReadAllText("../../../Datasets/sales.json");
+            Console.WriteLine(ImportSales(context, sales));
         }
 
         // Problem 09
@@ -95,6 +96,45 @@ namespace CarDealer
             context.SaveChanges();
 
             return $"Successfully imported {customers.Count}";
+        }
+
+        // Problem 13
+        public static string ImportSales(CarDealerContext context, string inputJson)
+        {
+            List<Sale> sales = JsonConvert.DeserializeObject<List<Sale>>(inputJson);
+
+            context.Sales.AddRange(sales);
+            context.SaveChanges();
+
+            return $"Successfully imported {sales.Count}";
+
+            // Trying to declare the exact car and the exact customer for every sale
+            /* List<Sale> salesDeserialized = JsonConvert.DeserializeObject<List<Sale>>(inputJson);
+
+            HashSet<Sale> sales = new HashSet<Sale>();
+
+            foreach (Sale sale in salesDeserialized)
+            {
+                Car currentCar = (Car)context.Cars.Where(c => c.Id == sale.CarId);
+                Customer currentCustomer = (Customer)context.Customers.Where(c => c.Id == sale.CustomerId);
+
+                Sale currentSale = new Sale()
+                {
+                    Id = sale.Id,
+                    Discount = sale.Discount,
+                    CarId = sale.CarId,
+                    Car = currentCar,
+                    CustomerId = sale.CustomerId,
+                    Customer = currentCustomer
+                };
+
+                sales.Add(currentSale);
+            }
+
+            context.Sales.AddRange(sales);
+            context.SaveChanges();
+
+            return $"Successfully imported {sales.Count}"; */
         }
 
     }
