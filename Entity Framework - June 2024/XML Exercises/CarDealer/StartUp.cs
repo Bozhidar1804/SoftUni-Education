@@ -14,7 +14,8 @@ namespace CarDealer
             string parts = File.ReadAllText("../../../Datasets/parts.xml");
             string cars = File.ReadAllText("../../../Datasets/cars.xml");
             string customers = File.ReadAllText("../../../Datasets/customers.xml");
-            Console.WriteLine(ImportCustomers(context, customers));
+            string sales = File.ReadAllText("../../../Datasets/sales.xml");
+            Console.WriteLine(ImportSales(context, sales));
         }
 
         // Problem 09
@@ -157,6 +158,38 @@ namespace CarDealer
             context.SaveChanges();
 
             return $"Successfully imported {customers.Length}";
+        }
+
+        // Problem 13
+        public static string ImportSales(CarDealerContext context, string inputXml)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ImportSaleDto[]),
+                        new XmlRootAttribute("Sales"));
+
+            ImportSaleDto[] importSaleDtos;
+
+            using (var reader = new StringReader(inputXml))
+            {
+                importSaleDtos = (ImportSaleDto[])xmlSerializer.Deserialize(reader);
+            }
+
+            int[] validCarIds = context.Cars
+                .Select(c => c.Id)
+                .ToArray();
+
+            Sale[] sales = importSaleDtos
+                .Where(dto => validCarIds.Contains(dto.CarId))
+                .Select(dto => new Sale()
+                {
+                    CarId = dto.CarId,
+                    CustomerId = dto.CustomerId,
+                    Discount = dto.Discount
+                }).ToArray();
+
+            context.Sales.AddRange(sales);
+            context.SaveChanges();
+
+            return $"Successfully imported {sales.Length}";
         }
     }
 }
