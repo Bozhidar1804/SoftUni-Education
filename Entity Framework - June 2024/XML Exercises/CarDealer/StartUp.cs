@@ -19,7 +19,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.xml");
             string customers = File.ReadAllText("../../../Datasets/customers.xml");
             string sales = File.ReadAllText("../../../Datasets/sales.xml");
-            Console.WriteLine(GetCarsFromMakeBmw(context));
+            Console.WriteLine(GetLocalSuppliers(context));
         }
 
         // Problem 09
@@ -234,7 +234,20 @@ namespace CarDealer
         }
 
         // Problem 16
+        public static string GetLocalSuppliers(CarDealerContext context)
+        {
+            var suppliers = context.Suppliers
+                .Where(s => s.IsImporter == false)
+                .Select(s => new LocalSupplierExportDto()
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    PartsCount = s.Parts.Count()
+                })
+                .ToArray();
 
+            return SerializeToXml(suppliers, "suppliers");
+        }
 
 
 
