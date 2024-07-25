@@ -19,7 +19,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.xml");
             string customers = File.ReadAllText("../../../Datasets/customers.xml");
             string sales = File.ReadAllText("../../../Datasets/sales.xml");
-            Console.WriteLine(GetCarsWithTheirListOfParts(context));
+            Console.WriteLine(GetTotalSalesByCustomer(context));
         }
 
         // Problem 09
@@ -274,6 +274,34 @@ namespace CarDealer
             return SerializeToXml(cars, "cars");
         }
 
+        // Problem 18
+        public static string GetTotalSalesByCustomer(CarDealerContext context)
+        {
+            var customersBeforeDto = context.Customers
+                .Where(c => c.Sales.Any())
+                .Select(c => new
+                {
+                    FullName = c.Name,
+                    BoughtCars = c.Sales.Count(),
+                    SalesInfo = c.Sales.Select(s => new
+                    {
+                        Prices = c.IsYoungDriver
+                        ? s.Car.PartsCars.Sum(pc => Math.Round((double)pc.Part.Price * 0.95, 2))
+                        : s.Car.PartsCars.Sum(pc => (double)pc.Part.Price)
+                    }).ToArray()
+                }).ToArray();
+
+            var customersDto = customersBeforeDto
+                .OrderByDescending(c => c.SalesInfo.Sum(c => c.Prices))
+                .Select(dto => new CustomerExportDto()
+                {
+                    FullName = dto.FullName,
+                    BoughtCars = dto.BoughtCars,
+                    SpentMoney = dto.SalesInfo.Sum(s => (decimal)s.Prices)
+                }).ToArray();
+
+            return SerializeToXml(customersDto, "customers");
+        }
 
 
 
