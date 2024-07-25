@@ -19,7 +19,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.xml");
             string customers = File.ReadAllText("../../../Datasets/customers.xml");
             string sales = File.ReadAllText("../../../Datasets/sales.xml");
-            Console.WriteLine(GetCarsWithDistance(context));
+            Console.WriteLine(GetCarsFromMakeBmw(context));
         }
 
         // Problem 09
@@ -214,6 +214,28 @@ namespace CarDealer
 
             return SerializeToXml(carsWithDistance, "cars");
         }
+
+        // Problem 15 DTO is with ATTRIBUTES, not elements
+        public static string GetCarsFromMakeBmw(CarDealerContext context)
+        {
+            var cars = context.Cars
+                .Where(c => c.Make == "BMW")
+                .Select(c => new CarsFromMakeBmwExportDto()
+                {
+                    Id = c.Id,
+                    Model = c.Model,
+                    TraveledDistance = c.TraveledDistance
+                })
+                .OrderBy(c => c.Model)
+                .ThenByDescending(c => c.TraveledDistance)
+                .ToArray();
+
+            return SerializeToXml(cars, "cars", true);
+        }
+
+        // Problem 16
+
+
 
 
 
