@@ -19,7 +19,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.xml");
             string customers = File.ReadAllText("../../../Datasets/customers.xml");
             string sales = File.ReadAllText("../../../Datasets/sales.xml");
-            Console.WriteLine(GetLocalSuppliers(context));
+            Console.WriteLine(GetCarsWithTheirListOfParts(context));
         }
 
         // Problem 09
@@ -247,6 +247,31 @@ namespace CarDealer
                 .ToArray();
 
             return SerializeToXml(suppliers, "suppliers");
+        }
+
+        // Problem 17
+        public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+        {
+            var cars = context.Cars
+                .Select(c => new CarWithPartsExportDto()
+                {
+                    Make = c.Make,
+                    Model = c.Model,
+                    TraveledDistance = c.TraveledDistance,
+                    Parts = c.PartsCars.Select(pc => new PartsForCarsExportDto()
+                    {
+                        Name = pc.Part.Name,
+                        Price = Math.Round(pc.Part.Price, 2)
+                    })
+                    .OrderByDescending(p => p.Price)
+                    .ToArray()
+                })
+                .OrderByDescending(c => c.TraveledDistance)
+                .ThenBy(c => c.Model)
+                .Take(5)
+                .ToArray();
+
+            return SerializeToXml(cars, "cars");
         }
 
 
