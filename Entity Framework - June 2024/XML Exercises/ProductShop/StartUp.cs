@@ -11,7 +11,8 @@ namespace ProductShop
         {
             ProductShopContext context = new ProductShopContext();
             string users = File.ReadAllText("../../../Datasets/users.xml");
-            Console.WriteLine(ImportUsers(context, users));
+            string products = File.ReadAllText("../../../Datasets/products.xml");
+            Console.WriteLine(ImportProducts(context, products));
         }
 
         // Problem 01
@@ -39,6 +40,38 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {users.Length}";
+        }
+
+        // Problem 02
+        public static string ImportProducts(ProductShopContext context, string inputXml)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ProductImportDto[]),
+                    new XmlRootAttribute("Products"));
+
+            ProductImportDto[] productsDtos;
+            using (var reader = new StringReader(inputXml))
+            {
+                productsDtos = (ProductImportDto[])xmlSerializer.Deserialize(reader);
+            }
+
+            int[] validUserIds = context.Users
+                .Select(u => u.Id)
+                .ToArray();
+
+            Product[] products = productsDtos
+                .Where(p => validUserIds.Contains(p.SellerId) && validUserIds.Contains(p.BuyerId))
+                .Select(p => new Product()
+                {
+                    Name = p.Name,
+                    Price = p.Price,
+                    SellerId = p.SellerId,
+                    BuyerId = p.BuyerId
+                }).ToArray();
+
+            context.Products.AddRange(products);
+            context.SaveChanges();
+
+            return $"Successfully imported {products.Length}";
         }
     }
 }
