@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using System;
 
 namespace CarDealer
 {
@@ -19,7 +20,7 @@ namespace CarDealer
             string cars = File.ReadAllText("../../../Datasets/cars.xml");
             string customers = File.ReadAllText("../../../Datasets/customers.xml");
             string sales = File.ReadAllText("../../../Datasets/sales.xml");
-            Console.WriteLine(GetTotalSalesByCustomer(context));
+            Console.WriteLine(GetSalesWithAppliedDiscount(context));
         }
 
         // Problem 09
@@ -302,6 +303,31 @@ namespace CarDealer
 
             return SerializeToXml(customersDto, "customers");
         }
+
+        // Problem 19
+        public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+        {
+            SaleExportDto[] salesDto = context.Sales
+                .Select(s => new SaleExportDto()
+                {
+                    CarInfo = new CarForSaleInfoExportDto()
+                    {
+                        Make = s.Car.Make,
+                        Model = s.Car.Model,
+                        TraveledDistance = s.Car.TraveledDistance
+                    },
+                    Discount = (int)s.Discount,
+                    CustomerName = s.Customer.Name,
+                    Price = s.Car.PartsCars.Sum(p => p.Part.Price),
+                    PriceWithDiscount =
+                        Math.Round((double)(s.Car.PartsCars
+                            .Sum(p => p.Part.Price) * (1 - (s.Discount / 100))), 4)
+                })
+                .ToArray();
+
+            return SerializeToXml<SaleExportDto[]>(salesDto, "sales");
+        }
+
 
 
 
