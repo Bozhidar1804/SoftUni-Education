@@ -13,7 +13,8 @@ namespace ProductShop
             string users = File.ReadAllText("../../../Datasets/users.xml");
             string products = File.ReadAllText("../../../Datasets/products.xml");
             string categories = File.ReadAllText("../../../Datasets/categories.xml");
-            Console.WriteLine(ImportCategories(context, categories));
+            string categoriesProducts = File.ReadAllText("../../../Datasets/categories-products.xml");
+            Console.WriteLine(ImportCategoryProducts(context, categoriesProducts));
         }
 
         // Problem 01
@@ -96,6 +97,42 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {categories.Length}";
+        }
+
+        // Problem 04
+        public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(CategoryProductImportDto[]),
+                    new XmlRootAttribute("CategoryProducts"));
+
+            CategoryProductImportDto[] categoryProductsImportDtos;
+
+            using (var reader = new StringReader(inputXml))
+            {
+                categoryProductsImportDtos = (CategoryProductImportDto[])xmlSerializer.Deserialize(reader);
+            }
+
+            int[] validCategoryIds = context.Categories
+                .Select(c => c.Id)
+                .ToArray();
+
+            int[] validProductIds = context.Products
+                .Select(p => p.Id)
+                .ToArray();
+
+            CategoryProduct[] categoryProducts = categoryProductsImportDtos
+                .Where(dto => validCategoryIds.Contains(dto.CategoryId) && validProductIds.Contains(dto.ProductId))
+                .Select(dto => new CategoryProduct()
+                {
+                    CategoryId = dto.CategoryId,
+                    ProductId = dto.ProductId
+                })
+                .ToArray();
+
+            context.CategoryProducts.AddRange(categoryProducts);
+            context.SaveChanges();
+
+            return $"Successfully imported {categoryProducts.Length}";
         }
     }
 }
