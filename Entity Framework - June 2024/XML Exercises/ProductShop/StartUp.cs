@@ -12,7 +12,8 @@ namespace ProductShop
             ProductShopContext context = new ProductShopContext();
             string users = File.ReadAllText("../../../Datasets/users.xml");
             string products = File.ReadAllText("../../../Datasets/products.xml");
-            Console.WriteLine(ImportProducts(context, products));
+            string categories = File.ReadAllText("../../../Datasets/categories.xml");
+            Console.WriteLine(ImportCategories(context, categories));
         }
 
         // Problem 01
@@ -72,6 +73,29 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {products.Length}";
+        }
+
+        // Problem 03
+        public static string ImportCategories(ProductShopContext context, string inputXml)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(CategoryImportDto[]),
+                    new XmlRootAttribute("Categories"));
+
+            CategoryImportDto[] categoriesDtos;
+            using (var reader = new StringReader(inputXml))
+            {
+                categoriesDtos = (CategoryImportDto[])xmlSerializer.Deserialize(reader);
+            }
+
+            Category[] categories = categoriesDtos
+                .Where(c => c.Name != null)
+                .Select(c => new Category() { Name = c.Name })
+                .ToArray();
+
+            context.Categories.AddRange(categories);
+            context.SaveChanges();
+
+            return $"Successfully imported {categories.Length}";
         }
     }
 }
