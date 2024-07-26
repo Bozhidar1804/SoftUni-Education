@@ -1,6 +1,10 @@
 ﻿using ProductShop.Data;
+using ProductShop.DTOs.Export;
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
+using System.Globalization;
+using System.Text;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace ProductShop
@@ -14,7 +18,7 @@ namespace ProductShop
             string products = File.ReadAllText("../../../Datasets/products.xml");
             string categories = File.ReadAllText("../../../Datasets/categories.xml");
             string categoriesProducts = File.ReadAllText("../../../Datasets/categories-products.xml");
-            Console.WriteLine(ImportCategoryProducts(context, categoriesProducts));
+            Console.WriteLine(GetProductsInRange(context));
         }
 
         // Problem 01
@@ -133,6 +137,56 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {categoryProducts.Length}";
+        }
+
+        // Problem 05
+        public static string GetProductsInRange(ProductShopContext context)
+        {
+            var products = context.Products
+                .Where(p => p.Price >= 500 && p.Price <= 1000)
+                .OrderBy(p => p.Price)
+                .Select(p => new ProductsInRangeExportDto()
+                {
+                    Name = p.Name,
+                    Price = p.Price,
+                    Buyer = $"{p.Buyer.FirstName} {p.Buyer.LastName}"
+                })
+                .Take(10)
+                .ToArray();
+
+            return SerializeToXml(products, "Products");
+        }
+
+
+        private static string SerializeToXml<T>(T dto, string xmlRootAttribute, bool omitDeclaration = false)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T), new XmlRootAttribute(xmlRootAttribute));
+            StringBuilder sb = new StringBuilder();
+
+            XmlWriterSettings settings = new XmlWriterSettings
+            {
+                OmitXmlDeclaration = omitDeclaration,
+                Encoding = new UTF8Encoding(false),
+                Indent = true
+            };
+
+            using (StringWriter stringWriter = new StringWriter(sb, CultureInfo.InvariantCulture))
+            using (XmlWriter xmlWriter = XmlWriter.Create(sb, settings))
+            {
+                XmlSerializerNamespaces xmlSerializerNamespaces = new XmlSerializerNamespaces();
+                xmlSerializerNamespaces.Add(string.Empty, string.Empty);
+
+                try
+                {
+                    xmlSerializer.Serialize(xmlWriter, dto, xmlSerializerNamespaces);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+
+            return sb.ToString();
         }
     }
 }
