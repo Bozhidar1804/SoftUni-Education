@@ -5,38 +5,37 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Invoices.Data.Models.Enums;
 
 namespace Invoices.Data.Models
 {
     using static DataConstraints;
-    public class Address
+    public class Invoice
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(StreetNameMaxLength)]
-        public string StreetName { get; set; } = null!;
+        [MaxLength(InvoiceMaxValue)]
+        public int Number { get; set; }
 
         [Required]
-        public int StreetNumber { get; set; }
+        public DateTime IssueDate { get; set; }
 
         [Required]
-        public string PostCode { get; set; } = null!; // NVARCHAR(MAX)
+        public DateTime DueDate { get; set; }
 
         [Required]
-        [MaxLength(CityNameMaxLength)]
-        public string City { get; set; } = null!; // NVARCHAR(15)
+        public decimal Amount { get; set; }
 
         [Required]
-        [MaxLength(CountryNameMaxLength)]
-        public string Country { get; set; } = null!;
+        public CurrencyType CurrencyType { get; set; }
 
         [Required]
         [ForeignKey(nameof(Client))]
         public int ClientId { get; set; }
 
+        [Required]
         public virtual Client Client { get; set; } = null!;
-
     }
 }

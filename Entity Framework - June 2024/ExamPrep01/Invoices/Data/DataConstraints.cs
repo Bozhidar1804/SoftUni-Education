@@ -18,5 +18,21 @@ namespace Invoices.Data
         // Address
         public const byte StreetNameMinLength = 10;
         public const byte StreetNameMaxLength = 20;
+
+        public const byte CityNameMinLength = 5;
+        public const byte CityNameMaxLength = 15;
+
+        public const byte CountryNameMinLength = 5;
+        public const byte CountryNameMaxLength = 15;
+
+        // Client
+        public const byte ClientNameMinLength = 10;
+        public const byte ClientNameMaxLength = 25;
+        public const byte NumberVatMinLength = 10;
+        public const byte NumberVatMaxLength = 15;
+
+        // Invoice
+        public const int InvoiceMinValue = 1_000_000_000;
+        public const int InvoiceMaxValue = 1_500_000_000;
     }
 }
