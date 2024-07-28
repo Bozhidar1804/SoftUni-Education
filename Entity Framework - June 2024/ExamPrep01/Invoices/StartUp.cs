@@ -26,10 +26,10 @@ namespace Invoices
 
         private static void ImportEntities(InvoicesContext context, string baseDir, string exportDir)
         {
-            /*var clients =
+            var clients =
                 DataProcessor.Deserializer.ImportClients(context,
                     File.ReadAllText(baseDir + "clients.xml"));
-            PrintAndExportEntityToFile(clients, exportDir + "Actual Result - ImportClients.txt");*/
+            PrintAndExportEntityToFile(clients, exportDir + "Actual Result - ImportClients.txt");
 
             var invoices =
                 DataProcessor.Deserializer.ImportInvoices(context,
