@@ -15,6 +15,8 @@ namespace Invoices.Data
         public const byte ProductNameMaxLength = 30;
         public const string ProductPriceMinValue = "5.00";
         public const string ProductPriceMaxValue = "1000.00";
+        public const int ProductCategoryTypeMinValue = (int)CategoryType.ADR;
+        public const int ProductCategoryTypeMaxValue = (int)CategoryType.Tyres;
 
         // Address
         public const byte StreetNameMinLength = 10;
