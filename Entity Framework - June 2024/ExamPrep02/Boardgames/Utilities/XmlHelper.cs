@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Boardgames.Utilities
@@ -36,8 +37,15 @@ namespace Boardgames.Utilities
             XmlSerializerNamespaces xmlNamespaces = new XmlSerializerNamespaces();
             xmlNamespaces.Add(string.Empty, string.Empty);
 
-            using StringWriter writer = new StringWriter(sb);
-            xmlSerializer.Serialize(writer, obj);
+            XmlWriterSettings settings = new XmlWriterSettings
+            {
+                Indent = true, // Enable indentation
+                NewLineOnAttributes = false, // Whether to place attributes on new lines
+                OmitXmlDeclaration = false, // Omit the XML declaration at the beginning
+            };
+
+            using XmlWriter writer = XmlWriter.Create(sb, settings);
+            xmlSerializer.Serialize(writer, obj, xmlNamespaces);
 
             return sb.ToString().TrimEnd();
         }
