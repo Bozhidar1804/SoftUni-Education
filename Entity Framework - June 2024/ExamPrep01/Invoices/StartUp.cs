@@ -16,7 +16,7 @@ namespace Invoices
 
             ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
 
-            //ExportEntities(context, projectDir + @"ExportResults/");
+            ExportEntities(context, projectDir + @"ExportResults/");
 
             using (var transaction = context.Database.BeginTransaction())
             {
@@ -48,7 +48,7 @@ namespace Invoices
             var exportClientsWithTheirInvoices = DataProcessor.Serializer.ExportClientsWithTheirInvoices(context, date);
             Console.WriteLine(exportClientsWithTheirInvoices);
             File.WriteAllText(exportDir + "Actual Result - ExportClientsWithTheirInvoices.xml", exportClientsWithTheirInvoices);
-
+            
             var nameLength = 11;
             var exportProductsWithMostClients = DataProcessor.Serializer.ExportProductsWithMostClients(context, nameLength);
             Console.WriteLine(exportProductsWithMostClients);
