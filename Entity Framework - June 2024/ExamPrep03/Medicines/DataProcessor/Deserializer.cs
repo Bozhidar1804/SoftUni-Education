@@ -8,6 +8,7 @@
     using Medicines.Data.Models;
     using Medicines.Data.Models.Enums;
     using System.Globalization;
+    using Newtonsoft.Json;
 
     public class Deserializer
     {
@@ -17,7 +18,51 @@
 
         public static string ImportPatients(MedicinesContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            ImportPatientDto[] patientDtos = JsonConvert.DeserializeObject<ImportPatientDto[]>(jsonString);
+
+            ICollection<Patient> patientsToImport = new List<Patient>();
+
+            foreach (ImportPatientDto dto in patientDtos)
+            {
+                if (!IsValid(dto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Patient newPatient = new Patient()
+                {
+                    FullName = dto.FullName,
+                    AgeGroup = (AgeGroup)dto.AgeGroup,
+                    Gender = (Gender)dto.Gender
+                };
+
+                foreach (int id in dto.Medicines)
+                {
+                    if (newPatient.PatientsMedicines.Any(pm => pm.MedicineId == id))
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    PatientMedicine patientMedicine = new PatientMedicine()
+                    {
+                        Patient = newPatient,
+                        MedicineId = id
+                    };
+
+                    newPatient.PatientsMedicines.Add(patientMedicine);
+                }
+
+                patientsToImport.Add(newPatient);
+                sb.AppendLine(String.Format(SuccessfullyImportedPatient, dto.FullName, newPatient.PatientsMedicines.Count));
+            }
+
+            context.Patients.AddRange(patientsToImport);
+            context.SaveChanges();
+            return sb.ToString().TrimEnd();
         }
 
         public static string ImportPharmacies(MedicinesContext context, string xmlString)
