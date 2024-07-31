@@ -16,7 +16,7 @@
 
             ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
 
-            ExportEntities(context, projectDir + @"ExportResults/");
+            //ExportEntities(context, projectDir + @"ExportResults/");
 
             using (var transaction = context.Database.BeginTransaction())
             {
@@ -46,10 +46,10 @@
 
             PrintAndExportEntityToFile(pharmacies, exportDir + "Actual Result - ImportPharmacies.txt");
 
-            var patients = DataProcessor.Deserializer
+            /*var patients = DataProcessor.Deserializer
                 .ImportPatients(context, File.ReadAllText(baseDir + "patients.json"));
 
-            PrintAndExportEntityToFile(patients, exportDir + "Actual Result - ImportPatients.txt");
+            PrintAndExportEntityToFile(patients, exportDir + "Actual Result - ImportPatients.txt");*/
         }
 
         private static void PrintAndExportEntityToFile(string entityOutput, string outputPath)

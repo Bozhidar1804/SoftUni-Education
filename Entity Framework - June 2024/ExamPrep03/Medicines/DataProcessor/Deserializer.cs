@@ -1,7 +1,13 @@
 ﻿namespace Medicines.DataProcessor
 {
     using Medicines.Data;
+    using Medicines.Utilities;
     using System.ComponentModel.DataAnnotations;
+    using Medicines.DataProcessor.ImportDtos;
+    using System.Text;
+    using Medicines.Data.Models;
+    using Medicines.Data.Models.Enums;
+    using System.Globalization;
 
     public class Deserializer
     {
@@ -16,7 +22,91 @@
 
         public static string ImportPharmacies(MedicinesContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+            XmlHelper xmlHelper = new XmlHelper();
+            const string xmlRoot = "Pharmacies";
+
+            ImportPharmacyDto[] pharmacyDtos = xmlHelper.Deserialize<ImportPharmacyDto[]>(xmlString, xmlRoot);
+
+            ICollection<Pharmacy> pharmaciesToImport = new List<Pharmacy>();
+
+            foreach (ImportPharmacyDto dto in pharmacyDtos)
+            {
+                if (!IsValid(dto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Pharmacy newPharmacy = new Pharmacy()
+                {
+                    IsNonStop = bool.Parse(dto.IsNonStop),
+                    Name = dto.Name,
+                    PhoneNumber = dto.PhoneNumber
+                };
+
+                foreach (ImportMedicineDto medicineDto in dto.Medicines)
+                {
+                    if (!IsValid(medicineDto))
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    DateTime medicineProductionDate;
+                    bool isProductionDateValid = DateTime
+                            .TryParseExact(medicineDto.ProductionDate, "yyyy-MM-dd",
+                            CultureInfo.InvariantCulture, DateTimeStyles.None, out medicineProductionDate);
+
+                    if (!isProductionDateValid)
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    DateTime medicineExpiryDate;
+                    bool isExpiryDateValid = DateTime
+                        .TryParseExact(medicineDto.ExpiryDate, "yyyy-MM-dd",
+                        CultureInfo.InvariantCulture, DateTimeStyles.None, out medicineExpiryDate);
+
+                    if (!isExpiryDateValid)
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    if (medicineProductionDate >= medicineExpiryDate)
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    if (newPharmacy.Medicines.Any(x => x.Name == medicineDto.Name && x.Producer == medicineDto.Producer))
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    Medicine newMedicine = new Medicine()
+                    {
+                        Category = (Category)medicineDto.Category,
+                        Name = medicineDto.Name,
+                        Price = (decimal)medicineDto.Price,
+                        ProductionDate = medicineProductionDate,
+                        ExpiryDate = medicineExpiryDate,
+                        Producer = medicineDto.Producer
+                    };
+
+                    newPharmacy.Medicines.Add(newMedicine);
+                }
+
+                pharmaciesToImport.Add(newPharmacy);
+                sb.AppendLine(String.Format(SuccessfullyImportedPharmacy, dto.Name, newPharmacy.Medicines.Count));
+            }
+
+            context.Pharmacies.AddRange(pharmaciesToImport);
+            context.SaveChanges();
+            return sb.ToString().TrimEnd();
         }
 
         private static bool IsValid(object dto)
