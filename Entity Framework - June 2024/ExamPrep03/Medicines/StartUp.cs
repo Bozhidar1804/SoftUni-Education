@@ -16,7 +16,7 @@
 
             ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
 
-            //ExportEntities(context, projectDir + @"ExportResults/");
+            ExportEntities(context, projectDir + @"ExportResults/");
 
             using (var transaction = context.Database.BeginTransaction())
             {
@@ -32,11 +32,11 @@
             Console.WriteLine(ExportMedicinesFromDesiredCategoryInNonStopPharmacies);
             File.WriteAllText(exportDir + "Actual Result - ExportMedicinesFromDesiredCategoryInNonStopPharmacies.json", ExportMedicinesFromDesiredCategoryInNonStopPharmacies);
 
-            string date = "2022-01-01";
+            /*string date = "2022-01-01";
             var ExportPatientsWithTheirMedicines = DataProcessor
                 .Serializer.ExportPatientsWithTheirMedicines(context, date);
             Console.WriteLine(ExportPatientsWithTheirMedicines);
-            File.WriteAllText(exportDir + "Actual Result - ExportPatientsWithTheirMedicines.xml", ExportPatientsWithTheirMedicines);
+            File.WriteAllText(exportDir + "Actual Result - ExportPatientsWithTheirMedicines.xml", ExportPatientsWithTheirMedicines);*/
         }
 
         private static void ImportEntities(MedicinesContext context, string baseDir, string exportDir)
