@@ -13,6 +13,20 @@ namespace Practice.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
+        public IActionResult NumbersToN()
+        {
+            ViewBag.Count = -1;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult NumbersToN(int count = -1)
+        {
+            ViewBag.Count = count;
+            return View();
+        }
+
         public IActionResult Numbers()
         {
             return View();
