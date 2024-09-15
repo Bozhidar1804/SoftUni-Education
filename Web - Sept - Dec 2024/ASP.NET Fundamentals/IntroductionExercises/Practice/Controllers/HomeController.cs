@@ -13,6 +13,12 @@ namespace Practice.Controllers
             _logger = logger;
         }
 
+        public IActionResult About()
+        {
+            ViewBag.Message = "This is an ASP.NET Core MVC app.";
+            return View();
+        }
+
         public IActionResult Index()
         {
             ViewBag.Message = "Hello World!";
