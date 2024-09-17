@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using Practice.Models.Product;
+using System.Text;
 using System.Text.Json;
 
 namespace Practice.Controllers
@@ -28,6 +30,25 @@ namespace Practice.Controllers
 					Price = 1.50
 				}
 			};
+
+		public IActionResult AllAsTextFile()
+		{
+			StringBuilder sb = new StringBuilder();
+			foreach (ProductViewModel product in _products)
+			{
+				sb
+					.AppendLine($"Product Id: {product.Id}")
+					.AppendLine($"Product Name: {product.Name}")
+					.AppendLine($"Product Price: {product.Price:F2} lv.")
+					.AppendLine("------------------------");
+			}
+
+			Response.Headers.Add(HeaderNames.ContentDisposition,
+				@"attachment;filename=products.txt");
+
+			return File(Encoding.UTF8.GetBytes(sb.ToString().TrimEnd()), "text/plain");
+		}
+
 
 		public IActionResult AllAsText()
 		{
@@ -61,8 +82,15 @@ namespace Practice.Controllers
 			return View(product);
 		}
 
-		public IActionResult All()
+		[ActionName("My-Products")]
+		public IActionResult All(string keyword)
 		{
+			if (keyword != null)
+			{
+				var foundProducts = _products.Where(p => p.Name.ToLower().Contains(keyword.ToLower()));
+				return View(foundProducts);
+			}
+
 			return View(_products);
 		}
 
