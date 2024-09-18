@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using TextSplitterApp.Models;
 
 namespace TextSplitterApp.Controllers
@@ -21,6 +22,11 @@ namespace TextSplitterApp.Controllers
 		[HttpPost]
 		public IActionResult Split(TextViewModel model)
 		{
+			if (!ModelState.IsValid)
+			{
+				return this.RedirectToAction("TextSplitter", model);
+			}
+
 			string[] splitTextArray = model
 				.Text
 				.Split(" ", StringSplitOptions.RemoveEmptyEntries)
