@@ -8,6 +8,8 @@ namespace CinemaApp.Data
 {
     using CinemaApp.Data.Models;
     using Microsoft.EntityFrameworkCore;
+    using System.Reflection;
+
     public class CinemaDbContext : DbContext
     {
         public CinemaDbContext()
@@ -21,6 +23,11 @@ namespace CinemaApp.Data
             
         }
 
-        public DbSet<Movie> Movies { get; set; } 
+        public DbSet<Movie> Movies { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }

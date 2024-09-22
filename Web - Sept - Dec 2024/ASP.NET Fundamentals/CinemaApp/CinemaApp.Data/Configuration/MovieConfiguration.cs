@@ -20,6 +20,52 @@ namespace CinemaApp.Data.Configuration
                 .Property(m => m.Title)
                 .IsRequired()
                 .HasMaxLength(TitleMaxLength);
+
+            builder
+                .Property(m => m.Genre)
+                .IsRequired()
+                .HasMaxLength(GenreMaxLength);
+
+
+            builder
+                .Property(m => m.Director)
+                .IsRequired()
+                .HasMaxLength(DirectorNameMaxLength);
+
+            builder
+                .Property(m => m.Description)
+                .IsRequired()
+                .HasMaxLength(DescriptionMaxLength);
+
+            builder.HasData(this.SeedMovies());
+        }
+
+
+        private List<Movie> SeedMovies()
+        {
+            List<Movie> movies = new List<Movie>()
+            {
+                new Movie()
+                {
+                    Title = "Harry Potter",
+                    Genre = "Fantasy",
+                    ReleaseDate = new DateTime(2005, 11, 01),
+                    Director = "Mike Newel",
+                    Duration = 157,
+                    Description = "Some description"
+                },
+                new Movie()
+                {
+                    Title = "Lord of the Rings",
+                    Genre = "Fantasy",
+                    ReleaseDate = new DateTime(2001, 05, 01),
+                    Director = "Peter Jackson",
+                    Duration = 178,
+                    Description = "Some description2"
+                }
+            };
+
+            return movies;
         }
     }
 }

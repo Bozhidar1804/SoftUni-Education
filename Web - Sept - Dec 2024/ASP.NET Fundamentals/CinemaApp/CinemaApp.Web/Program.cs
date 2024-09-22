@@ -1,3 +1,6 @@
+using CinemaApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CinemaApp.Web
 {
     public class Program
@@ -8,6 +11,12 @@ namespace CinemaApp.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services
+                .AddDbContext<CinemaDbContext>(options =>
+                {
+                    options.UseSqlServer();
+                });
 
             var app = builder.Build();
 
