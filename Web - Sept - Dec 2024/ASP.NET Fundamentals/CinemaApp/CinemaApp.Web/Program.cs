@@ -12,10 +12,12 @@ namespace CinemaApp.Web
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            string connectionString = builder.Configuration.GetConnectionString("SQLServer");
+
             builder.Services
                 .AddDbContext<CinemaDbContext>(options =>
                 {
-                    options.UseSqlServer();
+                    options.UseSqlServer(connectionString);
                 });
 
             var app = builder.Build();
