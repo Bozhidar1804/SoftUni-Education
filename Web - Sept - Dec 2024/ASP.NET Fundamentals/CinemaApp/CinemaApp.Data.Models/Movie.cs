@@ -19,5 +19,8 @@
         public int Duration { get; set; }
 
         public string Description { get; set; } = null!; // Could also be null
+
+        // Navigatio property for many-to-many relationship with Cinema
+        public virtual ICollection<CinemaMovie> MovieCinemas { get; set; } = new HashSet<CinemaMovie>();
     }
 }
