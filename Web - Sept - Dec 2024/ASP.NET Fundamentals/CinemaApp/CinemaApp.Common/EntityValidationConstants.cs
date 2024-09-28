@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaApp.Common
 {
-    public class EntityValidationConstants
+    public static class EntityValidationConstants
     {
         public static class Movie
         {
@@ -15,7 +15,8 @@ namespace CinemaApp.Common
             public const int GenreMaxLength = 20;
             public const int DurationMinValue = 1;
             public const int DurationMaxValue = 999;
-            public const int DirectorNameMinLength = 10;
+            public const string ReleaseDateFormat = "MM/yyyy";
+			public const int DirectorNameMinLength = 10;
             public const int DirectorNameMaxLength = 80;
             public const int DescriptionMinLength = 50;
             public const int DescriptionMaxLength = 500;
