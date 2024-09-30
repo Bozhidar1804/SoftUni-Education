@@ -1,4 +1,5 @@
 ﻿@using CinemaApp.Web.ViewModels.Cinema;
+@using CinemaApp.Web.ViewModels.Movie;
 @model CinemaDetailsViewModel
 
 <h2>@Model.Name - Cinema Movie Program</h2>
@@ -10,7 +11,7 @@
 @if (Model.Movies.Any())
 {
     <ul class="list-group">
-        @foreach (var movie in Model.Movies)
+        @foreach (MovieProgramViewModel movie in Model.Movies)
         {
             <li class="list-group-item">
                 <strong>@movie.Title</strong> <br />

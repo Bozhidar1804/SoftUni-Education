@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 using CinemaApp.Data.Models;
+using CinemaApp.Web.ViewModels.Movie;
 
 namespace CinemaApp.Web.Controllers
 {
-	public class CinemaController : Controller
+	public class CinemaController : BaseController
 	{
 		private readonly CinemaDbContext context;
 
@@ -58,5 +59,42 @@ namespace CinemaApp.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-	}
+
+        [HttpGet]
+        public async Task<IActionResult> Details(string? id)
+        {
+            Guid cinemaGuid = Guid.Empty;
+            bool IsIdValid = IsGuidValid(id, ref cinemaGuid);
+            if (!IsIdValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            Cinema? cinema = await context.Cinemas
+                .Include(c => c.CinemaMovies)
+                .ThenInclude(cm => cm.Movie)
+                .FirstOrDefaultAsync(c => c.Id.ToString() == id);
+
+            if (cinema == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            CinemaDetailsViewModel cinemaDetailsViewModel = new CinemaDetailsViewModel()
+            {
+                Id = cinema.Id.ToString(),
+                Name = cinema.Name,
+                Location = cinema.Location,
+                Movies = cinema.CinemaMovies
+                    .Select(cm => new MovieProgramViewModel()
+                    {
+                        Title = cm.Movie.Title,
+                        Duration = cm.Movie.Duration
+                    })
+                    .ToList()
+            };
+
+            return View(cinemaDetailsViewModel);
+        }
+    }
 }

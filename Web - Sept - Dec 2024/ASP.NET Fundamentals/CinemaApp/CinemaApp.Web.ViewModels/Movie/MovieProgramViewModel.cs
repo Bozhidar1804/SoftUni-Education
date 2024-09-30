@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaApp.Web.ViewModels.Cinema
+namespace CinemaApp.Web.ViewModels.Movie
 {
     public class MovieProgramViewModel
     {
