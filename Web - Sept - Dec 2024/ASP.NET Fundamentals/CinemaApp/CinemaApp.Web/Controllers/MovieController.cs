@@ -109,19 +109,21 @@ namespace CinemaApp.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            List<Cinema> cinemas = await dbContext.Cinemas.ToListAsync();
-
             AddMovieToCinemaProgramInputModel viewModel = new AddMovieToCinemaProgramInputModel()
             {
                 MovieId = movieId!,
                 MovieTitle = movie.Title,
-                Cinemas = cinemas.Select(c => new CinemaCheckBoxItemInputModel()
+                Cinemas = await dbContext.Cinemas
+                .Include(c => c.CinemaMovies)
+                .ThenInclude(cm => cm.Movie)
+                .Select(c => new CinemaCheckBoxItemInputModel()
                 {
                     Id = c.Id.ToString(),
                     Name = c.Name,
                     Location = c.Location,
-                    IsSelected = false
-                }).ToList()
+                    IsSelected = c.CinemaMovies
+                    .Any(cm => cm.Movie.Id == movieGuid)
+                }).ToArrayAsync()
             };
 
             return View(viewModel);
@@ -150,7 +152,12 @@ namespace CinemaApp.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ICollection<CinemaMovie> entitiesToAdd = new List<CinemaMovie>();
+            var existingAssignments = await dbContext.CinemasMovies
+                    .Where(cm => cm.MovieId.ToString() == model.MovieId)
+                    .ToListAsync();
+            dbContext.RemoveRange(existingAssignments);
+
+            ICollection <CinemaMovie> entitiesToAdd = new List<CinemaMovie>();
             ICollection<CinemaMovie> entitiesToRemove = new List<CinemaMovie>();
 
             foreach (CinemaCheckBoxItemInputModel cinemaInputModel in model.Cinemas)
@@ -180,9 +187,6 @@ namespace CinemaApp.Web.Controllers
                     };
 
                     entitiesToAdd.Add(cinemaMovie);
-                } else
-                {
-
                 }
             }
 
