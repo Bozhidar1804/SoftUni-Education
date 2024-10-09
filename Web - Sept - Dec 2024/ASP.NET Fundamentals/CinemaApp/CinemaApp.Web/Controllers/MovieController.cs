@@ -158,7 +158,6 @@ namespace CinemaApp.Web.Controllers
             dbContext.RemoveRange(existingAssignments);
 
             ICollection <CinemaMovie> entitiesToAdd = new List<CinemaMovie>();
-            ICollection<CinemaMovie> entitiesToRemove = new List<CinemaMovie>();
 
             foreach (CinemaCheckBoxItemInputModel cinemaInputModel in model.Cinemas)
             {
