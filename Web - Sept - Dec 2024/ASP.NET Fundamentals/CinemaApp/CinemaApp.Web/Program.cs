@@ -24,12 +24,16 @@ namespace CinemaApp.Web
                 });
 
             builder.Services
-                .AddDefaultIdentity<ApplicationUser>(cfg =>
+                .AddIdentity<ApplicationUser, IdentityRole<Guid>>(cfg =>
                 {
 
                 })
+                .AddEntityFrameworkStores<CinemaDbContext>()
                 .AddRoles<IdentityRole<Guid>>()
-                .AddEntityFrameworkStores<CinemaDbContext>();
+                .AddSignInManager<SignInManager<ApplicationUser>>();
+
+            builder.Services.AddControllersWithViews();
+            builder.Services.AddRazorPages();
 
             var app = builder.Build();
 
