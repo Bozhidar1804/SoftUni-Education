@@ -20,7 +20,11 @@
 
         public string Description { get; set; } = null!; // Could also be null
 
+        public string? ImageUrl { get; set; }
+
         // Navigatio property for many-to-many relationship with Cinema
         public virtual ICollection<CinemaMovie> MovieCinemas { get; set; } = new HashSet<CinemaMovie>();
+
+        public virtual ICollection<ApplicationUserMovie> MovieApplicationUsers { get; set; } = new HashSet<ApplicationUserMovie>();
     }
 }
