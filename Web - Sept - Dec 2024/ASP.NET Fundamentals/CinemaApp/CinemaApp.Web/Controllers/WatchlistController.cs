@@ -81,5 +81,29 @@ namespace CinemaApp.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveFromWatchlist(string movieId)
+        {
+            Guid movieGuid = Guid.Empty;
+            if (!IsGuidValid(movieId, ref movieGuid))
+            {
+                return View(nameof(Index));
+            }
+
+            Guid userGuid = Guid.Parse(userManager.GetUserId(User)!);
+
+            ApplicationUserMovie? userMovieToRemove = await dbContext
+                .UsersMovies
+                .FirstOrDefaultAsync(um => um.MovieId == movieGuid && um.ApplicationUserId == userGuid);
+
+            if (userMovieToRemove != null)
+            {
+                dbContext.UsersMovies.Remove(userMovieToRemove!);
+                await dbContext.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
