@@ -10,6 +10,11 @@ namespace GameZone.Data
         {
         }
 
+        public virtual DbSet<Game> Games { get; set; }
+        public virtual DbSet<Genre> Genres { get; set; }
+        public virtual DbSet<GamerGame> GamersGames { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
