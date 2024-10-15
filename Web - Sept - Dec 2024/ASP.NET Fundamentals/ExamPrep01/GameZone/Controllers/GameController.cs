@@ -3,8 +3,10 @@ using GameZone.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 using static GameZone.ApplicationConstants.EntityValidationConstants.Game;
 
 namespace GameZone.Controllers
@@ -171,41 +173,154 @@ namespace GameZone.Controllers
         [HttpGet]
         public async Task<IActionResult> MyZone()
         {
-            return View(new List<GameAddInputModel>());
+            string userId = this.userManager.GetUserId(User);
+
+            IEnumerable<GameInfoViewModel> gamesOfUser = await dbContext
+                .GamersGames
+                .Where(gg => gg.GamerId == userId)
+                .Where(gg => gg.Game.IsDeleted == false)
+                .Include(gg => gg.Game)
+                .Select(gg => new GameInfoViewModel()
+                {
+                    Id = gg.Game.Id,
+                    Title = gg.Game.Title,
+                    Genre = gg.Game.Genre.ToString(),
+                    ImageUrl = gg.Game.ImageUrl,
+                    ReleasedOn = gg.Game.ReleasedOn.ToString(GameReleasedOnFormat),
+                    Publisher = gg.Game.Publisher.UserName
+                })
+                .ToListAsync();
+
+            return View(gamesOfUser);
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddToMyZone(int id)
+        public async Task<IActionResult> AddToMyZone(int Id)
         {
+            string userId = this.userManager.GetUserId(User);
+
+            Game? game = await dbContext
+                .Games
+                .Where(g => g.Id == Id)
+                .Where(g => g.IsDeleted == false)
+                .FirstOrDefaultAsync();
+
+            if (game == null)
+            {
+                throw new ArgumentException("Invalid Game");
+            }
+
+            bool isGameAlreadyAddedToZone = await dbContext.GamersGames.AnyAsync(gg => gg.GameId == Id);
+            if (isGameAlreadyAddedToZone)
+            {
+                return RedirectToAction(nameof(All));
+            }
+
+            GamerGame ggToAdd = new GamerGame()
+            {
+                Game = game,
+                GameId = game.Id,
+                GamerId = userId,
+            };
+
+            await dbContext.GamersGames.AddAsync(ggToAdd);
+            await dbContext.SaveChangesAsync();
+
             return RedirectToAction(nameof(MyZone));
         }
 
         [HttpGet]
-        public async Task<IActionResult> StrikeOut(int id)
+        public async Task<IActionResult> StrikeOut(int Id)
         {
+            string userId = this.userManager.GetUserId(User);
+
+            Game? gameToRemove = await dbContext
+                .Games
+                .Where(g => g.Id == Id)
+                .FirstOrDefaultAsync();
+
+            if (gameToRemove == null)
+            {
+                throw new ArgumentException("Invalid game");
+            }
+
+            GamerGame? entityToRemove = await dbContext
+                .GamersGames
+                .Where(gg => gg.GamerId == userId)
+                .Where(gg => gg.GameId == gameToRemove.Id)
+                .FirstOrDefaultAsync();
+
+            if (entityToRemove == null)
+            {
+                throw new ArgumentException("Invalid pair of Gamer and Game");
+            }
+
+            dbContext.GamersGames.Remove(entityToRemove);
+            await dbContext.SaveChangesAsync();
+            
             return RedirectToAction(nameof(MyZone));
         }
 
 
-
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(int Id)
         {
-            return View();
+            GameDetailsViewModel? gameViewModel = await dbContext
+                .Games
+                .Where(g => g.Id == Id)
+                .Where(g => g.IsDeleted == false)
+                .AsNoTracking()
+                .Select(g => new GameDetailsViewModel()
+                {
+                    Id = g.Id,
+                    ImageUrl = g.ImageUrl,
+                    Title = g.Title,
+                    Description = g.Description,
+                    Genre = g.Genre.Name,
+                    ReleasedOn = g.ReleasedOn.ToString(GameReleasedOnFormat),
+                    Publisher = g.Publisher.UserName
+                })
+                .FirstOrDefaultAsync();
+
+            return View(gameViewModel);
         }
 
 
-
-
         [HttpGet]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int Id)
         {
-            return View();
+            GameDeleteViewModel? gameDeleteViewModel = await dbContext
+                .Games
+                .Where(g => g.Id == Id)
+                .Where(g => g.IsDeleted == false)
+                .Select(g => new GameDeleteViewModel()
+                {
+                    Id = g.Id,
+                    Title = g.Title,
+                    Publisher = g.Publisher.UserName
+                })
+                .FirstOrDefaultAsync();
+
+
+            return View(gameDeleteViewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(GameAddInputModel model)
+        public async Task<IActionResult> DeleteConfirmed(int Id)
         {
+            Game? game = await dbContext
+                .Games
+                .Where(g => g.Id == Id)
+                .Where(g => g.IsDeleted == false)
+                .FirstOrDefaultAsync();
+
+            if (game != null)
+            {
+                game.IsDeleted = true;
+            }
+
+            await dbContext.SaveChangesAsync();
+
             return View();
         }
     }
