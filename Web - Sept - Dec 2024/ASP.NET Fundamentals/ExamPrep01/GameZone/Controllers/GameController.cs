@@ -99,15 +99,70 @@ namespace GameZone.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            GameAddInputModel model = new GameAddInputModel();
+            var genres = await dbContext.Genres.ToListAsync();
 
-            return View(model);
+            GameEditViewModel? game = await dbContext.Games
+                .Where(g => g.Id == id)
+                .Where(g => g.IsDeleted == false)
+                .Select(g => new GameEditViewModel()
+                {
+                    Title = g.Title,
+                    Description = g.Description,
+                    ImageUrl = g.ImageUrl,
+                    ReleasedOn = g.ReleasedOn.ToString(GameReleasedOnFormat),
+                    GenreId = g.GenreId,
+                    Genres = genres
+                })
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            return View(game);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(GameAddInputModel model)
+        public async Task<IActionResult> Edit(GameEditViewModel model, int id)
         {
-            return View();
+            string userId = this.userManager.GetUserId(User);
+
+            if (ModelState.IsValid == false)
+            {
+                ModelState.AddModelError(string.Empty, "Invalid validation");
+
+                model.Genres = await dbContext.Genres.ToListAsync();
+
+                return View(model);
+            }
+
+            DateTime releasedOn;
+            bool isDateValid = DateTime.TryParseExact(model.ReleasedOn, GameReleasedOnFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out releasedOn);
+
+            if (isDateValid == false)
+            {
+                ModelState.AddModelError(nameof(model.ReleasedOn), "Invalid date format.");
+
+                model.Genres = await dbContext.Genres.ToListAsync();
+
+                return View(model);
+            }
+
+            Game? game = await dbContext.Games.FindAsync(id);
+
+            if (game != null)
+            {
+                game.Title = model.Title;
+                game.Description = model.Description;
+                game.ImageUrl = model.ImageUrl;
+                game.ReleasedOn = releasedOn;
+                game.GenreId = model.GenreId;
+                game.PublisherId = userId;
+
+                await dbContext.SaveChangesAsync();
+            } else
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
+            return RedirectToAction(nameof(All));
         }
 
 
