@@ -14,6 +14,7 @@ namespace GameZone
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<GameZoneDbContext>(options =>
                 options.UseSqlServer(connectionString));
+
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
@@ -24,6 +25,7 @@ namespace GameZone
                 options.Password.RequireUppercase = false;
             })
                 .AddEntityFrameworkStores<GameZoneDbContext>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
