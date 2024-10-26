@@ -6,6 +6,10 @@ using CinemaApp.Data.Models;
 using CinemaApp.Web.Infrastructure.Extensions;
 using CinemaApp.Services.Mapping;
 using CinemaApp.Web.ViewModels;
+using CinemaApp.Data.Repository.Interfaces;
+using CinemaApp.Data.Repository;
+using CinemaApp.Services.Data.Interfaces;
+using CinemaApp.Services.Data;
 
 namespace CinemaApp.Web
 {
@@ -40,6 +44,12 @@ namespace CinemaApp.Web
                 cfg.LoginPath = "/Identity/Account/Login";
             });
 
+            /*builder.Services.AddScoped<IRepository<Movie, Guid>, BaseRepository<Movie, Guid>>();
+            builder.Services.AddScoped<IRepository<Cinema, Guid>, BaseRepository<Cinema, Guid>>();
+            builder.Services.AddScoped<IRepository<CinemaMovie, object>, BaseRepository<CinemaMovie, object>>();
+            builder.Services.AddScoped<IRepository<ApplicationUserMovie, object>, BaseRepository<ApplicationUserMovie, object>>();*/
+            builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
+            builder.Services.AddScoped<ICinemaService, CinemaService>();
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();

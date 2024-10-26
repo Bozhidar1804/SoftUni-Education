@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace CinemaApp.Web.ViewModels.Cinema
 {
-    public class CinemaIndexViewModel
+    using CinemaApp.Services.Mapping;
+    using CinemaApp.Data.Models;
+
+    public class CinemaIndexViewModel : IMapFrom<Cinema>
     {
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string Location { get; set; } = null!;
     }

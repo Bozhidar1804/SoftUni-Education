@@ -8,6 +8,7 @@ using static CinemaApp.Common.EntityValidationConstants.Movie;
 using Microsoft.EntityFrameworkCore;
 using CinemaApp.Web.ViewModels.Cinema;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using CinemaApp.Data.Repository.Interfaces;
 
 
 namespace CinemaApp.Web.Controllers
@@ -15,10 +16,12 @@ namespace CinemaApp.Web.Controllers
     public class MovieController : BaseController
     {
         private readonly CinemaDbContext dbContext;
+        private IRepository<Movie, Guid> movieRepository;
 
-        public MovieController(CinemaDbContext dbContext)
+        public MovieController(CinemaDbContext dbContext, IRepository<Movie, Guid> movieRepository)
         {
             this.dbContext = dbContext;
+            this.movieRepository = movieRepository;
         }
 
         public async Task<IActionResult> Index()

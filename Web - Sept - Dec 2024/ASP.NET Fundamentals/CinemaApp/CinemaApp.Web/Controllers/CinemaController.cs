@@ -1,35 +1,32 @@
-﻿using CinemaApp.Data;
-using CinemaApp.Web.ViewModels.Cinema;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 using CinemaApp.Data.Models;
 using CinemaApp.Web.ViewModels.Movie;
+using CinemaApp.Services.Data.Interfaces;
+using CinemaApp.Data;
+using CinemaApp.Web.ViewModels.Cinema;
 
 namespace CinemaApp.Web.Controllers
 {
 	public class CinemaController : BaseController
 	{
 		private readonly CinemaDbContext context;
+        private readonly ICinemaService cinemaService;
 
-        public CinemaController(CinemaDbContext dbContext)
+        public CinemaController(CinemaDbContext dbContext, ICinemaService cinemaService)
         {
             context = dbContext;
+            this.cinemaService = cinemaService;
         }
 
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<CinemaIndexViewModel> cinemas = await context.Cinemas
-                .Select(c => new CinemaIndexViewModel()
-                {
-                    Id = c.Id.ToString(),
-                    Name = c.Name,
-                    Location = c.Location
-                })
-                .OrderBy(c => c.Name)
-                .ToListAsync();
+            IEnumerable<CinemaIndexViewModel> cinemas = await this.cinemaService
+                .IndexGetAllOrderedByNameAsync();
 
             return View(cinemas);
         }
