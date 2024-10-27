@@ -32,7 +32,7 @@ namespace CinemaApp.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -45,14 +45,7 @@ namespace CinemaApp.Web.Controllers
                 return View(inputModel);
             }
 
-            Cinema cinema = new Cinema()
-            {
-                Name = inputModel.Name,
-                Location = inputModel.Location
-            };
-
-            await context.Cinemas.AddAsync(cinema);
-            await context.SaveChangesAsync();
+            await cinemaService.AddCinemaAsync(inputModel);
 
             return RedirectToAction(nameof(Index));
         }
@@ -67,29 +60,12 @@ namespace CinemaApp.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            Cinema? cinema = await context.Cinemas
-                .Include(c => c.CinemaMovies)
-                .ThenInclude(cm => cm.Movie)
-                .FirstOrDefaultAsync(c => c.Id.ToString() == id);
+            CinemaDetailsViewModel cinemaDetailsViewModel =  await cinemaService.GetCinemaDetailsByIdAsync(cinemaGuid);
 
-            if (cinema == null)
+            if (cinemaDetailsViewModel == null)
             {
-                return RedirectToAction(nameof(Index));
+                RedirectToAction(nameof(Index));
             }
-
-            CinemaDetailsViewModel cinemaDetailsViewModel = new CinemaDetailsViewModel()
-            {
-                Id = cinema.Id.ToString(),
-                Name = cinema.Name,
-                Location = cinema.Location,
-                Movies = cinema.CinemaMovies
-                    .Select(cm => new MovieProgramViewModel()
-                    {
-                        Title = cm.Movie.Title,
-                        Duration = cm.Movie.Duration
-                    })
-                    .ToList()
-            };
 
             return View(cinemaDetailsViewModel);
         }

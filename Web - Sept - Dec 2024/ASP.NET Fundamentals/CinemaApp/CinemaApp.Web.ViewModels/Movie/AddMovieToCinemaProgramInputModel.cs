@@ -9,7 +9,6 @@ using CinemaApp.Web.ViewModels.Cinema;
 namespace CinemaApp.Web.ViewModels.Movie
 {
     using static CinemaApp.Common.EntityValidationConstants.Movie;
-    using static CinemaApp.Common.EntityValidationConstants.Cinema;
     public class AddMovieToCinemaProgramInputModel
     {
         [Required]

@@ -49,7 +49,7 @@ namespace CinemaApp.Web
             builder.Services.AddScoped<IRepository<CinemaMovie, object>, BaseRepository<CinemaMovie, object>>();
             builder.Services.AddScoped<IRepository<ApplicationUserMovie, object>, BaseRepository<ApplicationUserMovie, object>>();*/
             builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
-            builder.Services.AddScoped<ICinemaService, CinemaService>();
+            builder.Services.RegisterUserDefinedServices(typeof(IMovieService).Assembly);
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();

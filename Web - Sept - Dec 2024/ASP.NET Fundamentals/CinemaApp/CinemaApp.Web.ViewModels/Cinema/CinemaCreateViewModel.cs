@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CinemaApp.Web.ViewModels.Cinema
+﻿namespace CinemaApp.Web.ViewModels.Cinema
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using Data.Models;
+    using Services.Mapping;
+
     using static CinemaApp.Common.EntityValidationConstants.Cinema;
-    public class CinemaCreateViewModel
+    public class CinemaCreateViewModel : IMapTo<Cinema>
     {
         [Required]
         [MinLength(NameMinLength)]
