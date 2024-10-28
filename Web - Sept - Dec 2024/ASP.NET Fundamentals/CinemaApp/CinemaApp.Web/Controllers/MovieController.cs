@@ -114,53 +114,12 @@ namespace CinemaApp.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            Movie? movie = await dbContext.Movies
-                .FirstOrDefaultAsync(m => m.Id == movieGuid);
-
-            if (movie == null)
+            bool addingResult = await this.movieService.AddMovieToCinemas(model, movieGuid);
+            if (addingResult == false)
             {
-                return RedirectToAction(nameof(Index));
+                return this.RedirectToAction(nameof(Index));
             }
-
-            var existingAssignments = await dbContext.CinemasMovies
-                    .Where(cm => cm.MovieId.ToString() == model.MovieId)
-                    .ToListAsync();
-            dbContext.RemoveRange(existingAssignments);
-
-            ICollection <CinemaMovie> entitiesToAdd = new List<CinemaMovie>();
-
-            foreach (CinemaCheckBoxItemInputModel cinemaInputModel in model.Cinemas)
-            {
-                Guid cinemaGuid = Guid.Empty;
-                bool isCinemaGuidValid = IsGuidValid(cinemaInputModel.Id, ref cinemaGuid);
-                if (!isCinemaGuidValid)
-                {
-                    this.ModelState.AddModelError(string.Empty, "Invalid CinemaId");
-                    return View(model);
-                }
-
-                Cinema? cinema = await dbContext.Cinemas
-                    .FirstOrDefaultAsync(c => c.Id == cinemaGuid);
-                if (cinema == null)
-                {
-                    this.ModelState.AddModelError(string.Empty, "Invalid Cinema");
-                    return View(model);
-                }
-
-                if (cinemaInputModel.IsSelected)
-                {
-                    CinemaMovie cinemaMovie = new CinemaMovie()
-                    {
-                        Cinema = cinema,
-                        Movie = movie
-                    };
-
-                    entitiesToAdd.Add(cinemaMovie);
-                }
-            }
-
-            await dbContext.CinemasMovies.AddRangeAsync(entitiesToAdd);
-            await dbContext.SaveChangesAsync();
+         
             return RedirectToAction(nameof(Index), "Cinema");
         }
     }

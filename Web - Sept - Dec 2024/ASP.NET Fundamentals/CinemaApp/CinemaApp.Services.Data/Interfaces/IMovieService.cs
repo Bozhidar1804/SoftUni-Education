@@ -16,5 +16,7 @@ namespace CinemaApp.Services.Data.Interfaces
         Task<MovieDetailsViewModel> DetailsForMovie(Guid id);
 
         Task<AddMovieToCinemaProgramInputModel> LinkMovieToProgram(Guid id);
+
+        Task<bool> AddMovieToCinemas(AddMovieToCinemaProgramInputModel model, Guid movieId);
     }
 }

@@ -12,16 +12,17 @@ using CinemaApp.Web.ViewModels.Cinema;
 
 namespace CinemaApp.Services.Data
 {
-    public class MovieService : IMovieService
+    public class MovieService : BaseService, IMovieService
     {
         private readonly IRepository<Movie, Guid> movieRepository;
 		private readonly IRepository<Cinema, Guid> cinemaRepository;
+		private readonly IRepository<CinemaMovie, object[]> cinemaMovieRepository;
 
-		public MovieService(IRepository<Movie, Guid> movieRepository, IRepository<Cinema, Guid> cinemaRepository)
+		public MovieService(IRepository<Movie, Guid> movieRepository, IRepository<Cinema, Guid> cinemaRepository, IRepository<CinemaMovie, object[]> cinemaMovieRepository)
         {
             this.movieRepository = movieRepository;
             this.cinemaRepository = cinemaRepository;
-
+			this.cinemaMovieRepository = cinemaMovieRepository;
 		}
 
         public async Task<IEnumerable<AllMoviesIndexViewModel>> IndexGetAllMoviesAsync()
@@ -117,6 +118,57 @@ namespace CinemaApp.Services.Data
 			}
 
             return viewModel;
+		}
+
+		public async Task<bool> AddMovieToCinemas(AddMovieToCinemaProgramInputModel model, Guid movieId)
+		{
+			Movie? movie = await movieRepository
+				.GetByIdAsync(movieId);
+
+			if (movie == null)
+			{
+				return false;
+			}
+
+			ICollection<CinemaMovie> existingAssignments = await cinemaMovieRepository
+					.GetAllAttached()
+					.Where(cm => cm.MovieId.ToString() == model.MovieId)
+					.ToListAsync();
+			cinemaMovieRepository.RemoveRange(existingAssignments.ToArray());
+
+			ICollection<CinemaMovie> entitiesToAdd = new List<CinemaMovie>();
+
+			foreach (CinemaCheckBoxItemInputModel cinemaInputModel in model.Cinemas)
+			{
+				Guid cinemaGuid = Guid.Empty;
+				bool isCinemaGuidValid = IsGuidValid(cinemaInputModel.Id, ref cinemaGuid);
+				if (!isCinemaGuidValid)
+				{
+					return false;
+				}
+
+				Cinema? cinema = await this.cinemaRepository
+					.GetByIdAsync(cinemaGuid);
+
+				if (cinema == null)
+				{
+					return false;
+				}
+
+				if (cinemaInputModel.IsSelected)
+				{
+					CinemaMovie cinemaMovie = new CinemaMovie()
+					{
+						Cinema = cinema,
+						Movie = movie
+					};
+
+					entitiesToAdd.Add(cinemaMovie);
+				}
+			}
+
+			await cinemaMovieRepository.AddRangeAsync(entitiesToAdd.ToArray());
+			return true;
 		}
 	}
 }

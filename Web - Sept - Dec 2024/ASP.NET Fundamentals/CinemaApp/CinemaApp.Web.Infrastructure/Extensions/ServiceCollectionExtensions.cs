@@ -37,7 +37,7 @@ namespace CinemaApp.Web.Infrastructure.Extensions
 
                     if (idPropInfo == null)
                     {
-                        constructArgs[1] = typeof(object);
+                        constructArgs[1] = typeof(object[]);
                     } else
                     {
                         constructArgs[1] = idPropInfo.PropertyType;

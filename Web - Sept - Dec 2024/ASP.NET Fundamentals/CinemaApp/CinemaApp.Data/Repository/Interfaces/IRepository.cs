@@ -19,6 +19,11 @@ namespace CinemaApp.Data.Repository.Interfaces
         void Add(TType item);
         Task AddAsync(TType item);
 
+        void AddRange(TType[] items);
+        Task AddRangeAsync(TType[] items);
+
+        void RemoveRange(TType[] items);
+
         bool Delete(TId id);
         Task<bool> DeleteAsync(TId id);
 

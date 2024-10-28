@@ -116,5 +116,23 @@ namespace CinemaApp.Data.Repository
                 return false;
             }
         }
-    }
+
+		public void AddRange(TType[] items)
+		{
+			this.dbSet.AddRange(items);
+            this.dbContext.SaveChanges();
+		}
+
+		public async Task AddRangeAsync(TType[] items)
+		{
+			await this.dbSet.AddRangeAsync(items);
+            await this.dbContext.SaveChangesAsync();
+		}
+
+		public void RemoveRange(TType[] items)
+		{
+			this.dbSet.RemoveRange(items);
+            this.dbContext.SaveChanges();
+		}
+	}
 }

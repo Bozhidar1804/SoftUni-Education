@@ -16,7 +16,7 @@ using CinemaApp.Web.ViewModels.Movie;
 
 namespace CinemaApp.Services.Data
 {
-    public class CinemaService : ICinemaService
+    public class CinemaService : BaseService, ICinemaService
     {
         private readonly IRepository<Cinema, Guid> cinemaRepository;
 
