@@ -1,5 +1,6 @@
 ﻿using CinemaApp.Data;
 using CinemaApp.Data.Models;
+using CinemaApp.Services.Data.Interfaces;
 using CinemaApp.Web.ViewModels.Watchlist;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -13,12 +14,14 @@ namespace CinemaApp.Web.Controllers
     public class WatchlistController : BaseController
     {
         private readonly CinemaDbContext dbContext;
+        private readonly IWatchlistService watchlistService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public WatchlistController(CinemaDbContext dbContext, UserManager<ApplicationUser> usermanager)
+        public WatchlistController(CinemaDbContext dbContext, UserManager<ApplicationUser> usermanager, IWatchlistService watchlistService)
         {
             this.dbContext = dbContext;
             this.userManager = usermanager;
+            this.watchlistService = watchlistService;
         }
 
         [HttpGet]
@@ -26,20 +29,13 @@ namespace CinemaApp.Web.Controllers
         {
             string userId = this.userManager.GetUserId(User)!;
 
-            IEnumerable<ApplicationUserWatchlistViewModel> watchlist = await dbContext
-                .UsersMovies
-                .Include(um => um.Movie)
-                .Where(um => um.ApplicationUserId.ToString().ToLower() == userId.ToLower())
-                .Select(um => new ApplicationUserWatchlistViewModel()
-                {
-                    MovieId = um.MovieId.ToString(),
-                    Title = um.Movie.Title,
-                    Genre = um.Movie.Genre,
-                    ReleaseDate = um.Movie.ReleaseDate.ToString(ReleaseDateFormat),
-                    ImageUrl = um.Movie.ImageUrl
-                })
-                .ToListAsync();
+            if (String.IsNullOrWhiteSpace(userId))
+            {
+                return this.RedirectToPage("/Identity/Account/Login");
+            }
 
+            IEnumerable<ApplicationUserWatchlistViewModel> watchlist = await 
+                this.watchlistService.GetUserWatchlistByIdAsync(userId);
 
             return View(watchlist);
         }

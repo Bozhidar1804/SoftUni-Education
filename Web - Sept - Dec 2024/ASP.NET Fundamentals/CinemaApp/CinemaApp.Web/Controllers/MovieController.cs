@@ -16,12 +16,10 @@ namespace CinemaApp.Web.Controllers
 {
     public class MovieController : BaseController
     {
-        private readonly CinemaDbContext dbContext;
         private readonly IMovieService movieService;
 
-        public MovieController(CinemaDbContext dbContext, IMovieService movieService)
+        public MovieController(IMovieService movieService)
         {
-            this.dbContext = dbContext;
             this.movieService = movieService;
         }
 
