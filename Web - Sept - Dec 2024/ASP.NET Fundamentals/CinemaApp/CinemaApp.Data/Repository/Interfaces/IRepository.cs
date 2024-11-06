@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,10 +25,14 @@ namespace CinemaApp.Data.Repository.Interfaces
 
         void RemoveRange(TType[] items);
 
-        bool Delete(TId id);
-        Task<bool> DeleteAsync(TId id);
+        bool Delete(TType entity);
+        Task<bool> DeleteAsync(TType entity);
 
         bool Update(TType item);
         Task<bool> UpdateAsync(TType item);
+
+        TType FirstOrDefault(Func<TType, bool> predicate);
+
+        Task<TType> FirstOrDefaultAsync(Expression<Func<TType, bool>> predicate);
     }
 }

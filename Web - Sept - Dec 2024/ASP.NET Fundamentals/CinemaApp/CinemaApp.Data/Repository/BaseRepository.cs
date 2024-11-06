@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 using CinemaApp.Data.Repository.Interfaces;
+using System.Linq.Expressions;
 
 namespace CinemaApp.Data.Repository
 {
@@ -58,28 +59,16 @@ namespace CinemaApp.Data.Repository
             await this.dbContext.SaveChangesAsync();
         }
 
-        public bool Delete(TId id)
+        public bool Delete(TType entity)
         {
-            TType entity = this.GetById(id);
-            if (entity == null)
-            {
-                return false;
-            }
-
             this.dbSet.Remove(entity);
             this.dbContext.SaveChanges();
 
             return true;
         }
 
-        public async Task<bool> DeleteAsync(TId id)
+        public async Task<bool> DeleteAsync(TType entity)
         {
-            TType entity = await this.GetByIdAsync(id);
-            if (entity == null)
-            {
-                return false;
-            }
-
             this.dbSet.Remove(entity);
             await this.dbContext.SaveChangesAsync();
 
@@ -133,6 +122,18 @@ namespace CinemaApp.Data.Repository
 		{
 			this.dbSet.RemoveRange(items);
             this.dbContext.SaveChanges();
+		}
+
+		public TType FirstOrDefault(Func<TType, bool> predicate)
+		{
+			TType entity = this.dbSet.FirstOrDefault(predicate);
+            return entity;
+		}
+
+		public async Task<TType> FirstOrDefaultAsync(Expression<Func<TType, bool>> predicate)
+		{
+			TType entity = await this.dbSet.FirstOrDefaultAsync(predicate);
+            return entity;
 		}
 	}
 }

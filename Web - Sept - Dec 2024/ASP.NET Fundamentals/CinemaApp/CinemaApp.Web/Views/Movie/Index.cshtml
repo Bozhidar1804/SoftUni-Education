@@ -2,8 +2,11 @@
 @using static CinemaApp.Common.EntityValidationConstants.Movie;
 @model IEnumerable<AllMoviesIndexViewModel>
 
-@{
-    ViewData["Title"] = "All Movies";
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewData["ErrorMessage"]
+    </div>
 }
 
 

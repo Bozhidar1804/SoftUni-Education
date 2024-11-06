@@ -16,9 +16,9 @@ namespace CinemaApp.Services.Data
     {
         private readonly IRepository<Movie, Guid> movieRepository;
 		private readonly IRepository<Cinema, Guid> cinemaRepository;
-		private readonly IRepository<CinemaMovie, object[]> cinemaMovieRepository;
+		private readonly IRepository<CinemaMovie, object> cinemaMovieRepository;
 
-		public MovieService(IRepository<Movie, Guid> movieRepository, IRepository<Cinema, Guid> cinemaRepository, IRepository<CinemaMovie, object[]> cinemaMovieRepository)
+		public MovieService(IRepository<Movie, Guid> movieRepository, IRepository<Cinema, Guid> cinemaRepository, IRepository<CinemaMovie, object> cinemaMovieRepository)
         {
             this.movieRepository = movieRepository;
             this.cinemaRepository = cinemaRepository;
