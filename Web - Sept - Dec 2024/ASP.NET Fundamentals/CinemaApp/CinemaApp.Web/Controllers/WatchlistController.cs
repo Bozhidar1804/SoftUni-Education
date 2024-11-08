@@ -53,7 +53,7 @@ namespace CinemaApp.Web.Controllers
 
             if (result == false)
             {
-                // TODO: Implement a way to transfer the Error Message to the View
+                TempData[nameof(AddToWatchlistNotSuccessfulMessage)] = AddToWatchlistNotSuccessfulMessage;
                 return this.RedirectToAction("Index", "Movie");
             }
             

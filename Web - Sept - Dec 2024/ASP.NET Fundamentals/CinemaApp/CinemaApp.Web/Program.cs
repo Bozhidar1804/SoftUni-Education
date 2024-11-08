@@ -20,8 +20,6 @@ namespace CinemaApp.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
-
             string? connectionString = builder.Configuration.GetConnectionString("SQLServer");
 
             builder.Services

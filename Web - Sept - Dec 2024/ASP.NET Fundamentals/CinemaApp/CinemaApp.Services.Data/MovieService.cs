@@ -74,7 +74,7 @@ namespace CinemaApp.Services.Data
             Movie? movie = await movieRepository
                 .GetByIdAsync(movieGuid);
 
-            MovieDetailsViewModel? detailsViewModel = null;
+            MovieDetailsViewModel? detailsViewModel = new MovieDetailsViewModel();
             if (movie != null)
             {
                 detailsViewModel = new MovieDetailsViewModel()
