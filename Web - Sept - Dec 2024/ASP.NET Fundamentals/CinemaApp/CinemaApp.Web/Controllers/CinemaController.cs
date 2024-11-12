@@ -67,5 +67,12 @@ namespace CinemaApp.Web.Controllers
 
             return View(cinemaDetailsViewModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Manage()
+        {
+            IEnumerable<CinemaIndexViewModel> cinemas = await this.cinemaService.IndexGetAllOrderedByNameAsync();
+            return this.View(cinemas);
+        }
     }
 }

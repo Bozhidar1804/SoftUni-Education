@@ -32,6 +32,7 @@ namespace CinemaApp.Data
         public virtual DbSet<CinemaMovie> CinemasMovies { get; set; } = null!;
         public virtual DbSet<ApplicationUserMovie> UsersMovies { get; set; } = null!;
         public virtual DbSet<Ticket> Tickets { get; set; } = null!;
+        public virtual DbSet<Manager> Managers { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

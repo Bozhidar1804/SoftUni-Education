@@ -29,6 +29,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <!-- Manager Dropdown Menu-->
+                        @if (User?.Identity?.IsAuthenticated ?? false)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="managerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Manager
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="managerDropdown">
+                                    <li class="dropdown-item" asp-area="" asp-controller="Cinema" asp-action="Manage">
+                                        Manage Cinemas
+                                    </li>
+                                    <li class="dropdown-item" asp-area="" asp-controller="Movie" asp-action="Index">
+                                        Manage Movies
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Index">Movies</a>
                         </li>
@@ -55,7 +72,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @footerNote - CinemaApp.Web
+            <p>&copy; @footerNote CinemaWebApp | Bringing Cinema and Movies to You</p>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

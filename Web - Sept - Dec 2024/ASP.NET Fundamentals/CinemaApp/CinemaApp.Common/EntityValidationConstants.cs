@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,6 +31,12 @@ namespace CinemaApp.Common
             public const int NameMaxLength = 50;
             public const int LocationMinLength = 3;
             public const int LocationMaxLength = 85;
+        }
+
+        public static class Manager
+        {
+            public const int PhoneNumberMinLength = 6;
+            public const int PhoneNumberMaxLength = 15;
         }
     }
 }
