@@ -124,5 +124,39 @@ namespace CinemaApp.Web.Controllers
 
             return this.View(cinemaFormModel);
         }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Edit(EditCinemaFormModel cinemaFormModel, string Id)
+        {
+            bool isManager = await this.IsUserManagerAsync();
+            if (!isManager)
+            {
+                //TODO: Implement notifications for warning and error messages!
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(cinemaFormModel);
+            }
+
+            Guid cinemaGuid = Guid.Empty;
+            bool IsIdValid = IsGuidValid(Id, ref cinemaGuid);
+            if (!IsIdValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            bool IsAdded = await this.cinemaService.EditCinemaAsync(cinemaFormModel, cinemaGuid);
+
+            if (!IsAdded)
+            {
+                ModelState.AddModelError(string.Empty, "Invalid validation");
+                return this.View(cinemaFormModel);
+            }
+
+            return RedirectToAction(nameof(Details), "Cinema", new { id = cinemaFormModel.Id });
+        }
     }
 }

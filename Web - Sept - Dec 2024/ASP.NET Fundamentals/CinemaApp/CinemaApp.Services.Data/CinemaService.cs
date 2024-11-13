@@ -87,5 +87,21 @@ namespace CinemaApp.Services.Data
                 
             return cinemaModel;
         }
+
+        public async Task<bool> EditCinemaAsync(EditCinemaFormModel inputModel, Guid Id)
+        {
+            Cinema cinemaToEdit = this.cinemaRepository.GetById(Id);
+
+            if (cinemaToEdit == null)
+            {
+                return false;
+            }
+
+            cinemaToEdit.Name = inputModel.Name;
+            cinemaToEdit.Location = inputModel.Location;
+
+            await cinemaRepository.UpdateAsync(cinemaToEdit);
+            return true;
+        }
     }
 }
