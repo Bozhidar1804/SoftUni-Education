@@ -1,4 +1,8 @@
 ﻿@using static CinemaApp.Common.ApplicationConstants
+@using static CinemaApp.Web.Infrastructure.Extensions.ClaimsPrincipalExtensions;
+@using CinemaApp.Services.Data.Interfaces;
+@inject IManagerService managerService;
+
 @{
     int currentYear = DateTime.UtcNow.Year;
     string footerNote = (ReleaseYear == currentYear) ?
@@ -32,19 +36,22 @@
                         <!-- Manager Dropdown Menu-->
                         @if (User?.Identity?.IsAuthenticated ?? false)
                         {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark" href="#" id="managerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Manager
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="managerDropdown">
-                                    <li class="dropdown-item" asp-area="" asp-controller="Cinema" asp-action="Manage">
-                                        Manage Cinemas
-                                    </li>
-                                    <li class="dropdown-item" asp-area="" asp-controller="Movie" asp-action="Index">
-                                        Manage Movies
-                                    </li>
-                                </ul>
-                            </li>
+                            @if (await this.managerService.IsUserManagerAsync(this.User.GetUserId()))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="managerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Manager
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="managerDropdown">
+                                        <li>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Cinema" asp-action="Manage">Manage Cinemas</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Movie" asp-action="Manage">Manage Movies</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
                         }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Index">Movies</a>

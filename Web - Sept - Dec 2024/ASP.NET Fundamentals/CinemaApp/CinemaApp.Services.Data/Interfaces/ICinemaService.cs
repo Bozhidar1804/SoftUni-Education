@@ -15,5 +15,7 @@ namespace CinemaApp.Services.Data.Interfaces
         Task AddCinemaAsync(CinemaCreateViewModel inputModel);
 
         Task<CinemaDetailsViewModel> GetCinemaDetailsByIdAsync(Guid id);
+
+        Task<EditCinemaFormModel> GetCinemaToEditByIdAsync(Guid id);
     }
 }

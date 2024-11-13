@@ -72,5 +72,20 @@ namespace CinemaApp.Services.Data
 
             return cinemaDetailsViewModel;
         }
+
+        public async Task<EditCinemaFormModel?> GetCinemaToEditByIdAsync(Guid id)
+        {
+            EditCinemaFormModel? cinemaModel = await cinemaRepository
+                .GetAllAttached()
+                .Select(c => new EditCinemaFormModel()
+                {
+                    Id = c.Id.ToString(),
+                    Name = c.Name,
+                    Location = c.Location
+                })
+                .FirstOrDefaultAsync(c => c.Id.ToLower() == id.ToString().ToLower());
+                
+            return cinemaModel;
+        }
     }
 }

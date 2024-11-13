@@ -1,6 +1,10 @@
 ﻿@using CinemaApp.Web.ViewModels.Movie;
+@using CinemaApp.Services.Data.Interfaces;
+@using static CinemaApp.Web.Infrastructure.Extensions.ClaimsPrincipalExtensions;
 @using static CinemaApp.Common.ErrorMessages.Watchlist;
+
 @model IEnumerable<AllMoviesIndexViewModel>
+@inject IManagerService managerService
 
 @if (TempData[nameof(AddToWatchlistNotSuccessfulMessage)] != null)
 {
@@ -32,7 +36,6 @@
                 <td>@movie.Duration minutes</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@movie.Id" class="btn btn-info">Details</a>
-                    <a asp-action="AddToProgram" asp-route-movieId="@movie.Id" class="btn btn-primary">Add to Program</a>
 
                     @if (User?.Identity?.IsAuthenticated ?? false)
                     {
@@ -40,6 +43,13 @@
                             <input type="hidden" name="movieId" value="@movie.Id" />
                             <button type="submit" class="btn btn-warning">+Watchlist</button>
                         </form>
+
+                        @if (await this.managerService.IsUserManagerAsync(this.User.GetUserId()))
+                        {
+                            <a asp-action="AddToProgram" asp-route-movieId="@movie.Id" class="btn btn-primary">Add to Program</a>
+                            <a asp-action="Edit" asp-route-id="@movie.Id" class="btn btn-primary">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@movie.Id" class="btn btn-danger">Delete</a>
+                        }
                     }
                 </td>
             </tr>
@@ -47,4 +57,11 @@
     </tbody>
 </table>
 
-<a asp-action="Create" class="btn btn-primary">Add New Movie</a>
+
+@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    @if (await this.managerService.IsUserManagerAsync(this.User.GetUserId()))
+    {
+        <a asp-action="Create" class="btn btn-primary">Add New Movie</a>
+    }
+}
