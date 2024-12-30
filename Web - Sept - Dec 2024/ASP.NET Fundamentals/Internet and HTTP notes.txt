@@ -1,0 +1,171 @@
+1.
+INTERNET EXPLAINED:
+ - Internet - vast network that connects billions of devices together
+	- connections are made through ISPs - Internet Server Providers (интернет доставчик), companies
+ - Network - a group of two or more devices that can communicate
+HOW DOES THE INTERNET WORK?
+ - All of the machines on the Internet are either Servers or Clients.
+	- Servers - machines that provide services to other machines
+	- Clients - machines that are used to connect to those services
+ - Network Protocol - a set of rules and standards, that allow communication between devices
+	- they include mechanisms for devices to identify and make connections with each other
+ 	- TCP, UDP, QUIC, IP, ARP
+	- HTTP, FTP, TFTP, SMTP, SSH
+PACKETS:
+ - everything that is created on a computer is translated into digital data using Bits
+ - bits are transmitted over the Internet after broken down into small chunks, called Packets
+ - packets usually travel the network together, but they might have to take a different route to get to the destination
+
+ - Each packet contains important information, called a Header
+	- Where it came from; Where is it going; How long it is; How many packets are there in the overall message, all are the same size
+INTERNET PROTOCOL:
+ - all devices on the Internet have addresses
+ - the IP address is unique to each computer or a device at the edge of the network
+ - An IP Address has many parts, organized in a hierarchy: 192.168.14.120 (IPv4)
+							   14 - Subnetworks; 120 - Device address;
+
+ - IPv4 - sequence of 4 three-digit numbers
+	- each number from 0 to 255
+	- provides more than 4 billion 32-bits unique addresses, but not enough for all devices connected to the Internet
+ 	- CIDR - Classless Inter-Domain Routing
+		- IP addressing scheme that improves the allocation of IP addresses
+		- allowing the use of variable-length subnet masks, instead of sticking to fixed Classes, you can specify a range of addresses more flexibly
+		- this scheme greatly helped extend the life of IPv4
+
+ - IPv6 - uses 128 bits, organized into eight 16-bit sections
+ - Domain Name - human way to access IP addresses for devices and websites
+	- a sequence of phrases that map to a giant Internet-wide database of IP addresses
+ - DNS - Domain Name Server - a server that holds a cache of tons of domain names and their matching IP addresses
+
+RELIABILITY and TCP:
+ - when packets are transmitted from one location to another, they can take different paths. They reach the destination
+unorganized nad sometimes not complete, so the me ssage needs to be audited and reviewed in order to put it together in the right way
+ - TCP (Transmission Control Protocol) - uses a process, where it look at all the packets in a message and checks them
+	- using the Header information in each packet
+	- using Checklist, if it finds that a packet doesn't match the expected characteristic, it is discarded
+	- verifies that all packets are: right ordered, no issues
+	- after it certifies the data, the packets are merged together to recreate the original file that was on the sender's device
+	- used for transmission of majority of data, mostly used
+
+ - UDP (User Datagram Protocol) - does not guarantee data delivery
+	- "fire-and-forget" procotol, sends data and it doesn't really care if the data is received at the other end
+	- used when the Speed of the data transmission is important, and the reliability isn't as important
+
+ - QUIC - new transport protocol, designed for mobile-heavy Internet usage
+	- Uses UDP as its basis
+	- packets are encrypted individually
+	- handshake process
+
+OSI MODEL:
+ - Open System Interconnect - consist of 7 layers, each of them serves the one above it and the one below it
+ - Helps with Troubleshooting and Communicating better
+ - it's complicated and designed for Network Engineers and Communication Experts
+
+TCP/IP Procotol:
+ - in Software Development, a more simplified networking model
+ - 4 layers:
+	- Application - defines the way apps talk to each other
+	- Transport - provides communication between 2 endpoints
+	- Internet - transmits packets between 2 hosts
+	- Link - combines physical media and data link protocols
+
+NETWORK HARDWARE:
+ - Cables - transmission media to transfer data
+ - Routers - connecting device that transfers data packets (operates on level 3 of OSI)
+ - Repeaters - receive a signal and regenerate it before re-transmitting, so it can travel longer distances
+	- Hub - multiport repeater (level 1 of OSI)
+	- Switch - receives data from a port, uses packet switching to resolve the destination device and forwards the data ot the particular destination (level 2 of OSI)
+ - Bridges - connects two separate but similar Etherner network segments (level 2 of OSI)
+ - Gateways - connects networks that work upon different protocols, entry and exit point of a network
+	- controls access to other networks
+	- level 4, 5, 6 or 7 of OSI (same as Firewalls)
+ - NIC (Network Interface Cards) - a computer component that connects it to the network
+	- two types: Internal and External
+
+ !?! Ethernet is a technology used for local area networks (LANs), connecting devices within a specific area like a home or office. In short, the Internet connects computers globally, while Ethernet connects devices locally.
+
+2.
+HTTP PROTOCOL:
+ - Communication Protocol - set of rules, which define how two or more parties are talking to each other
+ - HTTP (HyperText Transfer Protocol) - text-based client-server protocol
+	- general-purpose client-server protocol used to transmit data across the web
+	- relies on URLs
+	- Request: Client - HTTP --> TCP --> IP --> Ethernet --> Media (wires/air/fiber) --> Ethernet --> IP --> TCP --> HTTP - Server
+	- Response: vice versa
+	- Stateless - each HTTP request is independent from others. Cookies and Web storages can overcome this
+ - Status Codes:
+	- 1xx (Informational): These codes indicate that the request has been received and the server is continuing to process it. Example: 100 Continue.
+	- 2xx (Success): These codes mean the request was successfully received, understood, and accepted. Example: 200 OK.
+	- 3xx (Redirection): These codes indicate that further action is needed to complete the request, often because the resource has moved. Example: 301 Moved Permanently.
+	- 4xx (Client Error): These codes indicate that there was a problem with the request, usually because the client made a mistake. Example: 404 Not Found.
+	- 5xx (Server Error): These codes mean the server failed to fulfill a valid request, often due to a problem on the server side. Example: 500 Internal Server Error.
+
+
+URL (Uniform Resource Locator):
+ - URL - formatted string, consisting of:
+	- Network protocol - http, ftp, https
+	- Host or IP address - softuni.org, gmail.com
+	- Port - default is 80, in range [0...65535]
+	- Path - /forum, /path/index.php
+	- Query string (?id=27&lang=en)
+	- Fragment - (#slides) - navigate to some section in the page
+ - Encoded according RFC 1738
+
+HTTP REQUEST:
+ - request message sent by a client consists of:
+	- HTTP request line
+	- Request method - HTTP defines methods to indicate the desired action to be performed on the identified resource (CRUD)
+		- GET - Retrieve a resource
+		- POST - Create / store a resource
+		- PUT - Update (replace) a resource
+		- DELETE - Delete (remove) a resource
+			- PATCH - update a resource partially (modify)
+			- HEAD - Retrieve the resource/s headers
+	- Resource URI (URL)
+	- Protocol version
+	- HTTP request headers
+	- HTTP request body - optional data, e.g., posted form fields
+
+HTTP RESPONSE:
+ - the response message sent by the HTTP server consists of:
+	- HTTP response status line
+	- Protocol version
+	- Status code
+	- Status phrase
+	- Response headers - provide meta data about the returned resource
+	- Response body - the content of the HTTP response (data)
+ - has an option "Browser Redirection"
+ - Content-Type response header specifies how the output should be processed (Disposition)
+
+MIME and MEDIA TYPES:
+ - MIME - Multi-Purpose Internet Mail Extensions - internet standard for encoding resources
+	- originally developed for email attachments
+	- used in many Internet protocols like HTTP and SMTP
+
+ROUTING:
+ - Web Routing is a mechanism where HTTP requests are routed to the code that handles them
+	- the URL is parsed and then matching route is searched
+
+WEB SERVER:
+ - computer system that processes requests via HTTP, the basic network protocol
+ - There are different Web Server Work Models!
+
+HTML FORMS:
+ - Action Attribute- defines where to submit the form data
+ - Method Attribute - specifies the HTTP method to use when sending form data
+ - GET vs POST Method - in SoftUni presentation, slide 46
+
+HTTP/2:
+ - a major revision of the HTTP network protocol used by the WWW
+ - The main differences between HTTP and HTTP/2 are improvements in performance and efficiency.
+	- Multiplexing - the art of handling multiple streams over a single TCP connection
+		- HTTP - sends one request at a time over a connection
+		- HTTP/2 - allows multiple requests to be sent and processed simultaneously on the same connection, speeding up the loading
+		- Example: If your web page needs to load several images, HTTP will load them one by one, while HTTP/2 can load them all at the same time.
+	- Header Compression - maintains a HTTP Header Table across requests, which optimizes communication.
+		- The process is esentially a de-duplication, rather than compression.
+		- HTTP - sends headers (like cookies and other info) as plain text for every request, which can add a lot of extra data
+		- HTTP/2 - compresses headersr, reducing the amount of data sent
+	- Server Push - the process of sending resources to clients, without them having to ask for it
+		- HTTP - the browser has to request each resource (like CSS or JavaScript) after it sees the HTML needs it
+		- HTTP/2 - the server can proactively send resources to the browser before it asks, speeding the process up

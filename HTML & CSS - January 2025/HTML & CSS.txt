@@ -1,0 +1,125 @@
+HTML - HyperText Markup Language
+- The basis for creating web pages and other information that can be displayed in a web browser
+- Language for expressing Semantic Structure in textual documents
+- HTML documents contain HTML tags - a markup language is a set of markup tags - the tags describe document content
+- The purpose of a web browser is to read HTML documents and compose them into visible or audible web pages.
+- Start and End tags (Opening and Closing)
+
+
+
+TAGS: 
+<header></header> - Represents introductory content
+<nav></nav> - Defines a set of navigation links
+<main></main> - Holds the main content of a document
+ - There must not be more than one <main> element in a document
+<aside></aside> - Defines a sidebar (left / right navigation)
+<footer></footer> - A document/section footer
+ - Typically contains: navigation links, copyright data
+<section></section> - Represents a standalone section, typically followed by a heading
+<article></article> - Represents a self-contained composition, intended to be independently reusable or distributable
+<figure></figure> - Represents self-contained content
+ - frequently with a caption "figcaption"
+<details> + <summary>:
+ - <details> - additional details that the user can view or hide
+ - <summary> - defines a visible heading for the <details>
+<time> + <address>:
+ - <time> - a human/readable time
+ - <address> - contact information for site author/owner
+<h1> to <h6> - Headings.
+<p></p> - Paragraphs.
+Hyperlinks:
+ - External hyperlink - <a href="https://...">SoftUni</a>
+ - Local hyperlink - <h1 id="exercises>Exercises</h1>
+		   See the <a href="#exercises" target="_blank">exercises</a>
+ - Relative hyperlink - <a href="../2.%20Html5-Overview.pptx">presentation</a>
+<img> - images as external files, inserted through this tag
+<ol></ol> - ordered list
+ - each holding - <li></li>
+ - Attribute values for type are: 1, A, a, I, i;
+<ul></ul> - unordered list
+ - each holding - <li></li>
+ - Attribute values for type are: disc, circle, square, none;
+<dl></dl> - definition lists
+ - Holds terms <dt> with their definitions <dd>
+
+
+
+HTML TAG ATTRIBUTES:
+ - they provide additional information about an element, always specified in the Start tag
+ - they come in name/value pairs like - <p class="my_paragraph">
+ - examples: href, src
+
+
+
+HTML METADATA SECTION:
+ - The following tags can be added to the head section: <title>, <style>, <meta>, <link>, <script>, <noscript>;
+
+
+
+CSS - Cascading Style Sheets
+ - Styles define the visual presentation of HTML elements
+ - HTML was never intended to contain tags for formatting a document.
+ - With CSS the separation between semantic content and visual presentation can be achieved again.
+ - CSS rules format: selector { prop1:val1;
+				prop2:val2; … }
+
+
+
+CSS SELECTORS:
+ - Select elements by name:
+<h1>Page Title</h1> ---> h1 { color: blue; }
+
+ - Select by class name:
+<p class="odd">Text</p> ---> .odd { font-size: 10px; }
+
+ - Select by element id:
+<span id="login">Go</span> ---> #login { width: 150px; }
+
+ - Select element with certain class:
+<a class="login">Login</a> ---> a.login { width: 80px; }
+
+ - Universal selector - (*) - matches elements of any type
+
+CSS COMBINATORS:
+ - Descendant combinator: typically represented by a single space (" ") character — combines two selectors such that elements matched by the second selector are selected if they have an ancestor (parent, parent's parent, parent's parent's parent, etc.) element matching the first selector;
+header p {
+	color: red;
+	font-weight: bold;
+	}
+ - Selector list: (,) selects all the matching nodes. A selector list is a comma-separated list of selectors
+header, p, div {
+	color: red;
+	font-weight: bold;
+	}
+ - Child combinator: The child combinator (>) is placed between two CSS selectors. It matches only those elements matched by the second selector that are the direct children of elements matched by the first;
+header > p {
+	color: red;
+	font-weight: bold;
+	}
+
+
+
+ADDING CSS TO HTML DOCUMENT:
+Three ways:
+1. External Style Sheet - An external style sheet is ideal when the style is applied to many pages. With an external style sheet, you can change the look of an entire Web site by changing one file. Each page must link to the style sheet using the tag.
+<head>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+2. Internal Style Sheet - An internal style sheet should be used when a single document has a unique style. You define internal styles in the head section of an HTML page, by using the style tag.
+<head>
+	<style>
+		body {
+		…
+		}
+	</style>
+</head>
+
+3. Inline Styles - An inline style loses many of the advantages of style sheets by mixing content with presentation.
+▪ Do not use this method unless you have no other choice!
+<div style=“color: red;”>
+	…
+</div>
+
+
+BASIC CSS SELECTORS:

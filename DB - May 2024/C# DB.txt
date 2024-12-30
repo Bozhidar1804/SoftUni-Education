@@ -1,0 +1,85 @@
+ Scaffold-DbContext -Connection "Server=DESKTOP-FI5CDKM\SQLEXPRESS;Database=SoftUni;Integrated Security=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data/Models
+Scaffold-DbContext -Connection "Server=DESKTOP-FI5CDKM\SQLEXPRESS;Database=AcademicRecordsDB;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+RDBMS - Relational Database Management System
+СУБД - Система за Управление на База Данни
+
+
+CHAR, VARCHAR - only ASCII and UTF-8, Non Unicode
+NCHAR, NVARCHAR - any Unicode character data (UTF-16) , Cyrillic and Latin
+
+CHECK (LEN()) - number of characters
+CHECK (DATALENGTH()) - size of string
+
+CHAR, NCHAR - fixed-length
+- Example: Name CHAR(10) - 'Gosho     '
+
+
+
+Table Relations:
+ 1. One - To - One: One Driver has only One Car;
+
+One Person can have One ID
+One ID can be assigned only to One Person
+FOREIGN KEY REFERENCES EGN(Id) UNIQUE
+'UNIQUE' - doesn't allow repetition of entities
+
+ 2. One - To - Many: One Country has Many Towns;
+
+In One Town there can live Many People
+Many People can live in One Town
+
+One - PK, Many - FK;
+
+FOREIGN KEY REFERENCES Towns(Id)
+
+ 2.1 Self-Reference:
+- One - To - Many Relation in the same table;
+- PK and FK are in the same table;
+- ManagerId - FK for EmployeeId (the manager is a manager and an employee at the same time)
+
+
+ 3. Many - To - Many: One Student has Many Courses, One Course has Many Students
+
+Many Employees can work on Many Projects
+
+One Employee can work on Many Projects
+One Project can be done by Many Employees
+(2 One - To - Many Relations)
+
+! Mapping Table - holds unique combinations;
+
+EmployeesProjects (Employee, Project)
+- EmployeeId - FK for Employees Table, Composite PK 
+- ProjectId - FK for Projects Table, Composite PK
+'PRIMARY KEY (EmployeeId, ProjectId)'
+
+
+Functions:
+return
+can read from the database, but can’t do CRUD operations to it and update it
+Edited
+- used in SELECT to use returned data
+They divide to:
+- Scalar functions
+they return one value
+Table-value functions
+
+
+	ROW_NUMBER 	RANK 	DENSE_RANK
+200          1            1         1        
+300          2            2         2        
+300          3            2         2        
+400          4            4         3    
+
+
+CREATE TABLE OrderItems(
+	OrderID INT FOREIGN KEY REFERENCES Orders(OrderID) NOT NULL,
+	ItemID INT FOREIGN KEY REFERENCES Items(ItemID) NOT NULL,
+	PRIMARY KEY (OrderID, ItemID)
+)    
+
+
+
+
+

@@ -1,0 +1,48 @@
+One-To-Many
+ - One: Navigation Prop 
+ - Many: Collection
+[InverseProperty(nameof())] - When there are more than 1 ICollection<>, helps EF to identify which one should connect to
+ - Used when there are 2 FKs to one table (Two One - To - Many Relations)
+
+One-To-One
+ - One: Navigation Prop
+ - One: Navigation Prop
+
+
+Many-To-Many
+
+EF 3.1.x <= 
+2xOne-To-Many 
+Mapping Class
+ - Navigation Prop to E1
+ - Navigation Prop to E2
+E1:
+ - Collection<MappingClass>
+E2:
+ - Collection<MappingClass>
+
+
+EF 6:
+Many: Collection<E1>
+Many: Collection<E2>
+
+Когато между 2 таблици има повече от 1 релация, InverseProperty attribute
+
+
+Microsoft.EntityFrameworkCore - Provides the core functionality for Entity Framework Core, enabling the use of the ORM framework for database access.
+Microsoft.EntityFrameworkCore.Design - Contains tools for design-time development tasks, such as creating migrations and updating the database schema.
+Microsoft.EntityFrameworkCore.SqlServer - Adds SQL Server database provider functionality to Entity Framework Core, allowing it to connect and interact with SQL Server databases.
+Microsoft.EntityFrameworkCore.Tools - Includes command-line tools for Entity Framework Core, such as commands for managing migrations and scaffolding a database.
+Microsoft.EntityFrameworkCore.Proxies - Provides support for lazy loading of related entities in Entity Framework Core by generating proxy classes.
+Microsoft.EntityFrameworkCore.DependencyInjection - Facilitates the integration of Entity Framework Core with the dependency injection framework, typically used in ASP.NET Core applications.
+Newtonsoft.Json - A popular JSON framework for .NET, used to serialize and deserialize JSON data.
+
+
+ - initializing HashSet<>(); in the class constructor!!
+ - declaring the connection string in Data.Configuration - @"Server=DESKTOP-FI5CDKM\SQLEXPRESS;Database=(NAME);Integrated Security=True";
+ - .UseLazyLoadingProxies(); in Data.DbContext, in the OnConfiguring method, on optionsBuilder (Microsoft.EntityFrameworkCore.Proxies)
+	- make every navigation property and collection VIRTUAL to allow LazyLoading
+ - = null!; on each DbSet in the DbContext class;
+ - .OnDelete(DeleteBehavior.NoAction); in OnModelCreating method, due to problem related with the InverseProperty attribute
+	-- Could also be in the migration!!!
+

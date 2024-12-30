@@ -1,0 +1,37 @@
+DEPENDENCY INJECTION - injets objects at runtime
+ - register some Service class in the Program class; services.AddTransient<DataService>();
+	- there are a few method of registering custom services: 
+		- builder.Services.AddSingleton<ICarService, CarService>(); ---> creates static instance, only one instance when first asked, then every time we receive this instance
+		- builder.Services.AddScoped<>(); ---> new instance every time new scope is opened, in other words - when new request comes (one instance == one request)
+		- builder.Services.AddTransient<>(); ---> new instance every time is asked. Most instances made out of all methods, but is the most safe one.
+ - later, inject the registered class in your controllers through the constructors
+
+
+MODEL BINDER - a feature that helps automatically take data from the incoming HTTP request (like form data or query strings) and
+ convert it into objects in your code (like models)
+ - when a user subimts a form on a website, the data is sent to your server. The Model Binder's job is to take that raw data and ''bind''
+ it to a model object in the code, so you don't have to manually extract and process it yourself. 
+ - works with complex data: it can bind data to complex objects, like lists, arrays or nested objects.
+ - if binding fails, the framework does not throw an error, so after every action, accepting user input, the binding should be checked if it was successful (ModelState.IsValid)
+
+
+RAZOR - simple syntax used to mix HTML and C# code when building web pages. It makes it easy to create dynamic web pages that can display data from your server.
+ - it is like a smart assistant that lets you write C# code inside your HTML pages. Insted of just showing static content (like plain HTML),
+you can use Razor to pull in data, handle logic, and interact with your server.
+ - files usually have the extension .cshtml (C# + HTML)
+ - switching between HTML and C# code by using the @ symbol
+
+
+BLAZOR - a framework in ASP.NET Core that allows you to build interactive web applications using C# instead of JavaScript.
+It lets you create rich, dynamnic websites where the browser runs C# code directly.
+ - with Blazor, you can use C# for both server-side and client-side code
+	- Server-side Blazor: C# code runs on the server, and updates are sent to the browser using a real-time connection (called SignalR)
+	- Client-side Blazor (WebAssembly): C# code runs directly in the browser using WebAssembly, so it behaves just like JavaScript
+
+Cookie - return on every request, until you delete it manually
+Session - must be managed too, you must delete something after you don't need it
+TempData - keeps data until it is read, then it is deleted automatically
+
+
+
+

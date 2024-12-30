@@ -1,0 +1,153 @@
+Arrays in C#:
+▪ Arrays have a fixed size determined at the time of declaration.
+▪ The size of an array is fixed and cannot be changed after initialization. To resize, a new array must be created, and elements need to be copied.
+▪ Generally faster for simple operations due to fixed size and contiguous memory.
+▪ Suitable when the size is known and fixed in advance.
+▪ Better for performance-sensitive scenarios.
+
+
+Lists in C#:
+▪ Lists have a dynamic size that can grow or shrink as needed.
+▪ Lists can easily add or remove elements without the need for resizing.
+▪ Slightly slower for simple operations compared to arrays due to dynamic resizing.
+▪ Methods and Properties:
+Lists offer a rich set of methods and properties from the List class in the System.Collections.Generic namespace.
+Examples: Add(), Remove(), Count(), Contains(), IndexOf().
+▪ Memory Allocation:
+May result in memory fragmentation due to dynamic resizing.
+▪ Use Cases:
+Suitable when the size is unknown or may change.
+Provides more flexibility in terms of operations.
+
+
+Stack – Abstract Data Type:
+implements a LIFO (last in, first out) collection
+▪ Push: insert an element at the top of the stack
+▪ Pop: take the element from the top of the stack
+▪ Peek: retrieve the topmost element without removing it
+
+
+Queue – Abstract Data Type:
+implements a FIFO (first in, first out) collection
+▪ Enqueue: append an element at the end of the queue
+▪ Dequeue: remove the first element from the queue
+▪ Peek: retrieve the first element of the queue without removing it
+
+
+Multidimensional Arrays in C#:
+▪ Declaration and Initialization:
+Multidimensional arrays can have two or more dimensions.
+Declaration: int[,] myArray; (for a 2D array).
+Initialization: myArray = new int[3, 4]; (3 rows and 4 columns).
+▪ Size Management:
+Fixed size for each dimension, and it cannot be changed after initialization.
+Resizing involves creating a new array and copying elements.
+▪ Use Cases:
+Suitable for representing matrices, tables, or other regularly structured data.
+▪ ▪ Jagged Arrays are multidimensional arrays
+But each dimension may have a different size
+A jagged array is an array of arrays
+Each of the arrays has different length
+
+
+Associative Arrays in C#:
+
+Mutable vs Immutable Objects:
+▪ Mutable:
+- changeable; Use the same memory location; Examples: StringBuilder, List;
+▪ Immutable:
+- unchangeable (read-only), create new memory every time they're modified; Examples: string, Tuples
+
+OOP C#, The Four Pillars (Стълба):
+1. Inheritance:
+▪ Superclass - Parent class, Base class - The class giving its members to its child class;
+▪ Subclass - Child class, Derived class - The class taking members from its base class;
+▪ leads to hierarchies of classes and/or interfaces in an application;
+▪ Constructors are not inherited, they can be reused by the child classes
+▪ 'base' keyword - refers to the immediate parent class from which the current class is derived, allowing access to members (fields, properties, and methods) of that parent class within the derived class.
+▪ 'virtual' methods can be overriden;
+▪ 'sealed' access modifier
+
+2. Encapsulation: This principle helps in hiding the internal state of an object and only exposing necessary operations to the outside world.
+Encapsulation provides several benefits, including data protection, abstraction, and code organization, leading to more maintainable and scalable software.
+▪ Process of wrapping code and data together into a single unit
+▪ 'this' keyword refers to the current object
+▪ Access Modifiers - Visibility of class members:
+- private: accessible only within the declared class itself
+main way to perform encapsulation and hide data from the outside world, avoid declaring private classes and interfaces
+- sealed: prevents other classes from inheriting from it
+- default: allows members to be accessed only within the same package or namespace, restricting access from classes outside the package or namespace.
+- protected: allows members of a class to be accessed within the same class or by its derived classes.
+- internal: the default class access modifier, accessible to any other class in the same project
+- public: the most permissive access level, no restrictions on accessing public members;
+
+3. Polymorphism: allows objects of different types to be treated as objects of a common superclass. This principle enables code to work with different types of objects through a unified interface, thereby enhancing flexibility and extensibility.
+▪ describes the ability of something to have or to be displayed in more than one form
+▪ Variable type and Data type:
+- Variables Type is the compile-time type of the variable
+- Data Type is the actual runtime type of the variable
+                 " public class Person : Mammal, IAnimal {}
+                   object objPerson = new Person();
+Variable Type -->  IAnimal person = new Person();   <-- Data Type 
+                   Mammal mammal = new Person();
+                   Person person = new Person();"
+
+4. Abstraction: means ignoring irrelevant features, properties, or functions and emphasizing the ones relevant to the context of the developed project
+▪ helps managing complexity
+▪ lets you focus on what the object does instead of how it does it
+▪ abstract classes: Cannot be instantiated; May contain abstract methods and accessors; Must provide implementation for all inherited
+interface members; Implementing an interface might map the interface methods onto abstract methods;
+abstract method: is implicitly a virtual method; declarations are only permitted in abstract classes; declaration provides no actual implementation;
+▪ Interfaces vs Abstract classes:
+- Interfaces: Fields and constants can't be defined; If we add a new method we have to track down all the implementations of the interface and define implementation for the new method;
+- Abstract Classes: Fields and constants can be defined; If we add a new method we have the option of providing default implementation and therefore all the existing code might work properly
+
+SOLID Principles in OOP:
+1. Single Responsibility Principle (SRP) - every class should be responsible for only a single part of the functionality and that responsibility should be entirely encapsulated in the class
+"There should never be more than one reason for a class to change." - Robert C. "Uncle Bob" Martin
+Aim for Strong Cohesion:
+- Cohesion refers to the grouping of functionally related processes into a particular module.
+- Each task maps a single code unit
+- A method should do one operation
+- A class should represent one entity
+Aim for Loose Coupling - means no communication between the objects, depend on abstraction, supports readability and maintanability, good system design
+- Coupling - the degree of dependence between modules
+- how closely connected two modules are
+- the strength of the relationship between modules
+
+2. Open/Closed Principle (OCP) - open for extensions, closed for modifications
+- easy extensionable code, but not allowing changing already existing code
+- Extensibility - adding a new behaviour doesn't require changes over existing source code
+- OCP - When to apply: ▪ By experience - know the problem domain and if a change is very likely to recur
+▪ New domain problem - implement the most simple way, Changes once - modify, second time - refactor
+▪ TANSTAAFL - There Ain’t No Such Thing As A Free Lunch, OCP adds complexity to design, No design can be closed against all changes
+▪ Need to retest (recheck functionality) after changes  
+
+3. Liskov Substitution Principle (LSP) - Substitutability - Derived types must be completely substitutable for their base types
+▪ Derived classes:
+- only extend functionalities of the base class
+- must not remove base class behavior
+"Student IS-SUBSTITUTED-FOR Person"
+▪ LSP Approaches:
+- Tell Don't Ask - If you need to check what is the object - move the behavior inside the object
+- New Base Class - if two classes share a common behavior, but are not substitutable, create a third, from which both derive
+- There shouldn't be any virtual methods in constructors
+
+4. Interface Segregation Principle (ISP) - Segregate (divide) interfaces - Prefer small, cohesive (lean and focused) interfaces, Divide "fat" interfaces into "role" interfaces
+- Adapter Pattern:
+Reusing classes that do not have an interface that a client requires
+Making classes with incompatible interfaces work together
+Providing an alternative interface for a class
+
+5. ! Dependency Inversion Principle (DIP) - the principle of not defining the dependencies yourself, but receiving them from outside.
+the strategy of depending upon interfaces or abstract functions and classes rather than upon concrete functions and classes
+"public ChessGame(IDrawer drawer)"
+Dependency Injection - the exact way of achieving it (via constructor; method; property)
+DIP Violations:
+- using 'new' keyword;
+- using static methods / properties;
+Fixing through:
+- extract interfaces + use constructor injection;
+- set up and Inversion of Control (IoC) container;
+
+
