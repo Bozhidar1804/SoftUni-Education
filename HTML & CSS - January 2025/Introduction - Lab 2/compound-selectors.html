@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coumpound-Selectors</title>
+    <link rel="stylesheet" href="compound-selectors.css" />
+  </head>
+  <body>
+    <p class="highlighted">This is a highlighted paragraph.</p>
+
+    <p>This is a normal paragraph.</p>
+
+    <div id="special">Special content goes here.</div>
+
+    <ul>
+      <li>
+        <input
+          type="text"
+          value="Important Item 1"
+          readonly
+          style="
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            color: teal;
+          "
+        />
+      </li>
+      <li>
+        <input
+          type="text"
+          value="Item 2"
+          readonly
+          style="border: none; background: transparent"
+        />
+      </li>
+      <li>
+        <input
+          type="text"
+          value="Important Item 3"
+          readonly
+          style="
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            color: red;
+          "
+        />
+      </li>
+    </ul>
+
+    <br />
+
+    <a class="special fancy" href="#">Fancy link that goes to this page</a>
+    <br />
+    <a class="special" href="https://softuni.bg"
+      >Fancy link that goes to the SoftUni website</a
+    >
+
+    <p class="double-class another-class">Paragraph with multiple classes!</p>
+  </body>
+</html>

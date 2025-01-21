@@ -1,0 +1,50 @@
+p.highlighted {
+  color: lightskyblue;
+}
+
+#special {
+  background-color: yellow;
+}
+
+input.text-input[type="text"] {
+  border: 2px solid green;
+  padding: 5px;
+}
+
+
+a.special.fancy {
+  color:blue;
+  font-weight: bold;
+}
+
+p.double-class {
+  font-weight: bold;
+}
+
+p.another-class {
+  color:blue;
+}
+
+
+/* General styling for all <input> elements */
+ul li input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Compound selector for important items */
+ul li input.important-item {
+  font-weight: bold;
+}
+
+/* Compound selector for teal-colored important items */
+ul li input.important-item.teal {
+  color: teal;
+}
+
+/* Compound selector for red-colored important items */
+ul li input.important-item.red {
+  color: red;
+}
