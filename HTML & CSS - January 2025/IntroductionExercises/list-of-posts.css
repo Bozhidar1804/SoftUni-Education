@@ -1,0 +1,8 @@
+p.date-author {
+  color:gray;
+}
+
+p.date-author span {
+  color: black;
+  font-weight: bold;
+}
