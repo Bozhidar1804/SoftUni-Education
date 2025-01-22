@@ -1,0 +1,22 @@
+div {
+  padding: 30px;
+  margin-bottom: 2px;
+  border: 2px solid black;
+}
+
+div.fixed {
+  width: 300px;
+}
+
+div.percentage {
+  width: 50%;
+}
+
+div.viewport {
+  width: 50vw;
+}
+
+div.min-max {
+  min-width: 100px;
+  max-width: 300px;
+}
