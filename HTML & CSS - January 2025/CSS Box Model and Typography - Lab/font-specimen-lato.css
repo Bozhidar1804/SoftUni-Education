@@ -1,7 +1,7 @@
 html {
   font-size: 16px;
   line-height: 1.5;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 p, ul, ol {
@@ -12,11 +12,15 @@ ul, ol {
   padding-left: 1.5rem;
 }
 
+body {
+  font-family: inherit;
+}
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   margin-top: 1em;
   margin-bottom: 0.5em;
-  font-family: Georgia;
+  font-family: inherit;
 }
 
 table {
