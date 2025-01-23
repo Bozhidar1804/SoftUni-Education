@@ -1,0 +1,34 @@
+div {
+  padding: 2em;
+  border: 2px dashed #333;
+  position: relative;
+}
+
+p {
+  position: absolute;
+  margin: 0px;
+  top: 0.3em;
+  left: 0.7em;
+}
+
+.box-model {
+  width: 600px;
+  margin: 40px auto;
+}
+
+.content {
+  background-color: lightskyblue;
+  text-align: center;
+}
+
+.padding {
+  background-color: lightgreen;
+}
+
+.border {
+  background-color: #f7abab;
+}
+
+.margin {
+  background-color: lightcoral;
+}
