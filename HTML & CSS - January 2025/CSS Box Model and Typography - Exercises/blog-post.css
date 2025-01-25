@@ -1,0 +1,54 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+} 
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-post {
+  width: 700px;
+  border: 2px solid #999;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding-bottom: 1em;
+ padding-top: 1em;
+}
+
+p, ul, ol {
+  padding-bottom: 1.5rem;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+p.post-header {
+  font-weight: bold ;
+}
+
+p.publisher {
+  font-style: italic;
+}

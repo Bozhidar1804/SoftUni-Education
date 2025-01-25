@@ -122,4 +122,20 @@ Three ways:
 </div>
 
 
-BASIC CSS SELECTORS:
+EM/REM:
+em - relational unit - relative to the CURRENT ELEMENT font size
+rem - relational unit - relative to the ROOT ELEMENT font size
+
+when root font size is set to 16px, 1rem = 16px;
+
+everything changes at once, proportionally
+
+if: html {
+	font: 16px/1.5 Verdana, sans-serif;
+}
+
+then: h1 {
+	font-size: 2.5em; === 16x2.5 = 40px;
+}
+
+
