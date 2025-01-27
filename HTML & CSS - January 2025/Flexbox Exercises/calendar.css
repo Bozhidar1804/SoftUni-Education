@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: gray;
+}
+
+.calendar {
+  display: flex;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+  max-width: 150ch;
+  margin: 2em auto;
+  padding: 2px;
+}
+
+.calendar > * {
+  border: 1px solid #ccc;
+}
+
+.calendar > main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.label p {
+  text-align: center;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.row p {
+  border: 1px solid #ccc;
+  padding: 1em;
+  flex-grow: 1;
+  text-align: center;
+}
+
+aside article {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 2em;
+  flex-grow: 1;
+}
+
+.calendar > aside {
+  display: flex;
+  flex-direction: column;
+}
+
