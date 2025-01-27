@@ -2,7 +2,9 @@
   display: flex;
   border: 3px solid blue;
   padding: 10px;
-  width: 300px;
+  align-items: flex-start;
+  width: 500px;
+  height: 500px;
 }
 
 .item {
@@ -11,43 +13,29 @@
   padding: 10px;
 }
 
-.item1 {
-  order: 5;
+.target-start {
+  align-self: flex-start;
   border: 2px solid black;
   background-color: gray;
   padding: 10px;
 }
 
-.item2 {
-  order: 3;
+.target-center {
+  align-self: center;
   border: 2px solid black;
   background-color: gray;
   padding: 10px;
 }
 
-.item3 {
-  order: 1;
+.target-end {
+  align-self: flex-end;
   border: 2px solid black;
   background-color: gray;
   padding: 10px;
 }
 
-.item4 {
-  order: 6;
-  border: 2px solid black;
-  background-color: gray;
-  padding: 10px;
-}
-
-.item5 {
-  order: 2;
-  border: 2px solid black;
-  background-color: gray;
-  padding: 10px;
-}
-
-.item6 {
-  order: 4;
+.target-baseline {
+  align-self: baseline;
   border: 2px solid black;
   background-color: gray;
   padding: 10px;
