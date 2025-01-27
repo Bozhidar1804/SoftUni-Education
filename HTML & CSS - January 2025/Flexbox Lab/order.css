@@ -1,0 +1,61 @@
+.default {
+  display: flex;
+  border: 3px solid blue;
+  padding: 10px;
+  width: 300px;
+}
+
+.custom {
+  display: flex;
+  border: 3px solid blue;
+  padding: 10px;
+  width: 300px;
+}
+
+.item {
+  border: 2px solid black;
+  background-color: gray;
+  padding: 10px;
+}
+
+.item1 {
+  order: 5;
+  border: 2px solid black;
+  background-color: gray;
+  padding: 10px;
+}
+
+.item2 {
+  order: 3;
+  border: 2px solid black;
+  background-color: gray;
+  padding: 10px;
+}
+
+.item3 {
+  order: 1;
+  border: 2px solid black;
+  background-color: gray;
+  padding: 10px;
+}
+
+.item4 {
+  order: 6;
+  border: 2px solid black;
+  background-color: gray;
+  padding: 10px;
+}
+
+.item5 {
+  order: 2;
+  border: 2px solid black;
+  background-color: gray;
+  padding: 10px;
+}
+
+.item6 {
+  order: 4;
+  border: 2px solid black;
+  background-color: gray;
+  padding: 10px;
+}
