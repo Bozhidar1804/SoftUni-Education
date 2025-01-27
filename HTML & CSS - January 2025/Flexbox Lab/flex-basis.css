@@ -1,0 +1,45 @@
+.item {
+  border: 2px solid black;
+  background-color: gray;
+  padding: 10px;
+}
+
+/* Flex-basis: 5em */
+.flex-basis-5em {
+  flex-basis: 5em;
+}
+
+/* Flex-shrink: 0 */
+.flex-shrink-zero {
+  flex-shrink: 0;
+}
+
+/* Flex-grow: 1 */
+.flex-grow-one {
+  width: 900px;
+  flex-grow: 1;
+}
+
+.container-basis {
+  display: flex;
+  border: 3px solid blue;
+  padding: 10px;
+  width: 300px;
+}
+
+.container-wider {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 5em;
+  border: 3px solid blue;
+  padding: 10px;
+  width: 300px;
+}
+
+.container-widest {
+  display: flex;
+  min-width: 5em;
+  border: 3px solid blue;
+  padding: 10px;
+  width: 300px;
+}
