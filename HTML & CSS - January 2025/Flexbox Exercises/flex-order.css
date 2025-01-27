@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: gray;
+}
+
+.container {
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+  max-width: 150ch;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+.site-content1 {
+  display: flex;
+}
+
+.site-content1 aside{
+  flex-grow: 1;
+}
+
+
+
+.site-content2 {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.site-content2 aside {
+  flex-grow: 1;
+}
+
+
+
+.stretched-content {
+  flex-grow: 2;
+}
+
+header, main, aside, footer {
+  margin: 1em;
+  padding: 2em;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
