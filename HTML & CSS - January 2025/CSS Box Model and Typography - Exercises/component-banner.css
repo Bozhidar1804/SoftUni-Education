@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image:url(images/image1.jpg);
+  height: 100vh;
+}
+
+h1, p {
+  color: white;
+  font-family: sans-serif;
+  margin: 6px;
+}
