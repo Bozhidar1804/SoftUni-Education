@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  background-color: #777;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+article.container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  padding: 2em;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.container p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.container ul {
+  margin-left: 1em;
+}
