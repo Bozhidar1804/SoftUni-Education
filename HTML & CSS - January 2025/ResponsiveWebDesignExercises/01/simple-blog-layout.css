@@ -1,0 +1,37 @@
+.site {
+  background-color: #fff;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  margin: 2em auto;
+  border-radius: 5px;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+}
+
+p {
+  margin: 0.5em;
+  padding: 1.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.site-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.site-content main {
+  flex-grow: 3;
+}
+
+.site-content aside {
+  flex-grow: 1;
+}
+
+@media (max-width: 800px) {
+  .site-content {
+    display: flex;
+    flex-direction: column;
+  }
+} 
