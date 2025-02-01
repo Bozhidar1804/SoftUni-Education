@@ -1,0 +1,83 @@
+body {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+nav.navbar {
+  background-color: #fff;
+  display: flex;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+  border-radius: 5px;
+  align-items: center;
+
+  padding: 2em;
+}
+
+.navbar h1 {
+  font-size: 22px;
+  margin-right: 3em;
+}
+
+.nav-btn {
+  background-color: #eee;
+  color: black;
+  text-decoration: none;
+
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-btn:hover, .dropdown-btn:hover {
+  background-color: #999;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 1000; /* Ensure dropdown is on top */
+}
+
+.dropdown-content li {
+  padding: 5px 10px;
+  position: relative; /* Necessary for nested dropdown positioning */
+}
+
+.dropdown-content li:hover {
+  background-color: #ddd;
+}
+
+/* Nested Dropdowns */
+.dropdown-content li ul {
+  display: none;
+  position: absolute;
+  left: 100%; /* Aligns the nested dropdown to the right of the parent */
+  top: 0; /* Keeps it aligned at the top of the parent li */
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  list-style: none;
+}
+
+.dropdown-content li ul ul {
+  left: 90%; /* Almost aligns with the left edge of the parent */
+}
+
+.dropdown-content li:hover > ul {
+  display: block;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
