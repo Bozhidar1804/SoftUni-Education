@@ -1,0 +1,94 @@
+.form {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.inputs {
+  display: flex;
+  width: 100%;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  width: 200px;
+}
+
+input[type="email"] {
+  flex-grow: 9;
+}
+
+.container {
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 1em;
+  max-width: 50em;
+  border-radius: 0.2em;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  border-radius: 0.3em;
+  padding: 1em 1em;
+  margin-right: 1em;
+}
+
+.button {
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 0.3em;
+  padding: 1.3em 2em;
+}
+
+.button-container {
+  display: inline;
+}
+
+@media (width < 600px) and (width > 400px){
+  .form {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+  }
+
+  input[type="text"] {
+    flex-grow: 1;
+    max-width: 9em;
+  }
+  
+  input[type="email"] {
+    flex-grow: 9;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (width < 401px) {
+  .form {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+  
+  input[type="email"] {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
