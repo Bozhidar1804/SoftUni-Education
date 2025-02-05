@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font: 14px/1.5 Lato, sans-serif;
+}
+
+body, input, textarea, select, option {
+  font-style: inherit;
+}
+
+body {
+  background-color: #eee;
+}
+
+label {
+  display: block;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  border: 2px solid #999;
+  padding: 0.5em 1em;
+  outline: none;
+}
+
+input[type="text"]:focus ,
+input[type="password"]:focus {
+  border-color: orange;
+}
+
+input[type="text"]:user-invalid ,
+input[type="password"]:user-invalid {
+  border-color: red;
+}
+
+fieldset {
+  padding: 2em;
+  border: 1px solid #999;
+  background-color: #fff;
+}
+
+fieldset legend {
+  padding: 0 1em;
+  font-weight: bold;
+}
+
+.field {
+  padding-bottom: 1em;
+  font-weight: bold;
+}
+
+.field:has(:user-invalid) {
+  color: red;
+}
+
+button {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  margin-top: 1em;
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+}
+
+button
+
+button:hover {
+  background-color: #ddd;
+  color: orange;
+}
+
+form.login {
+  max-width: 20em;
+  margin: 0 auto;
+}

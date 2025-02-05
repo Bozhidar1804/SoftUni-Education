@@ -1,0 +1,65 @@
+html {
+  font-style: sans-serif;
+}
+
+form.login {
+  max-width: 25em;
+  margin: 0 auto;
+}
+
+fieldset {
+  background-color: #fff;
+  border: none;
+  border-radius: 0.6em;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+  padding: 2em 3em;
+}
+
+input[type="email"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 0.3em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+label[for="email"]::after,
+label[for="password"]::after {
+  display: inline;
+  content: '*';
+  color: red;
+  font-weight: bold;
+  padding-left: 0.2em;
+}
+
+button {
+  display: block;
+  width: 100%;
+}
+
+fieldset h2 {
+  display: inline-block;
+  font-size: 20px;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #ccc;
+}
+
+label {
+  font-weight: bold;
+}
+
+.field {
+  padding-bottom: 1.5em;
+}
+
+button {
+  background-color: #FF8C00;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 1em 2em;
+  border-radius: 0.4em;
+}
