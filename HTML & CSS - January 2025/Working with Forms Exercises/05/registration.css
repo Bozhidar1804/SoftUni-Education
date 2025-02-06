@@ -1,0 +1,78 @@
+html {
+  font-style: sans-serif;
+}
+
+form.login {
+  max-width: 30em;
+  margin: 0 auto;
+  background-color: #fff;
+  border: none;
+  border-radius: 0.3em;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+  padding: 2em 3em;
+}
+
+fieldset {
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+fieldset legend {
+  font-weight: bold;
+  color: #666;
+  font-size: 12px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0.3em;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-bottom: 2px solid #888;
+}
+
+
+button {
+  display: block;
+  width: 100%;
+}
+
+form h2 {
+  display: inline-block;
+  font-size: 20px;
+  padding-bottom: 1.5em;
+}
+
+label {
+  color: #555;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.field {
+  padding-bottom: 1.5em;
+}
+
+button {
+  background-color: #ddd;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 1em 2em;
+  border-radius: 0.4em;
+}
+
+i {
+  font-size: 10px;
+  color: #999;
+}
