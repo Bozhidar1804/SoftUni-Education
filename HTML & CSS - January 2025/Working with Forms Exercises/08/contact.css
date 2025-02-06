@@ -2,7 +2,7 @@ html {
   font-style: sans-serif;
 }
 
-form.register {
+form.contact {
   max-width: 30em;
   margin: 0 auto;
   background-color: #fff;
@@ -13,21 +13,14 @@ form.register {
 }
 
 fieldset {
+  border: none;
   padding: 1em;
   margin-bottom: 2em;
 }
 
-fieldset legend {
-  font-weight: bold;
-  color: #666;
-  font-size: 12px;
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
+input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="date"] {
+textarea {
   display: block;
   width: 100%;
   border: none;
@@ -35,8 +28,8 @@ input[type="date"] {
   border-radius: 0.3em;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus {
   outline: none;
   border-bottom: 2px solid #888;
 }
