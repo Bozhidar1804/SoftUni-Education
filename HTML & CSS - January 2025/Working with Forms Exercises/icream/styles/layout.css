@@ -1,0 +1,240 @@
+.section {
+  padding: 1em max(2em, calc((100% - 60rem) / 2));
+}
+
+.section.site-header {
+  background-color: pink;
+  padding-bottom: 0;
+}
+
+.section.site-header .aside a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.section.site-header .aside .links,
+.section.site-header .aside .socials {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  padding-bottom: 0em;
+}
+
+.section.site-header .aside .socials {
+  margin-bottom: -1em;
+}
+
+.section.site-header .aside .links {
+  padding-bottom: 1em;
+}
+
+.section.site-header .aside .links li,
+.section.site-header .aside .socials li {
+  display: block;
+}
+
+.section.site-header .aside .socials li .title {
+  display: none;
+}
+
+.section.site-header .main {
+  background-color: #fff;
+  border-radius: 5em;
+  padding: 0.5em 3em;
+  position: relative;
+  bottom: -2em;
+  z-index: 100;
+}
+
+.section.site-header .main a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+.section.site-header .main .site-title {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section.site-header .main .site-title a {
+  color: pink;
+}
+
+.section.site-header .main .site-title a span {
+  color: aqua;
+  text-transform: lowercase;
+}
+
+.section.site-header nav ul {
+  padding-bottom: 0;
+  display: flex;
+  gap: 1em;
+}
+
+.section.site-header nav li {
+  display: block;
+}
+
+.section.site-header nav ul li a {
+  font-weight: bold;
+  padding: 1em 1.5em;
+}
+
+.section.site-header nav ul li:nth-child(3) {
+  margin-right: auto;
+}
+
+.section.banner {
+  background-color: #666;
+  color: #fff;
+  padding-block: 20vh;
+  text-align: center;
+  font-size: 1.5em;
+  background-image: url('https://images.unsplash.com/photo-1627373719412-746f5c1e5363?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.section.banner::before {
+  display: block;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.section.banner > * {
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 0 1em #000;
+}
+
+.section.banner p {
+  padding: 1.5em 4em;
+  text-transform: uppercase;
+}
+
+.section.banner h2 {
+  padding-bottom: 1em;
+}
+
+.pink-button {
+  background-color: pink;
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  border: none;
+  color: white;
+}
+
+.section.featured-product {
+  text-align: center;
+  background-color: lightblue;
+  height: 60vh;
+  padding: 2em;
+  padding-top: 3em;
+}
+
+.heading-container {
+  display: flex;
+  justify-content: center; /* Centers the h3 */
+  align-items: center;
+  position: relative;
+}
+
+.section.featured-product h3 {
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
+
+.heading-container::before {
+  content: '';
+  display: block;
+  width: 5em; /* Adjust length of the line */
+  height: 0.3em; /* Adjust thickness */
+  background-color: palevioletred; /* Line color */
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%); /* Center the line */
+}
+
+.product-info-container {
+  display: flex;
+  padding: 0em 3em;
+  gap: 3em;
+  justify-content: center;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1em;
+}
+
+.about-us button {
+  background-color: lightskyblue;
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  border: none;
+  color: white;
+}
+
+.about-us p,
+.features p {
+  text-align: left;
+  padding-bottom: 0;
+}
+
+.about-us,
+.features {
+  flex: 1;
+  flex-basis: 50%; /* Controls width */
+  max-width: 20em;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+.about-us h4,
+.features h4 {
+  font-size: 1.5em;
+}
+
+.product-image img {
+  flex: 1; /* Allows it to fill remaining space */
+  text-align: center; /* Centers image */
+  height: 200px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1em;
+}
+
+.features p span {
+  color: #000;
+}
+
+.green-check {
+  color:green;
+  margin-right: 0.5em;
+}
+
+.section p:last-child {
+  padding: 0;
+}
