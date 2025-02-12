@@ -1,1 +1,56 @@
+@media (max-width: 600px) {
+  nav ul {
+    display: none;
+  }
 
+  .checkbtn {
+    display: block;
+    order: 1;
+  }
+  
+  section.site-header > i, h1 {
+   text-align: initial;
+   position: static;
+   bottom: initial; 
+  }
+
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.about {
+    display: flex;
+    gap: 2em;
+  }
+
+  .about-header,
+  .about-text {
+    flex: 1 1 50%;
+  }
+
+  .about-header {
+    width: auto;
+    text-align: left;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-text {
+    display: block;
+    width: auto;
+    margin: 0;
+  }
+
+  .gallery { /* can only text-align: center */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

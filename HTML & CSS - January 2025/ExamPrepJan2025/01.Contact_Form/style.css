@@ -102,12 +102,19 @@ aside ul {
 }
 
 aside ul li {
-  padding: 1em 1.5em;
+  display: flex;
+  aspect-ratio: 3/2;
+  flex: 0 0 5em;
   border: 1px solid #ccc;
   border-radius: 0.3em;
 }
 
-aside ul li a i {
-  color: #444;
-  font-size: 1.5em;
+aside ul li a {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #555;
+  font-size: 1.8em;
 }
