@@ -1,0 +1,73 @@
+@media (width <= 600px) {
+  .nav-burger-menu {
+    display: block;
+    color: white;
+    order: -1;
+    font-size: 2em;
+  }
+
+  ul.nav-menu {
+    display: none;
+  }
+
+  ul.nav-user-btns {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  ul.nav-user-btns button {
+    width: 100%;
+  }
+
+  .content-info-welcome button {
+    width: 80%;
+  }
+
+  img.content-info-img {
+    display: none;
+  }
+  
+  section.content-info {
+    flex: 1 1 auto;
+    padding: 0;
+  }
+
+  .content-info-welcome p {
+    text-align: center;
+  }
+
+  .content-info-welcome h2 {
+    font-size: 60px;
+  }
+
+  div.content-info-welcome {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content-info-welcome button {
+    margin-bottom: 1em;
+  }
+
+  section.content-services {
+    display: flex;
+    flex-direction: column;
+  }
+
+  section.content-services div {
+    width: 100%;
+  }
+
+  section.gallery {
+    display: flex;
+    flex-direction: column;
+  }
+  section.gallery img {
+    background: none;
+    width: 100%;
+  }
+}

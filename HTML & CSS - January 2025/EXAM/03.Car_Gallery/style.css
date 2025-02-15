@@ -1,1 +1,268 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600");
+
+/* Layout copied perfectly on 1360px monitor width size. */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font: 12px/1.5 'Source Sans Pro', sans-serif;
+}
+
+body, input, textarea, button {
+  font: inherit;
+}
+
+header {
+  background: rgb(255,112,136);
+  background: linear-gradient(90deg, rgb(253, 98, 124) 15%, rgba(242,181,157,1) 60%);
+}
+
+header nav {
+  margin-bottom: 4em;
+}
+
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 2.5em;
+  justify-content: center;
+}
+
+header nav ul li {
+  font-weight: 200;
+  padding: 1em 2em;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.main-nav-button {
+  font-weight: bold;
+  background-color: #F5BCAA;
+  border: 1px solid #fff;
+  border-top: none;
+  padding: 1em 5em;
+  padding-bottom: 1.5em;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  letter-spacing: 1.5px;
+}
+
+section.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.title h1 {
+  color: #fff;
+  font-weight: 100;
+  font-size: 3.5em;
+  margin-bottom: 0.3em;
+}
+
+section.title p {
+  color: #fff;
+  font-size: 1.7em;
+  font-weight: 100;
+  margin-bottom: 2em;
+}
+
+section.title a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  padding: 0.6em 1.8em;
+  border: 1px solid #fff;
+  border-radius: 0.3em;
+  font-size: 1.9em;
+  margin-bottom: 4em;
+}
+
+section.car-show {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.images1 {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  background-color: #F6F8FB;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.images1 img {
+  width: 500px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.car-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.5em;
+  margin-left: 15em;
+  margin-right: 15em;
+}
+
+.car-text {
+  min-width: 500px;
+}
+
+.car-text h2 {
+  font-weight: 200;
+  margin-top: 1.4em;
+  margin-bottom: 1em;
+  font-size: 2.4em;
+  color: #666;
+}
+
+.car-text p {
+  color: #666;
+  font-size: 1.3em;
+  font-weight: 200;
+  margin-bottom: 2em;
+}
+
+.more-info-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #666;
+  border: 1px solid #bbb;
+  border-radius: 0.4em;
+  padding: 1em 2.5em;
+  font-weight: 100;
+  font-size: 1.3em;
+}
+
+.read-more-button {
+  display: flex;
+  justify-content: center;
+}
+
+.user {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 270px; /* Adjust height as needed */
+  background: url('./images/promo.jpg') center/cover no-repeat; /* Set background image */
+}
+
+.user-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2em 3em;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  font-weight: 100;
+}
+
+.user-content p {
+  color: #fff;
+  font-size: 1.8em;
+}
+
+.user-content a {
+  background: white;
+  color: #598593;
+  padding: 0.6em 1.6em;
+  text-decoration: none;
+  font-size: 1.4em;
+  border-radius: 6px;
+}
+
+.weirdest-cars {
+  margin-top: 5em;
+  margin-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weirdest-cars p {
+  color: #555;
+  font-size: 2em;
+  font-weight: 100;
+  margin-bottom: 1.3em;
+}
+
+.read-article-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 0.4em;
+  padding: 0.9em 2.2em;
+  font-weight: 100;
+  font-size: 1.1em;
+}
+
+.images2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1em;
+  background-color: #F6F8FB;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.images2 img {
+  width: 300px;
+  height: 150px;
+  object-fit: contain;
+}
+
+section.ending {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6F8FB;
+  border-top: 1px solid #ddd;
+  padding-top: 4em;
+  padding-bottom: 6em;
+  gap: 2em;
+}
+
+.ending h3 {
+  color: #555;
+  font-weight: 100;
+  font-size: 2em;
+}
+
+.ending p {
+  color: #F3798A;
+  font-size: 1.5em;
+  font-weight: 100;
+  padding-bottom: 4em;
+  border-bottom: 1px solid #ddd;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6F8FB;
+  padding-bottom: 6em;
+}
+
+footer p {
+  color: #999;
+  font-weight: 100;
+}
