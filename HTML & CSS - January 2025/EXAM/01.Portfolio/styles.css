@@ -96,6 +96,7 @@ nav ul li a {
 
 aside img {
   border-radius: 50%;
+  aspect-ratio: 1/1;
   object-fit: cover;
   height: 270px;
 }
