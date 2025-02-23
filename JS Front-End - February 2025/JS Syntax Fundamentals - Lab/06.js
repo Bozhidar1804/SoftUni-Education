@@ -8,5 +8,5 @@ function largestNumber(num1, num2, num3) {
     largestNumber = num3
   }
 
-  console.log(`The largest number is ${largestNumber}`);
+  console.log(`The largest number is ${largestNumber}.`);
 }
