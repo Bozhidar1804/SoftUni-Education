@@ -6,3 +6,7 @@ function replace(input, word) {
 
   console.log(text);
 }
+
+replace('A small sentence with some words',
+
+  'small');
