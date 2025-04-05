@@ -3,7 +3,7 @@ function toggle() {
     let extraText = document.getElementById('extra');
 
     if (buttonCurrentValue == "More") {
-        extraText.style.display = 'inline';
+        extraText.style.display = 'block';
         document.getElementsByClassName('button')[0].textContent = "Less"
     } if (buttonCurrentValue == "Less") {
         extraText.style.display = 'none';
